@@ -1,2 +1,2 @@
-# Programming-notes-c--alexander
+# Programming-notes-c++-alexander
 anotes de programación en c++.
