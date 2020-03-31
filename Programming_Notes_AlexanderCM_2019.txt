@@ -47,10 +47,10 @@ palabra.strip(" ") //en este caso borra todos los espacios, puedes cambiar lo q 
 
 1 --> 
 print("para que lo imprimido sea de forma lateral: ",variable,end=" ")
-y usar " pass " es como un comentario pero no ignorado, asÌ que no pasa nada solo es como para probar algo o ya sabes.
+y usar " pass " es como un comentario pero no ignorado, as√≠ que no pasa nada solo es como para probar algo o ya sabes.
 2 --> 
 #en listas:
-lista.append(aÒade_elemento) # para aÒadir elementos a las listas.
+lista.append(a√±ade_elemento) # para a√±adir elementos a las listas.
 lista.extend([x,y,z]) # para exterder a la lista con elementos puestos.
 lista.insert(poscicion,valor) # para colocar un elemento " y "en la posicion "x".
 lista.clear() # para eliminar todos los elementos de la lista.
@@ -71,10 +71,10 @@ for i in range(r):
         a=int(input(" Enter number in position ["+str(i)+"]["+str(f)+"]: "))
         matriz1.append(a)   # aqui agregamos elementos "a" ingresados por teclado a la matriz secundaria o las filas.
     matriz.append(matriz1)  # aqui agregamos la sublista a la lista principal.
-# conejos: cuando se traten de coleciones(listas, tuplas, conjuntos, diccionarios y no sÈ que m·s) usaremos cada herramienta posible para definir estas segun sean sus caracteristicas principales
+# conejos: cuando se traten de coleciones(listas, tuplas, conjuntos, diccionarios y no s√© que m√°s) usaremos cada herramienta posible para definir estas segun sean sus caracteristicas principales
 # osea si queremos ordenar algo, agregar, eliminar, usaremos listas(list(x)), si queremos solo saber que elementos hay sin repetirce usaremos "set(x)", si queremos
-# que tengan claves con valores usaremos "dict(zip(lista1,lista2))" donde veremos una mejor explicaciÛn en el punto 8, y "set" para convertirlos en conjuntos, tambien me olvidaba de las tuplas
-# que son "tuple(x)"que como que las convierten a constantes o algo asÌ.
+# que tengan claves con valores usaremos "dict(zip(lista1,lista2))" donde veremos una mejor explicaci√≥n en el punto 8, y "set" para convertirlos en conjuntos, tambien me olvidaba de las tuplas
+# que son "tuple(x)"que como que las convierten a constantes o algo as√≠.
 3-->>
 #para verificar si una palabra esta en una cadena se debe usar
 palabra.count('hi')------average es promedio
@@ -122,7 +122,7 @@ dates1=dict(zip(list1,list2))
 # y "list2" es igual a "values"
 9--->>
 # el "set()" sirve para convertir una lista,tupla,etc a un conjunto
-# donde lo m·s relevante de un conjunto es no repetir ningun elemento
+# donde lo m√°s relevante de un conjunto es no repetir ningun elemento
 # ejemplo:
 list1=[1,1,1,2,3,3,4,5,5,7]
 # pero con set(list1) o sea
@@ -134,8 +134,8 @@ print(list2)
 import math
 print(math.pow(x,y))   # donde " x " es el numero y " y " es a cuanto queremos elevarlo.
 print(math.sqrt(x))    # donde podremos sacarle raices cuadradas, pero si queires cubicas usemos:
-print(round(x**(1/3))) # asi serian una raiz cubica, obvio que hay muchas m·s formas pero pense si podia hacer eso.
-print(x**float(1/3))   # tambien encontre esta en internet y creo que tendria m·s sentido, y entre 2, 4, 5, etc.
+print(round(x**(1/3))) # asi serian una raiz cubica, obvio que hay muchas m√°s formas pero pense si podia hacer eso.
+print(x**float(1/3))   # tambien encontre esta en internet y creo que tendria m√°s sentido, y entre 2, 4, 5, etc.
 11--->>
                               # para un ejecutable usaremos el " import time ".
 import time
@@ -155,7 +155,7 @@ from modulos_creados import suma_total
 # para " CLASES Y OBJETOS " o para acostumbrarce " CLASS AND OBJECTS " ejemplos:
 class Humano:
      def __init__(self,edad):
-         self.edad=edad     # donde self viene a reflejar como un objeto a ingresar como el input ya veran m·s abajo y edad y self viene a ser como parametro y etc t˙ te entiendes.
+         self.edad=edad     # donde self viene a reflejar como un objeto a ingresar como el input ya veran m√°s abajo y edad y self viene a ser como parametro y etc t√∫ te entiendes.
          print(" hola esta es una clase")
      def hablar(self,mensaje):
          print(mensaje)
@@ -168,12 +168,12 @@ class Dotero(Humano):                 # donde agregamos"(Humano)" para que esta 
           print(" jugare poscicion: ",juego)
 class Acleta(Humano):
       def actividad(self,ejercicio):
-          print(" hoy dÌa hare unas/nos: ",ejercicio)
+          print(" hoy d√≠a hare unas/nos: ",ejercicio)
 
 alexander = Dotero(18)
-alexander.poscicion(5)                # aqui llamamos a la funcion "poscicion(5)" y el 5 es el parametro que envia a la funcion que se encuentra en lÒa clase " class Dotero(Humano):".
+alexander.poscicion(5)                # aqui llamamos a la funcion "poscicion(5)" y el 5 es el parametro que envia a la funcion que se encuentra en l√±a clase " class Dotero(Humano):".
 
-gustavo = Acleta(15)                  # aquÌ llamamos a otra clase 
+gustavo = Acleta(15)                  # aqu√≠ llamamos a otra clase 
 gustavo.actividad("planchitas")
 14--->>>
 #instancear es crear objetos apartir de una clase.
@@ -195,43 +195,43 @@ vali()
 16----->>>>>
 # para los textos y etc:
 
-1. Convertir a may˙scula la primera letra
-MÈtodo: capitalize()
-Retorna: una copia de la cadena con la primera letra en may˙sculas.
+1. Convertir a may√∫scula la primera letra
+M√©todo: capitalize()
+Retorna: una copia de la cadena con la primera letra en may√∫sculas.
 
->>> cadena = "bienvenido a mi aplicaciÛn" 
+>>> cadena = "bienvenido a mi aplicaci√≥n" 
 >>> print cadena.capitalize()
-"Bienvenido a mi aplicaciÛn"
+"Bienvenido a mi aplicaci√≥n"
 
-2. Convertir una cadena a min˙sculas
-MÈtodo: lower()
+2. Convertir una cadena a min√∫sculas
+M√©todo: lower()
 
-Retorna: una copia de la cadena en min˙sculas.
+Retorna: una copia de la cadena en min√∫sculas.
 
 >>> cadena = "Hola Mundo" 
 >>> print cadena.lower()
 "hola mundo"
 
-3. Convertir una cadena a may˙sculas
-MÈtodo: upper()
+3. Convertir una cadena a may√∫sculas
+M√©todo: upper()
 
-Retorna: una copia de la cadena en may˙sculas.
+Retorna: una copia de la cadena en may√∫sculas.
 
 >>> cadena = "Hola Mundo" 
 >>> print cadena.upper()
 "HOLA MUNDO"
 
-4. Convertir may˙sculas a min˙sculas y viceversa
-MÈtodo: swapcase()
+4. Convertir may√∫sculas a min√∫sculas y viceversa
+M√©todo: swapcase()
 
-Retorna: una copia de la cadena convertidas las may˙sculas en min˙sculas y viceversa.
+Retorna: una copia de la cadena convertidas las may√∫sculas en min√∫sculas y viceversa.
 
 >>> cadena = "Hola Mundo" 
 >>> print cadena.swapcase()
 "hOLA mUNDO"
 
-5. Convertir una cadena en Formato TÌtulo
-MÈtodo: title()
+5. Convertir una cadena en Formato T√≠tulo
+M√©todo: title()
 
 Retorna: una copia de la cadena convertida.
 
@@ -240,40 +240,40 @@ Retorna: una copia de la cadena convertida.
 "Hola Mundo"
 
 6. Centrar un texto
-MÈtodo: center(longitud[, "caracter de relleno"])
+M√©todo: center(longitud[, "caracter de relleno"])
 
 Retorna: una copia de la cadena centrada.
 
->>> cadena = "bienvenido a mi aplicaciÛn".capitalize() 
+>>> cadena = "bienvenido a mi aplicaci√≥n".capitalize() 
 >>> print cadena.center(50, "=") 
-===========Bienvenido a mi aplicaciÛn============ 
+===========Bienvenido a mi aplicaci√≥n============ 
 
 >>> print cadena.center(50, " ") 
-           Bienvenido a mi aplicaciÛn
+           Bienvenido a mi aplicaci√≥n
 
 7. Alinear texto a la izquierda
-MÈtodo: ljust(longitud[, "caracter de relleno"])
+M√©todo: ljust(longitud[, "caracter de relleno"])
 
 Retorna: una copia de la cadena alineada a la izquierda.
 
->>> cadena = "bienvenido a mi aplicaciÛn".capitalize() 
+>>> cadena = "bienvenido a mi aplicaci√≥n".capitalize() 
 >>> print cadena.ljust(50, "=")
-Bienvenido a mi aplicaciÛn=======================
+Bienvenido a mi aplicaci√≥n=======================
 
 8. Alinear texto a la derecha
-MÈtodo: rjust(longitud[, "caracter de relleno"])
+M√©todo: rjust(longitud[, "caracter de relleno"])
 
 Retorna: una copia de la cadena alineada a la derecha.
 
->>> cadena = "bienvenido a mi aplicaciÛn".capitalize() 
+>>> cadena = "bienvenido a mi aplicaci√≥n".capitalize() 
 >>> print cadena.rjust(50, "=") 
-=======================Bienvenido a mi aplicaciÛn
+=======================Bienvenido a mi aplicaci√≥n
 
 >>> print cadena.rjust(50, " ") 
-                       Bienvenido a mi aplicaciÛn
+                       Bienvenido a mi aplicaci√≥n
 
 9. Rellenar un texto anteponiendo ceros
-MÈtodo: zfill(longitud)
+M√©todo: zfill(longitud)
 
 Retorna: una copia de la cadena rellena con ceros a la izquierda hasta alcanzar la longitud final indicada.
 
@@ -335,25 +335,29 @@ x = map(myfunc, ('apple', 'banana', 'cherry'), ('orange', 'lemon',
 'pineapple'))
 print (x)
 print (list(x))
-
+
+
 #2.list(filter(funcion,parametros)) #igual que map pero esta tiene una condiccion con elemtos filtrados
 
-def multiple(numero): # Primero declaramos una funciÛn condicional
- if numero % 5 == 0: # Comprobamos si un numero es m˙ltiple de cinco
- return True # SÛlo devolvemos True si lo es
+def multiple(numero): # Primero declaramos una funci√≥n condicional
+ if numero % 5 == 0: # Comprobamos si un numero es m√∫ltiple de cinco
+ return True # S√≥lo devolvemos True si lo es
 numeros = [2, 5, 10, 23, 50, 33]
 filter(multiple, numeros)
-
-#3.reduce(funcion, colecciÛn, inicial)
+
+
+#3.reduce(funcion, colecci√≥n, inicial)
 
 def add(a, b):
  return a + b
-print(reduce(add, [1, 2, 3, 4]), 0) # 10
+print(reduce(add, [1, 2, 3, 4]), 0) # 10
+
 
 #4.funcion lambda como un def pero menos presiso
 
 doblar = lambda num: num*2
-doblar(2)
+doblar(2)
+
 
 a=[1,2,3,4,5,6,7,8,9,10]
 res=list(filter(lambda x:x%3==0, a))
@@ -366,12 +370,12 @@ from tkinter import Tk
 ventana =Tk()
 ventana.title("hola")
 ventana.mainloop()
-#con esto nos saldra una pequeÒa ventana
+#con esto nos saldra una peque√±a ventana
 22--->>>
 #use break and continue, break rompe la iteracion de un for o while 
 #Al aparecer un Continue en Python, este regresa al comienzo del bucle, 
-#ignorando todos los estamentos que quedan en la iteraciÛn actual del 
-#bucle e inicia la siguiente iteraciÛn. Queda m·s claro con un ejemplo:
+#ignorando todos los estamentos que quedan en la iteraci√≥n actual del 
+#bucle e inicia la siguiente iteraci√≥n. Queda m√°s claro con un ejemplo:
 
 for letra in "Python":
     if letra == "h":
@@ -411,22 +415,22 @@ Valor actual de la variable : 0
 >>> c.split()
 ['Una', 'cadena', 'con', 'espacios']
 
-x = ëblue,red,greení
-x.split(ì,î)
+x = ¬ëblue,red,green¬í
+x.split(¬ì,¬î)
  
-[ëblueí, ëredí, ëgreení]
+[¬ëblue¬í, ¬ëred¬í, ¬ëgreen¬í]
 >>>
  
->>> a,b,c = x.split(ì,î)
+>>> a,b,c = x.split(¬ì,¬î)
  
 >>> a
-ëblueí
+¬ëblue¬í
  
 >>> b 
-ëredí
+¬ëred¬í
  
 >>> c
-ëgreení
+¬ëgreen¬í
 
 #use "que quieres que haya en los espacios(","or"@"or"$"or stuff ramdon)".join(el_conunto_a_unir)
 
@@ -488,7 +492,7 @@ alf + 3 para volverlos a todos asi -->> ###print("hola")
 y para retornarlos usaremos alf +4 --->> print("hola")
 
 29--->
-para aÒadir a un diccionario usaremos:
+para a√±adir a un diccionario usaremos:
 dic['alex']=18
 para eliminar usaremos:
 del dic['alex']
@@ -557,7 +561,7 @@ c.execute("DROP TABLE t_pasar")
 con.commit()
 con.close()
 32----->>
-##para usar m·s en letras o strings:
+##para usar m√°s en letras o strings:
 import string
 usando los comandos q contiene string podremos sacar
 todos los numeros, tolas las letras mayusculas o minuscula, cambiar a cada letra mayuscula en cada palabra al iniciar, etc.
@@ -568,15 +572,16 @@ a="gaaa gente 2123b"
 b="---%"
 c="watch movies"
 m='my message is{}: {} and {}'.format(a,b,c)
-print(m)
+print(m)
+
 
 
 34 ------->>>> OPEN txt :
 
-recuerda que cuano esta en una funcion un open es m·s efectivo a la hora de cambiar cosas al instante: ejemplo (bot_mirrow_future_XD) :
+recuerda que cuano esta en una funcion un open es m√°s efectivo a la hora de cambiar cosas al instante: ejemplo (bot_mirrow_future_XD) :
 
 f = open("botspeak.txt",'w')
-f.write("hola\nno lo sÈ t˙ dime\nsi eso\nperro lo tienes\n")
+f.write("hola\nno lo s√© t√∫ dime\nsi eso\nperro lo tienes\n")
 f.close()
 def add(a):
     f = open("botspeak.txt",'a')
@@ -598,7 +603,7 @@ fat.close()
 35 ----------->>> USO DE ITERTOOLS :
 import itertools
 itertools.permutations(iterable,longitud)
----PERMUTATIONS : MODIFICA EL ORDEN DE LOS ELEMENTOS.(SÕ IMPORTA EL ORDEN). DATO:[2,6,13] SALIDA: [2,6,13], [2,13,6], [6,2,13], [6,13,2], [13,2,6], [13,6,2].
+---PERMUTATIONS : MODIFICA EL ORDEN DE LOS ELEMENTOS.(S√ç IMPORTA EL ORDEN). DATO:[2,6,13] SALIDA: [2,6,13], [2,13,6], [6,2,13], [6,13,2], [13,2,6], [13,6,2].
 
 itertools.combinations(iterable,longitud)
 ---COMBINATIONS : COMBINA TODOS LOS ELEMENTOS, NO SE REPITEN CONJUNTOS.(NO IMPORTA EL ORDEN). DATO:[2,6,13] SALIDA: [2,6], [2,13], [6,13].
@@ -620,7 +625,7 @@ for(int i=1; i<=10; i++){
 
 }
 // una forma de usar el for. el i++ tambien puede ser i +=1  o  i=i+1.
-//el int i=1 puede tambien ser aÒadida al inicio con int i,a,b; y en el for iria for(i=1;----)
+//el int i=1 puede tambien ser a√±adida al inicio con int i,a,b; y en el for iria for(i=1;----)
 ------------------------------------------------
 #include<time.h>
 //y este tipo de metodo es requerible q se use el #include<stdlib.h>
@@ -872,14 +877,14 @@ cout<<setw(cantidad_de_espacios_a_saltar)<<" hola"<<endl;
 12------>
 #include<conio.h>
 \\ fflush(stdin); 
-sirve para limpiar la memoria del teclado enviada al ordenador o pc, para que los envios sean m·s limpios y no ocasionen problemas en un futuro.
+sirve para limpiar la memoria del teclado enviada al ordenador o pc, para que los envios sean m√°s limpios y no ocasionen problemas en un futuro.
 un ejemplo seria el uso del cin.getline(bla_bla_y_'\n') ese '\n' es para el salto de linea, una vez usado el cin.getline('\n') ese comando de salto de linea
-'\n' ya dejara se ser util, o sea si pones un cin.getline(\n) y m·s abajo un cin.getline(\n) el segundo no funcionara o estara inavilitado y pasara
+'\n' ya dejara se ser util, o sea si pones un cin.getline(\n) y m√°s abajo un cin.getline(\n) el segundo no funcionara o estara inavilitado y pasara
 como si ya termino la funcion.
 conclu: usar fflush(stdin);  para tener un mejor uso y menor problematica en memoria de teclado para liberar los buffers.
-buffer: pequeÒa memoria que guarda las teclas que introduces en el teclado.
+buffer: peque√±a memoria que guarda las teclas que introduces en el teclado.
 13------>
-\\uso de struct {}: sirve para crear variables definidas, pero sin crearlas otra vez, solo crearemos un objeto m·s, es parecido a las clases.
+\\uso de struct {}: sirve para crear variables definidas, pero sin crearlas otra vez, solo crearemos un objeto m√°s, es parecido a las clases.
 #include<iostream>
 #include<conio.h>
 using namespace std;
@@ -924,7 +929,7 @@ int main(){
 	return 0;
 }
 
-\\\\\\ y una forma m·s eficiente y con menos lineas seria:
+\\\\\\ y una forma m√°s eficiente y con menos lineas seria:
 
 #include<iostream>
 #include<conio.h>
@@ -955,21 +960,21 @@ int main(){
 }
 
 14------>
-#para crear un objeto seria asÌ:
+#para crear un objeto seria as√≠:
 nombre_de_la_clase  nombre_Del_objeto;     \\barra bar;
 ##para definir algo al en el programa se usara "#define lo_que_quieres_definir valor_a_dar  \\ #define alex 18
 15------>
 \\para enumerar una array o algo parecido a memoria de espacio usaremos enum:
 int main(){
 	enum dias { domingo, lunes, martes, miercoles, jueves, viernes, sabado };
-	for (int d = domingo; d <= sabado; d++) cout << d;       \\la salida serÌa: 0 1 2 3 4 5 6
+	for (int d = domingo; d <= sabado; d++) cout << d;       \\la salida ser√≠a: 0 1 2 3 4 5 6
 	return 0;
 }
 \\si ponemos en domingo =1 el enumerate comenzara en 1, si lo ponemos en 7 el enumerate comenzara en 7
 \\donde sea que coloquemos un valor en la variable comenzara esde ese valor dado:(ejem) 
 int main(){
 	enum dias { domingo=1, lunes, martes, miercoles, jueves=105, viernes, sabado };
-	for (int d = domingo; d <= sabado; d++) cout << d;       \\la salida serÌa: 1 2 3 4 105 106 107
+	for (int d = domingo; d <= sabado; d++) cout << d;       \\la salida ser√≠a: 1 2 3 4 105 106 107
 	return 0;
 }
 
@@ -1043,7 +1048,7 @@ Sleep(10 000);  \\para que le de pausa unos 10 segundos, pudes poner 5000 y dara
 main()
 {
 printf("Maravilla perdida");
-    printf("El programa terminar· en 10 segundos.\n");       
+    printf("El programa terminar√° en 10 segundos.\n");       
  
     delay(10000);                         
  
@@ -1162,9 +1167,9 @@ void valor(val a){           //confirmamos la funcion
 
 // otro ejemplo con el template, crea una varible T que puede usarce como funcion:
 
-/*Ejercicio 6: Escriba una plantilla de funciÛn llamada maximo() que devuelva el valor 
-m·ximo de tres argumentos que se transmitan a la funciÛn cuando sea llamada.
-Suponga que los tres argumentos ser·n del mismo tipo de datos.*/
+/*Ejercicio 6: Escriba una plantilla de funci√≥n llamada maximo() que devuelva el valor 
+m√°ximo de tres argumentos que se transmitan a la funci√≥n cuando sea llamada.
+Suponga que los tres argumentos ser√°n del mismo tipo de datos.*/
 
 #include<iostream>
 #include<conio.h>
@@ -1252,10 +1257,10 @@ void calcular(int x,int y,int& z,int& w){    //recive dos parametros normales y 
 }
 
 //tecnica en la funcion para ver si el valor enviado es equivalente a cuantos dolares se puede dar por el valor enviado de cien etc...
-/*Ejercicio 8: Escriba una funciÛn nombrada cambio() que tenga un par·metro en n˙mero
-entero y seis par·metros de referencia en n˙mero entero nombrados cien, cincuenta,
-veinte, diez, cinco y uno, respectivamente. La funciÛn tiene que considerar el
-valor entero transmitido como una cantidad en dÛlares y convertir el valor en el n˙mero
+/*Ejercicio 8: Escriba una funci√≥n nombrada cambio() que tenga un par√°metro en n√∫mero
+entero y seis par√°metros de referencia en n√∫mero entero nombrados cien, cincuenta,
+veinte, diez, cinco y uno, respectivamente. La funci√≥n tiene que considerar el
+valor entero transmitido como una cantidad en d√≥lares y convertir el valor en el n√∫mero
 menor de billetes equivalentes. */
 
 #include<iostream>
@@ -1333,8 +1338,8 @@ void muestra(int vec[],int );
 
 int main(){
 	const int tama=5;          //const es una constante que sera inmutable en toda la funcion main.
-	int vec[tama]={1,2,3,4,5};  //vector con tamaÒo en memoria 5 por el "tama" que es la constante entera ya antes definida.
-	cuadrados(vec,tama);         //se envia el nombre del vector, no se pone corchetes se envia el valor dado, y tambien el tamaÒo del vector
+	int vec[tama]={1,2,3,4,5};  //vector con tama√±o en memoria 5 por el "tama" que es la constante entera ya antes definida.
+	cuadrados(vec,tama);         //se envia el nombre del vector, no se pone corchetes se envia el valor dado, y tambien el tama√±o del vector
 	muestra(vec,tama);
 	system("pause");
 	return 0;
@@ -1666,7 +1671,7 @@ int main()
 {
 
     // creamos un vector.
-    int z[2];       // tamaÒo de z o del vector es 2.
+    int z[2];       // tama√±o de z o del vector es 2.
 
 
     SetMt(z, z);    //se envia a la funcion el vector.  
@@ -1679,7 +1684,7 @@ int main()
 }
 
 Los vectores son punteros constantes. Un vector sin subindice es un puntero al primer elemento del vector.
-Una matriz es un vector de vectores. (Ej: int M[3][3];) de manera que en cada elemento del primer vector "se cuelga" otro vector, pudiendo hacer asÌ referencia a filas y columnas.
+Una matriz es un vector de vectores. (Ej: int M[3][3];) de manera que en cada elemento del primer vector "se cuelga" otro vector, pudiendo hacer as√≠ referencia a filas y columnas.
 o sea que:
 int x[]={11,12,13}, *dir;
 dir=x;  // puntero -> 11   //primer elemento del vector o sea "11".
@@ -1761,7 +1766,7 @@ void main ()
 
 void imprimeChars( const char *ptrStr )
 {
-    for ( ; *ptrStr != '\0'; ptrStr++ ) //Sin inicializaciÛn
+    for ( ; *ptrStr != '\0'; ptrStr++ ) //Sin inicializaci√≥n
         std::cout << *ptrStr;
 }
 
@@ -1788,13 +1793,13 @@ void show(int *var){
 
 31----------->
 
-AREGLOS DIN¡MICOS
+AREGLOS DIN√ÅMICOS
 
 //para especificar la cantidad de memoria exacta ha almacenar sin dejar espacios vacios usaremos : "new y delete".
 
 para usar estos invocaremos jaajaja o llamaremos a la libreria "#include<stdlib.h>"
 
-new: reserva el n˙mero de bytes solicitados por la declaracion.
+new: reserva el n√∫mero de bytes solicitados por la declaracion.
 delete: libera un bloque de bytes reservados con anterioridad.
 
 ejemplo:
@@ -2046,7 +2051,7 @@ void show(alumno *watch){
 
 33 -------------> PILAS C++ :
 
-// las pilas una de las partes m·s importantes a acordar o saber es que "la ultima en entra es la primera en salir".
+// las pilas una de las partes m√°s importantes a acordar o saber es que "la ultima en entra es la primera en salir".
 // LAST INPUT - FIRST INPUT
 
 // formula para INGRESAR ELEMENTOS a una pila:
@@ -2910,7 +2915,7 @@ void add_text(){
 	string comentarios;
 	char band='Y';
 	
-	file.open("alexander.txt", ios::app);             // SEGUNDA FORMA DE ENVIAR AL NOMBRE DEL ARCHIVO Y ABRIMOS ARCHIVO EN MODO A—ADIR (APP).
+	file.open("alexander.txt", ios::app);             // SEGUNDA FORMA DE ENVIAR AL NOMBRE DEL ARCHIVO Y ABRIMOS ARCHIVO EN MODO A√ëADIR (APP).
 	
 	if(file.fail()){
 		cout<<" Error. cant add text to the file."<<endl;
@@ -2954,9 +2959,9 @@ void read_file(){
 
 40 --------------------->>> SIZEOF (VALOR) : FOREACH NORMAL :
 
-La funciÛn recibe como ˙nico par·metro o el nombre de una variable, o el nombre de un tipo de datos,
-y devuelve su tamaÒo en bytes. De esta forma, sizeof(int) devuelve el n˙mero de bytes que se utilizan
-para almacenar un entero. La funciÛn se puede utilizar tambiÈn con tipos de datos estructurados o uniones tal 
+La funci√≥n recibe como √∫nico par√°metro o el nombre de una variable, o el nombre de un tipo de datos,
+y devuelve su tama√±o en bytes. De esta forma, sizeof(int) devuelve el n√∫mero de bytes que se utilizan
+para almacenar un entero. La funci√≥n se puede utilizar tambi√©n con tipos de datos estructurados o uniones tal 
 
 
 //PARA UN INT LO DIVIDIREMOS ENTRE CUATRO(/4).
@@ -2989,6 +2994,8 @@ cout<<potencia(5)<<endl;     //25
 
 42 ------------------>>> LISTAS C++ : LIST C++ : 
 
+EJEMPLO 1 : 
+
 ------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------" Java "--------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -3002,7 +3009,7 @@ system.out.println("que pedo que pedo");
     System.out.println("no tengo idea");
     System.out.println("month: ");
     System.out.println("febrero");
-    System.out.println("por lo que veo naciste en el aÒo "+anoNacim);
+    System.out.println("por lo que veo naciste en el a√±o "+anoNacim);
     System.out.println("de tal forma que debes tener "+(2019-anoNacim)+ " de edad y naciste en "+ciudad);
     System.out.println("una doctora me puso el nombre T.T");
   }
@@ -3020,7 +3027,7 @@ public class if_condicional {
        System.out.println("");
     }
     else {
-       System.out.println("Eres menor de edad y no puedes entrar a los juegos de ni§os");
+       System.out.println("Eres menor de edad y no puedes entrar a los juegos de ni¬§os");
        System.out.println("");
     }
    System.out.println("Adios y buenas tardes");
@@ -3036,7 +3043,7 @@ public class for_ciclo {
      int edad = 2019-anoNacim;
      for(int c=1; c>=edad; c++) {
         System.out.println("");
-        System.out.println("ya festeje mi cumplea§os");
+        System.out.println("ya festeje mi cumplea¬§os");
   }
   System.out.println("");
   System.out.println("Entonces tengo "+edad+ " anos de edad");
