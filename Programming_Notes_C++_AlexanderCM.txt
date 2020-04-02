@@ -1,0 +1,3054 @@
+﻿------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------" Python "------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------
+--------->> INCOVAR UNA FUNCION ATES QUE TODAS USAR :
+
+if __name__=="__main__":
+	principal()
+	
+
+DICCIONARIO MULTIPLE :
+
+dic_account={"a":{1:"a",2:"ADMINISTRADOR",3:"Todo el mundo"}}
+
+f ={'alex':{1:123,2:"alexander",3:"peru"}}
+f['alex'][1]=222
+print(f['alex'][1])
+
+def go_back():
+	if(c_user.get() not in dic_account):
+		dic_account[c_user.get()]={}
+		dic_account[c_user.get()][1] = c_pass.get()
+		dic_account[c_user.get()][2] = c_fullname.get()
+		dic_account[c_user.get()][3] = c_var_pais.get()
+
+---------------------------->>> PARA QUE FUNCION EL INT PRIMARY KEY AUTOINCREMENT :
+
+("create table empleados(id integer primary key autoincrement,name text,salario float,bono text)")
+
+alex.insert_data("insert into empleados (name,salario,bono) values(?,?,?)",lista_datos)  //el id se aumentara solo
+
+---------------NUEVO -----> PICKLE USE: 
+
+import pickle
+
+dic ={1:'alex',2:'carpio',3:'mamani'}
+ga = open("todo.pickle",'wb')
+pickle.dump(dic,ga)
+ga = open("todo.pickle",'rb')
+dic1 = pickle.load(ga)
+print(dic1[2])
+ga.close()
+
+
+------------------->>> BORRA TODO LO QUE PONGA PARA LIMPIAR ALGO :
+
+palabra.strip(" ") //en este caso borra todos los espacios, puedes cambiar lo q queires borrar introduciendolo en los parentesis.
+
+1 --> 
+print("para que lo imprimido sea de forma lateral: ",variable,end=" ")
+y usar " pass " es como un comentario pero no ignorado, así que no pasa nada solo es como para probar algo o ya sabes.
+2 --> 
+#en listas:
+lista.append(añade_elemento) # para añadir elementos a las listas.
+lista.extend([x,y,z]) # para exterder a la lista con elementos puestos.
+lista.insert(poscicion,valor) # para colocar un elemento " y "en la posicion "x".
+lista.clear() # para eliminar todos los elementos de la lista.
+lista.pop(posicion_a_eliminar) # para eliminar cierto elemto en la poscicion "x".
+lista.remove(valor_a_eliminar)
+lista.index(palabra_a_buscar) #te devuelve la poscicion.
+# para hacer las famosas matrices primero crearemos " matriz " que sera la principal, luego en los " for "  agregaremos mas listas " matriz1 "para que estas sean rows o filas
+# ejemplo:
+
+matriz=[]
+
+r=int(input(" Enter quantity of rows: "))
+c=int(input(" Enter quantity of columns: "))
+
+for i in range(r):
+    matriz1=[]
+    for f in range(c):
+        a=int(input(" Enter number in position ["+str(i)+"]["+str(f)+"]: "))
+        matriz1.append(a)   # aqui agregamos elementos "a" ingresados por teclado a la matriz secundaria o las filas.
+    matriz.append(matriz1)  # aqui agregamos la sublista a la lista principal.
+# conejos: cuando se traten de coleciones(listas, tuplas, conjuntos, diccionarios y no sé que más) usaremos cada herramienta posible para definir estas segun sean sus caracteristicas principales
+# osea si queremos ordenar algo, agregar, eliminar, usaremos listas(list(x)), si queremos solo saber que elementos hay sin repetirce usaremos "set(x)", si queremos
+# que tengan claves con valores usaremos "dict(zip(lista1,lista2))" donde veremos una mejor explicación en el punto 8, y "set" para convertirlos en conjuntos, tambien me olvidaba de las tuplas
+# que son "tuple(x)"que como que las convierten a constantes o algo así.
+3-->>
+#para verificar si una palabra esta en una cadena se debe usar
+palabra.count('hi')------average es promedio
+#donde palabra es la cadena, .count es el metodo o method, y lo 1 va ('hi') es la palabra q queremos verificar si esta en la cadena.
+#el  "lista.count(2) tambien sirve para listas y ver cuantas vesces esta ese numero en la lista, tipo contador.
+# ejemplo normalico:
+list=[1,1,2,3,1,5,5,5,6,7,5]
+for i in range(len(list)):
+    cont=list.count(list[i])
+# veremos que sacara la cantidad de vesces que hay un mismo numero en la lista
+# ejem  " cont=list.count(1) " donde con seria " cont=3 ".
+# ejem  " cont=list.count(7) " donde con seria " cont=1 ".
+# ejem  " cont=list.count(5) " donde con seria " cont=4 ".
+# Este es un ejemplo avanzado:
+list=[1,1,2,3,1,5,5,5,6,7,5]
+max(set(list), key=list.count)
+print("the mode is: ",max(set(list), key=list.count))
+#LISTA COMPRIMIDA CON FOR AND IF
+
+f=[ i for i in [1,2,3,4,5,6,7,8,9,10] if i % 2==1]   #extrae los numeros primos de 1 a 10.
+print(f)  
+
+# o con un filter y lambda:
+                       
+print(list(filter(lambda x:x%2==1,[1,2,3,4,5,6,7,8,9,10])))
+4---->>
+# para genera numeros aleatorios se debe usar
+import random
+val=random.randint(minimo,maximo)
+# en minimo y maximo van los limites
+5--->>
+# para ordenar una lista se usa el comando "lista.sort()" y para invertirla o verla al revez seria "lista.sort(reverse=True)".
+# tambien se puede usar "lista.reverse()" para voltear la lista perono ordenarla
+6--->>
+# para instalar algo se podria usar "pip install Howdoi " como ejemplo.
+7--->>
+# usar funtion max(algo) or min(algo) or suma(algo) de una lista o colecciones para hallar el maximo, minimo, y suma total.
+8--->>
+# usar "zip", esta sirve para unir listas, o colecciones para transformarlas en un dicionario con sus respectivas llaves o keys y valores o values
+ejemplo:
+list1=[]
+list2=[]
+dates1=dict(zip(list1,list2))
+# donde "list1" es igual a "keys"
+# y "list2" es igual a "values"
+9--->>
+# el "set()" sirve para convertir una lista,tupla,etc a un conjunto
+# donde lo más relevante de un conjunto es no repetir ningun elemento
+# ejemplo:
+list1=[1,1,1,2,3,3,4,5,5,7]
+# pero con set(list1) o sea
+list2=set(list1)
+print(list2)
+[1,2,3,4,5,7]
+10--->>
+# para hacer potencias y raices importamos la libreria math "import math".
+import math
+print(math.pow(x,y))   # donde " x " es el numero y " y " es a cuanto queremos elevarlo.
+print(math.sqrt(x))    # donde podremos sacarle raices cuadradas, pero si queires cubicas usemos:
+print(round(x**(1/3))) # asi serian una raiz cubica, obvio que hay muchas más formas pero pense si podia hacer eso.
+print(x**float(1/3))   # tambien encontre esta en internet y creo que tendria más sentido, y entre 2, 4, 5, etc.
+11--->>
+                              # para un ejecutable usaremos el " import time ".
+import time
+time.sleep(3)                 # donde "time.sleep(x) " es la funcion principal y "x" cuantos segundos de retraso queremos para finalizar algo o el programa.
+12--->
+                              # para crear modulos(funciones), debemos crear primero un .py para que cuando lo llamemos sea asi
+import modulos_creados 
+                              # despues llamamos a la funcion dentro de ese modulo
+modulos_creados.suma_total(lista1)
+                              # para no poner o escribir el indice del import usaremos
+from modulos_creados import * 
+                              # o solo 
+from modulos_creados import suma_total 
+                              # para algo especifico
+                              # recuerda el modulo y el codigo o programa que este generando deben estar guardados en el mismo lugar 
+13-->>
+# para " CLASES Y OBJETOS " o para acostumbrarce " CLASS AND OBJECTS " ejemplos:
+class Humano:
+     def __init__(self,edad):
+         self.edad=edad     # donde self viene a reflejar como un objeto a ingresar como el input ya veran más abajo y edad y self viene a ser como parametro y etc tú te entiendes.
+         print(" hola esta es una clase")
+     def hablar(self,mensaje):
+         print(mensaje)
+alexander = Humano(18)                # donde 18 se envia como parametro a edad y Humano() se esta guardando como plantilla en alexander(self)
+print("tengo: ",alexander.edad)       # aqui manda a imprimir
+alexander.hablar("hola gente")        # donde aqui mando a llamar a la funcion " hablar"
+# tambien puedo crear mas clases
+class Dotero(Humano):                 # donde agregamos"(Humano)" para que esta nueva clase reconosca a "Humano" y no cree otro def __init__(self,edad):, y ya no mande a llarmar con " alexander = Humano(18) " sino con " alexander = Dotero(18) ".
+      def poscicion(self,juego):
+          print(" jugare poscicion: ",juego)
+class Acleta(Humano):
+      def actividad(self,ejercicio):
+          print(" hoy día hare unas/nos: ",ejercicio)
+
+alexander = Dotero(18)
+alexander.poscicion(5)                # aqui llamamos a la funcion "poscicion(5)" y el 5 es el parametro que envia a la funcion que se encuentra en lña clase " class Dotero(Humano):".
+
+gustavo = Acleta(15)                  # aquí llamamos a otra clase 
+gustavo.actividad("planchitas")
+14--->>>
+#instancear es crear objetos apartir de una clase.
+15--->>>
+# para validar int, o str, float, etc usaremos:
+
+def vali():                                   # en este ejemplo validamos un entero o int.
+
+    while True:                               # siempre estara activo porque nunca hay una contrdicion como un False y por eso tenemos el return para que cuando sea int devuelva eso y termine la funcion.
+        palabra=input(" enter number: ")      # donde si lo ingresado es una "string o float" seguira hasta que sea un int y returne el valor "palabra=int(palabra).
+        try:                                 
+            palabra=int(palabra)              # try es para poder intentar o probar algo.
+            return palabra                    # donde si la palabra puede ser int entonces returna el valor palabra.
+        except ValueError:                    # el except es como caso contrario o excepto cuando y el ValuError es en caso que salga error en algo u en caso que el try no funcione hasta que salga el int.
+            print(" el valor ingresado es incorrecto, digite entero.")
+    
+vali()
+
+16----->>>>>
+# para los textos y etc:
+
+1. Convertir a mayúscula la primera letra
+Método: capitalize()
+Retorna: una copia de la cadena con la primera letra en mayúsculas.
+
+>>> cadena = "bienvenido a mi aplicación" 
+>>> print cadena.capitalize()
+"Bienvenido a mi aplicación"
+
+2. Convertir una cadena a minúsculas
+Método: lower()
+
+Retorna: una copia de la cadena en minúsculas.
+
+>>> cadena = "Hola Mundo" 
+>>> print cadena.lower()
+"hola mundo"
+
+3. Convertir una cadena a mayúsculas
+Método: upper()
+
+Retorna: una copia de la cadena en mayúsculas.
+
+>>> cadena = "Hola Mundo" 
+>>> print cadena.upper()
+"HOLA MUNDO"
+
+4. Convertir mayúsculas a minúsculas y viceversa
+Método: swapcase()
+
+Retorna: una copia de la cadena convertidas las mayúsculas en minúsculas y viceversa.
+
+>>> cadena = "Hola Mundo" 
+>>> print cadena.swapcase()
+"hOLA mUNDO"
+
+5. Convertir una cadena en Formato Título
+Método: title()
+
+Retorna: una copia de la cadena convertida.
+
+>>> cadena = "hola mundo" 
+>>> print cadena.title()
+"Hola Mundo"
+
+6. Centrar un texto
+Método: center(longitud[, "caracter de relleno"])
+
+Retorna: una copia de la cadena centrada.
+
+>>> cadena = "bienvenido a mi aplicación".capitalize() 
+>>> print cadena.center(50, "=") 
+===========Bienvenido a mi aplicación============ 
+
+>>> print cadena.center(50, " ") 
+           Bienvenido a mi aplicación
+
+7. Alinear texto a la izquierda
+Método: ljust(longitud[, "caracter de relleno"])
+
+Retorna: una copia de la cadena alineada a la izquierda.
+
+>>> cadena = "bienvenido a mi aplicación".capitalize() 
+>>> print cadena.ljust(50, "=")
+Bienvenido a mi aplicación=======================
+
+8. Alinear texto a la derecha
+Método: rjust(longitud[, "caracter de relleno"])
+
+Retorna: una copia de la cadena alineada a la derecha.
+
+>>> cadena = "bienvenido a mi aplicación".capitalize() 
+>>> print cadena.rjust(50, "=") 
+=======================Bienvenido a mi aplicación
+
+>>> print cadena.rjust(50, " ") 
+                       Bienvenido a mi aplicación
+
+9. Rellenar un texto anteponiendo ceros
+Método: zfill(longitud)
+
+Retorna: una copia de la cadena rellena con ceros a la izquierda hasta alcanzar la longitud final indicada.
+
+>>> numero_factura = 1575 
+>>> print str(numero_factura).zfill(12) 
+000000001575
+
+17--->>>>>
+#el uso del get y set es mayormente que el get returna un atributo(return self.sueldo) y el set cambia el atributo(self.sueldo=self.gasto)
+# para usar el privado y publico en clases( usaremos "self.__name" para privado y "self.name" publico) lanzada un error cuando enviemos a llamar al atributo privado.
+class User:
+    def __init__(self,username,password):
+        self.username=username                                    #publico
+        self.__password=self.__generar_password(password)         #privado y llamanda a la funcion "__generar_password"
+
+
+    def __generar_password(self,password):
+        return password
+
+    def get_password(self):                                       #esta funcion nos devuelve la password, porque recuerda que solo se puede ver un atributo privado mediante las clases.
+        return self.__password
+
+
+alex=User('chaparito123','rufusbalto')
+print(alex.username)
+
+print(alex.get_password())                                        #llamamos a la funcion get_password().
+
+18--->>
+#para almacenar datos en bloc de notas o notepad.
+f=open("new.txt",'r')   # donde open("nombredelbloc.txt",'r') el 'r' es para leer el documento, 'w' para crear un nuevo documento y escribir, y 'a' para sobre escribir al final o como un append
+f1=f.readlines()      # lee todas la lineas y readline() lee una solo linea
+print(f1)   
+a=input("enter something: ")
+ga=a+"\n"             #para que se adapte a las lineas
+if ga in f1:       
+    print(True) 
+else:
+    print(False)
+file=[1,2,3,4,5]
+f=open("new.txt",'a')
+f.write('file=% s'%file)   # seria normal un f.write("hola gente"), pero si es f.write("nombreparaagregar=%"%nombreparaagregar) es para q cual quier cosa sea numero, lista etc entre o sea agregado al bloc de notas.
+f.close() # para cerrar el bloc
+19--->>>
+#para eliminar datos en un notepad usaremos el 'w' ya que crea uno nuevo.
+f=open("archivo.txt",'w')
+print(f.name)   # para ver el nombre del archivo
+print(f.mode)   #para ver el modo del archiso si esta en 'a', 'w' o 'r'.
+print(f.closed) #para ver si esta cerrado o abierto (True or False)
+# para imprimir unas buenas lineas de un archivo txt debemos usar esto:
+for linea in open("new.txt"):     #donde "linea" es el iterable, y "open("new.txt")" es lo que debe iterar que ya es un txt creado en la misma locacion del programa
+    print(linea,end="")           #aqui imprime el iterable "linea" y en " end="" " es para que no de su salto de linea y siga linea por linea normal, ya que el los txt siempre al final de cada linea esta incluido un "\n".
+20--->>>
+#1.list(map(funcion,parametros)) #bien para iterar colecciones.
+
+def myfunc(a, b):
+ return a + b
+x = map(myfunc, ('apple', 'banana', 'cherry'), ('orange', 'lemon',
+'pineapple'))
+print (x)
+print (list(x))
+
+
+#2.list(filter(funcion,parametros)) #igual que map pero esta tiene una condiccion con elemtos filtrados
+
+def multiple(numero): # Primero declaramos una función condicional
+ if numero % 5 == 0: # Comprobamos si un numero es múltiple de cinco
+ return True # Sólo devolvemos True si lo es
+numeros = [2, 5, 10, 23, 50, 33]
+filter(multiple, numeros)
+
+
+#3.reduce(funcion, colección, inicial)
+
+def add(a, b):
+ return a + b
+print(reduce(add, [1, 2, 3, 4]), 0) # 10
+
+
+#4.funcion lambda como un def pero menos presiso
+
+doblar = lambda num: num*2
+doblar(2)
+
+
+a=[1,2,3,4,5,6,7,8,9,10]
+res=list(filter(lambda x:x%3==0, a))
+print(res)
+
+21--->> para crear interfaces graficas o GUI
+#eval es un operador que me permite evaluar un signo en un string
+from tkinter import Tk  
+
+ventana =Tk()
+ventana.title("hola")
+ventana.mainloop()
+#con esto nos saldra una pequeña ventana
+22--->>>
+#use break and continue, break rompe la iteracion de un for o while 
+#Al aparecer un Continue en Python, este regresa al comienzo del bucle, 
+#ignorando todos los estamentos que quedan en la iteración actual del 
+#bucle e inicia la siguiente iteración. Queda más claro con un ejemplo:
+
+for letra in "Python":
+    if letra == "h":
+        continue
+    print ("Letra actual : " + letra)
+
+# Primer ejemplo
+var = 10
+while var > 0:
+    var = var -1
+    if var == 5:
+        continue
+    print ("Valor actual de la variable : " + str(var))
+
+>>>pantallla
+
+Letra actual : P
+Letra actual : y
+Letra actual : t
+Letra actual : o
+Letra actual : n
+Valor actual de la variable : 9
+Valor actual de la variable : 8
+Valor actual de la variable : 7
+Valor actual de la variable : 6
+Valor actual de la variable : 4
+Valor actual de la variable : 3
+Valor actual de la variable : 2
+Valor actual de la variable : 1
+Valor actual de la variable : 0
+
+23--->>>
+
+#use palabra.split()
+
+>>> c = " Una cadena con espacios "
+>>> c.split()
+['Una', 'cadena', 'con', 'espacios']
+
+x = blue,red,green
+x.split(,)
+ 
+[blue, red, green]
+>>>
+ 
+>>> a,b,c = x.split(,)
+ 
+>>> a
+blue
+ 
+>>> b 
+red
+ 
+>>> c
+green
+
+#use "que quieres que haya en los espacios(","or"@"or"$"or stuff ramdon)".join(el_conunto_a_unir)
+
+>>> xs = ['aaa', 'bbb', 'cccc']
+>>> " ".join(xs)
+'aaa bbb cccc'
+>>> ", ".join(xs)
+'aaa, bbb, cccc'
+>>> "@@".join(xs)
+'aaa@@bbb@@cccc'
+24-->>
+para generar un password sin vita del usuario usamos:
+import getpass
+f=getpass.getpass(prompt="enter password: ")
+25---->
+# Ejercicio 1
+# podremos comprimir asi d facil solo mira y con el print(f"que imprime todo lo q este dentro de la llave usando la f al inicio {mensaje_a_imprimir}")
+def cantidad(a):
+    facto=1
+    for i in range(1,a+1):facto=facto*i
+    print(f"the number permutations of {a} elements is: {facto}")
+cantidad(int(input("enter number of elements: ")))
+# tambien puedes comprimir un modulo 
+# ejemplo:
+--->> from math import factorial as f
+26---->>>>
+#f.seek(posicion en la que quieres empezar) lleva al puntero a la posicion dada
+#f.tell() = imprime la posicion actual del puntero.
+f=open("hola.txt",'r')  
+f.seek(5)              #posicion dada "5"
+cadena=f.read(5) 
+print(cadena)
+print(f.tell())       #imprime la poscion actual del puntero osea "5"
+
+27-->> SQLITE :
+
+#para establecar una coneccion con sqlite3 usaremos:
+varible_a_guardar=sqlite3.connect("archivo_a_crear.db")
+#establecemos un cursor
+c=varible_a_guardar.cursor()
+c.execute('''CREATE TABLE GAMES
+             (NAMEGAME text, EDITION text, COMPANY text, VOL real, PRICE real)''')
+
+c.execute("INSERT INTO GAMES VALUES ('INFINITY','ESPECIAL','AMAZON',3,149.99)")
+
+conn.commit()
+#"commnit()" guarda los cambios
+
+ingrese=[('MINECRAFT','NORMALY','JAVA',40,49.99),
+              ('DESTINY','PREMIUN','SONY',170,199.99)]
+c.executemany("DELETE INTO GAMES VALUES (?,?,?,?,?)",ingrese)
+#"executemany()" sirve para enviar varios parametros a guardar en sqlite3
+conn.commit()
+
+c.close()
+28---->
+para comentarios usaremos:
+alf + 3 para volverlos a todos asi -->> ###print("hola")
+y para retornarlos usaremos alf +4 --->> print("hola")
+
+29--->
+para añadir a un diccionario usaremos:
+dic['alex']=18
+para eliminar usaremos:
+del dic['alex']
+#para imprimir diccionarios con bucle for clave y valor:
+
+vali=open("character.pickle",'rb')
+g=pickle.load(vali)
+for clave, valor in g.items():
+    print(f"{clave} --> {valor}")
+30--------------->>>>>>>>>>>>>>><
+import sqlite3
+conn=sqlite3.connect(":memory:") #en vez de :memory: puede ir el documento o base de datos nombre_del_documento.db
+c=conn.cursor()
+c.execute("CREATE TABLE shop(client text, product text, price real)")
+
+c.execute("INSERT INTO shop VALUES('marco','milk',10.5)") #insetar o ingresar dados individualmente.
+purchases=[("alex","bread",2.50),     
+           ("jesudas","soda",5.50)]
+c.executemany("INSERT INTO shop VALUES(?,?,?)",purchases) #ingresar mediante una lista o etc.
+conn.commit() #guardado del proceso
+
+
+c.execute("SELECT * FROM shop ORDER BY client") # para selecionar q imprimir
+print(c.fetchone())#llama al primer registro
+print(c.fetchall())#llama a todos los registros
+
+conn.close()
+###### para borrar una tabla se usa "DROP TABLE shop" y ALTER TABLE nombre_tabla DROP columna_a_eliminar
+######para introducir una tabla extra se usa ALTER:
+ALTER TABLE shop
+ADD COLUMN nicks text
+
+# tambien para cambiar d nombre
+
+ALTER TABLE shop
+RENAME TO mall
+#####tambien para actualizar una tabla UPDATE
+UPDATE comments
+SET email = 'zyx@email.com'
+WHERE name = 'Shivam Mamgain';
+
+#el like
+donde se usaria
+WHERE name LIKE '%A%' #esto absorvera a el name que tenga una a, en caso contrario no lo contara.
+#para ordernar ascendentemente o descendentemente. 
+SELECT
+   select_list
+FROM
+   table
+ORDER BY
+    column_1 ASC,
+    column_2 DESC;
+#####recuerda cuando vas a ingresar datos en un "bla_bla.execute" debe estar en [] o () para q entre ingresado anteriormente.
+#### PARA IMPRIMIR LAS TABLAS USAR: c.execute("SELECT * FROM sqlite_master WHERE type = 'table' ")
+##c.execute(f"ALTER TABLE {table} ADD COLUMN day text") para agregar columnas.
+
+31----->
+#para eliminar columnas usaremos esto:
+c.execute("BEGIN TRANSACTION")
+c.execute("CREATE TEMPORARY TABLE t_pasar (code,product,price,realprice)")
+c.execute("INSERT INTO t_pasar SELECT code,product,price,realprice FROM shop")
+c.execute("DROP TABLE shop")
+c.execute("CREATE TABLE shop (code,product,price,realprice)")
+c.execute("INSERT INTO shop SELECT code,product,price,realprice FROM t_pasar")
+c.execute("DROP TABLE t_pasar")
+con.commit()
+con.close()
+32----->>
+##para usar más en letras o strings:
+import string
+usando los comandos q contiene string podremos sacar
+todos los numeros, tolas las letras mayusculas o minuscula, cambiar a cada letra mayuscula en cada palabra al iniciar, etc.
+33------>>>>
+#forma para ingresar o printear algo:
+
+a="gaaa gente 2123b"
+b="---%"
+c="watch movies"
+m='my message is{}: {} and {}'.format(a,b,c)
+print(m)
+
+
+
+34 ------->>>> OPEN txt :
+
+recuerda que cuano esta en una funcion un open es más efectivo a la hora de cambiar cosas al instante: ejemplo (bot_mirrow_future_XD) :
+
+f = open("botspeak.txt",'w')
+f.write("hola\nno lo sé tú dime\nsi eso\nperro lo tienes\n")
+f.close()
+def add(a):
+    f = open("botspeak.txt",'a')
+    f.write(a+"\n")
+    
+fat=open("botspeak.txt",'r')
+while(1):
+    speak=input(" you: ")
+    add(speak)
+    val=fat.readline()
+    print(f"\n zorro:  {val}")
+    if val=="adios\n":
+        f = open("botspeak.txt",'w')
+        f.close()
+        break
+    
+fat.close()
+
+35 ----------->>> USO DE ITERTOOLS :
+import itertools
+itertools.permutations(iterable,longitud)
+---PERMUTATIONS : MODIFICA EL ORDEN DE LOS ELEMENTOS.(SÍ IMPORTA EL ORDEN). DATO:[2,6,13] SALIDA: [2,6,13], [2,13,6], [6,2,13], [6,13,2], [13,2,6], [13,6,2].
+
+itertools.combinations(iterable,longitud)
+---COMBINATIONS : COMBINA TODOS LOS ELEMENTOS, NO SE REPITEN CONJUNTOS.(NO IMPORTA EL ORDEN). DATO:[2,6,13] SALIDA: [2,6], [2,13], [6,13].
+
+------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------" C ++ "--------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------
+1.//para usar el len en c++ se usa el comando "strlen(palabra_a_contar)";
+#include<conio.h>  y getch() ---al final del programa antes del return 0;;
+para q peude ejecutarce.
+#include<stdlib.h> y system("pause"); ----al final, tambien puede pausarce el programa 
+al ejecutarce, es parecido al #include<conio.h> y getch();.
+---------------------
+do{
+}while----------es parecido al while, pero con la diferencia q en do while se ejecutara
+por lo menos 1 vez
+---------------------------
+for(int i=1; i<=10; i++){
+
+}
+// una forma de usar el for. el i++ tambien puede ser i +=1  o  i=i+1.
+//el int i=1 puede tambien ser añadida al inicio con int i,a,b; y en el for iria for(i=1;----)
+------------------------------------------------
+#include<time.h>
+//y este tipo de metodo es requerible q se use el #include<stdlib.h>
+//porque el conio.h no corre. 
+srand(time(NULL));
+valor=(1+rand()%(100)); 
+//esto dara numeros aleatorios o algo aprecido a eso.
+------------------------------------------------
+//los arrays en c++ serian haci
+int numbers[10];
+char frases[15];
+float reals[20];
+double greats[17];
+//son para introducir.
+//los q ya son definidos serian haci.
+int numbers[]={1,3,5,7,9};
+// numbers[0]=1;
+// numbers[1]=3;
+// numbers[2]=5;
+char lettlers[]={'a','b','c'};
+// lettlers[0]='a';
+// lettlers[1]='b';
+
+--VARIABLE STRING O CADENA :
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+int main(){
+	string vec[]={"alex","perro","gaa"};
+
+	for(int i=0;i<3; i++){
+		cout<<"-> "<<vec[i]<<endl;
+	}
+	
+	getch();
+	return 0;
+}
+
+----------------------------------------------------
+//use of flag or bandera in spanish
+char band='f';
+.....
+......
+if (xnumber >10){
+   band ='v';
+  }
+//como un controlador.
+---------------------------------------------------
+//recuerda matrices
+int nums[100][100];
+//o la ya definida
+int nums[2][3]={{1,2,3},{4,5,6}};
+---------------------
+//una forma de ingresar una cadena d caracteres muy buena.
+//para eso usaremos:
+char name[40];  ###es importante hacer esto o no funca el codigo.
+cin.getline(name,40,'\n');
+//en donde va "name" es donde pondremos la variable char donde queramos digitar los caracteres, en donde dice "40" es la cantidad d espacios a dar a esa char
+//donde dice "\n" es para con q tecla finalizar esta forma de entrada.
+
+1.strlen(palabra_a_contar); \\o sea la longitud de la cadena.
+2.strcpy(palabra_a_almacenar, palabra_ya_almacenada);
+3.if(strcmp(palabra1,palabra2) ==0); \\para compara si son iguales, exiten(==0 (para si son iguales, != 0 (si son diferentes), <0 o >0 ( para ver si es mayor o menor alfabeticamente))
+--ejemplo: if(strcmp(alex,pedro) <0){cout<<pedro<<"es mayor alfabeticamente<<endl;}
+4.strcat(p1,p2); \\pues "strcat" une candenas ya hechas, parecido a strcpy pero strcpy solo copea y elimina la cadena que se va a copiar al la varible y mete la nueva copiada.
+\\en strcat concatena, une las candemas sin eliminar ningun char como lo haria strcpy que elimina la base.
+
+#include<string.h>
+#include<stdlib.h>
+using namespace std;
+char letra(char *le);
+int main(){
+	char name[10]="marco",name2[10]="alex";
+
+	strcat(name,name2);
+	cout<<name<<endl;     \\marcoalex
+
+	strcpy(name,name2);
+	cout<<name<<endl;     \\alex
+
+	system("pause");
+	return 0;
+	
+}
+5.strrev(palabra_a_digitar) \\cadena alrevez.
+-modo normal para dar reversa a una cadena:
+
+int main(){
+	int f=0;
+	char name2[10]="alexander",n[10];
+	for(int i=strlen(name2)-1;i>=0;i=i-1){
+		n[f]=name2[i];
+		f++;
+	}
+	cout<<"\n"<<name2<<"\n"<<n<<endl;
+
+
+	system("pause");
+	return 0;	
+}
+
+-para verificar si es palindromo:
+
+#include<iostream>
+#include<string.h>
+#include<stdlib.h>
+using namespace std;
+char letra(char *le);
+int main(){
+	int f=0;
+	char name2[10],n[10];
+	cin>>name2;
+	strcpy(n,name2);
+	strrev(name2);
+	cout<<n<<" ---> "<<name2<<endl;
+	if(strcmp(name2,n)==0){cout<<" palindromo "<<endl;}
+	else{cout<<" no es."<<endl;}
+
+	system("pause");
+	return 0;
+	
+}
+
+6.strupr(palabra_A_pasar_a_mayuscula);
+7.strlwr(palabra_a_pasar_a_minuscula);
+
+8- para convertir de una cadena a un float o integer usaremos:
+#include<stdlib.h>
+char num[]="123"
+int numero_integer;
+float numero_float;
+numero_integer = atoi(num);  \\123     integer 
+numero_float = stof(num);   \\123.00   float
+
+
+7---->
+para una array con full letras como un ingreso de nombres usaremos
+int main(){
+	char cade[3][7],na;    \\ esta cade define primero "[3]" la cantidad de palabras que se alamcenaran en el array, y "[7]" para la longitud de la palabra.
+	for(int i=0;i<2;i++){
+		cin>>cade[i];
+	}
+
+8-------> 
+programa para contar cuantas vocales exiten en la cadena:
+
+#include<iostream>
+#include<string.h>
+#include<stdlib.h>
+using namespace std;
+int main(){
+	int numa=0,nume=0,numu=0,numo=0,numi=0;
+	char name[20];
+	cin.getline(name,20,'\n');
+	for(int i=0;i<strlen(name);i++){
+		switch(name[i]){
+			case 'a':numa++;break;
+			case 'u':numu++;break;
+			case 'o':numo++;break;
+			case 'i':numi++;break;
+			case 'e':nume++;break;
+		}
+	}
+	cout<<'a'<<" --> "<<numa<<endl;
+	cout<<'u'<<" --> "<<numu<<endl;
+	cout<<'o'<<" --> "<<numo<<endl;
+	cout<<'i'<<" --> "<<numi<<endl;
+	cout<<'e'<<" --> "<<nume<<endl;
+	
+
+	system("pause");
+	return 0;	
+}
+9--->para imprimir con format o codigo ASCCI usaremos la funcion "printf();"
+ejemplo:
+
+	for(int i=1;i<=50;i++){
+		for(int f=1;f<=50;f++){
+			for(int g=1;g<=50;g++){
+				if(i*i==f*f+g*g){
+					printf("%d%c = %d%c + %d%c",i,253,f,253,g,253);cout<<endl;
+				}
+			}
+		}
+	}
+pagina para saber sobre este tema: http://www.it.uc3m.es/pbasanta/asng/course_notes/input_output_printf_es.html
+
+10------>
+
+PUNTEROS:
+& = direccion
+* = contenido
+
+ejemplo:
+12 //0x24fe3c   es su direccion.
+8 //0x24fe38         ||
+
+a = 0x24fe3c
+b = 0x24fe38
+
+*a = 12
+*b = 8
+//
+	cin>>a;cin>>b;
+	cout<<" direc: "<<&a<<" - "<<&b<<endl;
+	cout<<" the sum is: "<<orden(&a,&b)<<endl;
+//
+
+	int orden(int *a,int *b){
+		return *a + *b;
+	}
+// print:
+ direc: 0x24fe3c - 0x24fe38
+ the sum is: 20
+
+ejemplo de cambio de valor enviados por funcion:
+
+void cambio(int *,int *);  //prototipo para resivir 2 direcciones "&".
+
+int main(){
+	int n1=17,n2=5;
+
+	cout<<n1<<endl;  //salida 17
+	cout<<n2<<endl;  //salida 5
+
+	cambio(&n1,&n2);     //se envia la direccion de las varibles "n1" y "n2".
+
+	cout<<n1<<endl;  //salida 5
+	cout<<n2<<endl;	 //salida 17
+
+	getch();
+	return 0;
+}
+
+void cambio(int *val1,int *val2){
+	int aux;
+
+	aux = *val1;       //aux almacena el contenido de la direccion n1      FORMULA: " * " + " direccion " = contenido de la direccion.
+	*val1 = *val2;     //el nuevo contenido de n1 sera n2
+	*val2 = aux;       //el contenido nuevo de n2 sera aux que contiene el valor de n1
+}
+11----->
+para el uso de espacios usaremos:
+#include<iomanip>
+cout<<setw(cantidad_de_espacios_a_saltar)<<" hola"<<endl;
+
+12------>
+#include<conio.h>
+\\ fflush(stdin); 
+sirve para limpiar la memoria del teclado enviada al ordenador o pc, para que los envios sean más limpios y no ocasionen problemas en un futuro.
+un ejemplo seria el uso del cin.getline(bla_bla_y_'\n') ese '\n' es para el salto de linea, una vez usado el cin.getline('\n') ese comando de salto de linea
+'\n' ya dejara se ser util, o sea si pones un cin.getline(\n) y más abajo un cin.getline(\n) el segundo no funcionara o estara inavilitado y pasara
+como si ya termino la funcion.
+conclu: usar fflush(stdin);  para tener un mejor uso y menor problematica en memoria de teclado para liberar los buffers.
+buffer: pequeña memoria que guarda las teclas que introduces en el teclado.
+13------>
+\\uso de struct {}: sirve para crear variables definidas, pero sin crearlas otra vez, solo crearemos un objeto más, es parecido a las clases.
+#include<iostream>
+#include<conio.h>
+using namespace std;
+struct identidad{
+	int dni,age;
+	char ciudad[20],sexo;
+	float altura;
+struct datos{
+	char name[30];
+	struct identidad persona;
+}user,user2,user3;
+int main(){
+	cout<<" Enter 1 Name: ";
+	cin.getline(user.name,30,'\n');
+	cout<<" Enter 1 Age: ";
+	cin>>user.identidad.age;      \\ingresando dentro de la estructura dato y luego ingrea a identidad.
+	fflush(stdin);
+	cout<<" --------------------- "<<endl;
+	cout<<" Enter 2 Name: ";
+	cin.getline(user2.name,30,'\n');
+	cout<<" Enter 2 Age: ";
+	cin>>user2.identidad.age;
+	fflush(stdin);
+	cout<<" --------------------- "<<endl;
+	cout<<" Enter 3 Name: ";
+	cin.getline(user3.name,30,'\n');
+	cout<<" Enter 3 Age: ";
+	cin>>user3.identidad.age;
+	
+	
+	cout<<"\n Cortes comerciales udurururu: \n"<<endl;
+	
+	cout<<" 1 Name: "<<user.name<<endl;
+	cout<<" 1 Age: "<<user.identidad.age<<endl;
+	
+	cout<<" 2 Name: "<<user2.name<<endl;
+	cout<<" 2 Age: "<<user2.age<<endl;
+
+	cout<<" 3 Name: "<<user3.name<<endl;
+	cout<<" 3 Age: "<<user3.age<<endl;
+	getch();
+	return 0;
+}
+
+\\\\\\ y una forma más eficiente y con menos lineas seria:
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+struct datos{
+	int age,dni;
+	char pais[20],ciudad[20],sexo;
+};
+struct curiculo{
+	char carrera[30],name[30];
+	struct datos ciudadano;
+}personal[2];              \\ arreglo de estructura.
+int main(){
+	int i;
+	for(i=0;i<2;i++){
+		cout<<" Enter name: ";cin.getline(personal[i].name,30,'\n');fflush(stdin);
+		cout<<" Enter age: ";cin>>personal[i].ciudadano.age;fflush(stdin);
+		cout<<" Enter career: ";cin.getline(personal[i].carrera,30,'\n');fflush(stdin);
+		cout<<" Enter country: ";cin.getline(personal[i].ciudadano.pais,20,'\n');fflush(stdin);
+	}
+	for(i=0;i<2;i++){
+		cout<<" Name: "<<personal[i].name<<endl;
+		cout<<" Age: "<<personal[i].ciudadano.age<<endl;
+		cout<<" career: "<<personal[i].carrera<<endl;
+		cout<<" Country: "<<personal[i].ciudadano.pais<<endl;
+	}
+	return 0;
+}
+
+14------>
+#para crear un objeto seria así:
+nombre_de_la_clase  nombre_Del_objeto;     \\barra bar;
+##para definir algo al en el programa se usara "#define lo_que_quieres_definir valor_a_dar  \\ #define alex 18
+15------>
+\\para enumerar una array o algo parecido a memoria de espacio usaremos enum:
+int main(){
+	enum dias { domingo, lunes, martes, miercoles, jueves, viernes, sabado };
+	for (int d = domingo; d <= sabado; d++) cout << d;       \\la salida sería: 0 1 2 3 4 5 6
+	return 0;
+}
+\\si ponemos en domingo =1 el enumerate comenzara en 1, si lo ponemos en 7 el enumerate comenzara en 7
+\\donde sea que coloquemos un valor en la variable comenzara esde ese valor dado:(ejem) 
+int main(){
+	enum dias { domingo=1, lunes, martes, miercoles, jueves=105, viernes, sabado };
+	for (int d = domingo; d <= sabado; d++) cout << d;       \\la salida sería: 1 2 3 4 105 106 107
+	return 0;
+}
+
+16-------->
+
+\\ una de las otras formas de mostrar la cadena pero en reversa es:
+int main(){
+	char c[10],c2[10],cade;
+	cin>>c;
+	for(int i=0;i<=strlen(c);i++){
+		cade=c[strlen(c)-i-1];
+		c2[i]=cade;
+	}
+	cout<<" nombre: "<<c<<endl;
+	cout<<" reverse: "<<c2<<endl;
+}
+
+17---------->
+
+\\usos con la libreria " #include<windows.h> " :
+system("pause"); \\para dar pausa a la pantalla.
+system("cls"); \\limpia toda la ventana.
+system("color f0");  \\para cambiar de color el fondo, osea de pantalla negra con letras blancas cambia a blanca con letras negras.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! COLOR !!!!!!!!!!!!!!!!!!!!!!!!!
+ahora les traigo un biblioteca para C++ que te permite cambiar el color de la consola  .
+
+#include<stdlib.h> // libreria para cambia color
+void main(void) {
+system ("color 9A" );//ejemplo
+.
+.
+.
+depues de eso tu codigo normal
+.
+.
+..
+en lineas puenteadas va tu codigo no mofique nada en tu codigo solo se modificara la consola 
+
+}
+
+
+
+color de consola :
+0 = Negro
+1 = Azul
+2 = Verde
+3 = Aguamarina
+4 = Rojo
+5 = Purpura
+6 = Amarillo
+7 = Blanco
+8 = Gris
+9 = Azul claro
+
+color de texto:
+A = Verde claro
+B = Aguamarina claro
+C = Rojo claro
+D = Purpura claro
+E = Amarillo claro
+F = Blanco brillante
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! COLOR !!!!!!!!!!!!!!!!!!!!!!!!!
+
+Sleep(10 000);  \\para que le de pausa unos 10 segundos, pudes poner 5000 y dara 5 segundos y asi segun tu logica.
+
+\\otra forma de poner un tiempo para cambiar o seguir con el codigo es:
+
+#include<stdio.h>
+#include<stdlib.h>
+ 
+main()
+{
+printf("Maravilla perdida");
+    printf("El programa terminará en 10 segundos.\n");       
+ 
+    delay(10000);                         
+ 
+    return 0;
+}
+
+
+\\ para ocultar el cursor, funcion que se envia a int main();
+void OcultarCursor(){
+	HANDLE hCon;
+	hCon = GetStdHandle(STD_OUTPUT_HANDLE);
+    CONSOLE_CURSOR_INFO cci;
+    cci.dwSize = 2;
+    cci.bVisible = FALSE;
+	SetConsoleCursorInfo(hCon, &cci);
+	
+}
+
+void gotoxy(int x, int y){                              
+    HANDLE hCon;                                         \\el gotoxy es una funcion que sirve para saber la poscicion o cordenadas
+	hCon = GetStdHandle(STD_OUTPUT_HANDLE);          \\del marcador en la pantalla como las matrices, row and columns, x y y.
+	COORD dwPos;
+	dwPos.X = x;
+	dwPos.Y = y;
+	
+	SetConsoleCursorPosition(hCon, dwPos);
+
+} 
+
+int main(){
+	OcultarCursor();   \\se llama a la funcion, el cursor es la fechita o el | que aparece en la pantalla.
+}
+
+18---------->
+
+\\ para mostrar por pantalla un texto y imprimirlo en cierta pocicion usaremos en gotoxy:
+#include<iostream>
+#include<conio.h>
+#include "ubi.h"           \\"ubi.h" es la libreria creada por nosotros, dentro de ese archivo,Devc++, se encuentra "gotoxy(int x,int y);".
+using namespace std;
+int main(){
+	gotoxy(40,20);      \\envia a los cursores a esa pocicion " 40 para x, & 20 para y ".
+	cout<<" Hola"<<endl;
+	return 0;
+}
+
+19---------->
+
+\\ buenisa pagina para aprender ciertas funciones, solo falta buscar librerias.
+http://www.casdreams.com/auladeinformatica/cet/comandos_de_c.htm
+
+20--------->
+\\para escribir una cadena pero sin que se muestre el mensaje y salga "*"
+
+#include<iostream>
+#include<conio.h>
+#include<string.h>
+#define enter 13
+using namespace std;
+int main(){
+	char contra[30]={""},c[30];
+	int x=0;
+	bool val=true;
+	while(val==true){
+		if(kbhit()){
+			char letra=getch();
+			switch(letra){
+				case enter:val=false;break;
+				default:cout<<"*";contra[x]=letra;x++;break;
+			}
+		}
+	}
+	cout<<"\n"<<contra<<"\n-----------------"<<endl;
+	fflush(stdin);
+	cin.getline(c,30,'\n');
+	if(strcmp(contra,c)==0){
+		cout<<" Welcome"<<endl;
+	}
+	else{
+		cout<<" Error"<<endl;
+	}
+	
+	return 0;
+}
+
+21------------->
+
+// cuando no sabemos que clase de valor se enviara a una funcion usaremos el " template <class nombre_de_tipo_de_variblea_random> " ejemplo:
+
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+template <class val>      //crea el tipo de varible general.
+void valor(val a);        //usamos el val q es el tipo de varible general.
+int main(){
+	int num;            //creamos las varibles,int,float,double.
+	float num2;
+	double num3;
+	cout<<" enter number int: ";cin>>num;
+	valor(num);
+	cout<<" enter number float: ";cin>>num2;
+	valor(num2);
+	cout<<" enter number double: ";cin>>num3;
+	valor(num3);
+	system("pause");
+	return 0;
+}
+
+template <class val>         //siempre poner el template antes de la funcion, es parecida como q la de arriba para el prototipo
+void valor(val a){           //confirmamos la funcion 
+	if(a<0){
+		a*=-1;
+	}
+	cout<<" the value is: "<<a<<endl;
+}
+
+// otro ejemplo con el template, crea una varible T que puede usarce como funcion:
+
+/*Ejercicio 6: Escriba una plantilla de función llamada maximo() que devuelva el valor 
+máximo de tres argumentos que se transmitan a la función cuando sea llamada.
+Suponga que los tres argumentos serán del mismo tipo de datos.*/
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+template <class T>
+T maximo(T dato1, T dato2, T dato3);
+
+int main(){
+	char dato1='e',dato2='f',dato3='a';
+	
+	cout<<"El maximo valor es: "<<maximo(dato1,dato2,dato3);
+	
+	getch();
+	return 0;
+}
+
+template <class T>
+T maximo(T dato1, T dato2, T dato3){
+	T max;
+	
+	if((dato1 > dato2) && (dato1 > dato3)){
+		max = dato1;
+	}
+	else{
+		 if((dato2>dato1) && (dato2>dato3)){
+			max = dato2;
+		}
+		else{
+			max = dato3;
+		}
+	}
+	return max;
+}
+
+22------>
+
+//recordar que en las funciones el "void" no retorna nada, asi que ser precavido en ese aspecto.
+// cuando es un valor muy grande usaremos long pero para enteros, es como float=int equivale a double=long, pero long no da desimales grandes, sino enteros extensos.3jempl0_:
+#include<iostream>
+#include<conio.h>
+using namespace std;
+int pedirdatos();
+void funpot(int x,int y);
+int a,b;
+int main(){
+	pedirdatos();
+	funpot(a,b);
+	return 0;
+}
+int pedirdatos(){
+	cin>>a;
+	cout<<a<<" a la : ";
+	cin>>b;
+	
+}
+void funpot(int x,int y){
+	long val=1,i;
+	for(i=0;i<y-1;i++){
+		val*=x;
+	}
+	printf("%d ** %d = %d",a,b,val);
+}
+
+23------->
+
+//enviar parametros por referencia, donde se pueden devolver valores multiples mediante la direccion de memoria, ejemplo:
+
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+void calcular(int x, int y,int&,int&);            //funcion para recivir 2 valores y 2 direcciones
+int main(){
+	int num1=3,num2=9,sum,pro;
+	calcular(num1,num2,sum,pro);                // se envia 4 parametros normalmente 
+	cout<<" la suma es: "<<sum<<endl;           //la suma es: 12    //la memoria de "sum" se cambio por la suma de num2+num2, los mismo aplica con la memoria de "pro"
+	cout<<" el producto es: "<<pro<<endl;       //el producto es: 27 
+	system("pause");
+	return 0;
+}
+
+void calcular(int x,int y,int& z,int& w){    //recive dos parametros normales y 2 direcciones( las direcciones se definen por el "&" ) 
+	z=x+y;          //"z" es una direccion junto a "w"
+	w=x*y;          //con este metodo podremos devolver valores multiples.
+}
+
+//tecnica en la funcion para ver si el valor enviado es equivalente a cuantos dolares se puede dar por el valor enviado de cien etc...
+/*Ejercicio 8: Escriba una función nombrada cambio() que tenga un parámetro en número
+entero y seis parámetros de referencia en número entero nombrados cien, cincuenta,
+veinte, diez, cinco y uno, respectivamente. La función tiene que considerar el
+valor entero transmitido como una cantidad en dólares y convertir el valor en el número
+menor de billetes equivalentes. */
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+void cambio(int,int&,int&,int&,int&,int&,int&);
+
+int main(){
+	int valor,cien=0,cincuenta=0,veinte=0,diez=0,cinco=0,uno=0;
+	
+	cout<<"Digite un valor: ";
+	cin>>valor;
+	//Llamos a la funcion
+	cambio(valor,cien,cincuenta,veinte,diez,cinco,uno);
+	
+	cout<<"Cantidad de billetes a entregar como cambio:"<<endl;
+	cout<<"Cien: "<<cien<<endl;
+	cout<<"Cincuenta: "<<cincuenta<<endl;
+	cout<<"Veinte: "<<veinte<<endl;
+	cout<<"Diez: "<<diez<<endl;
+	cout<<"Cinco: "<<cinco<<endl;
+	cout<<"Uno: "<<uno<<endl;
+	
+	getch();
+	return 0;
+}
+
+void cambio(int valor,int& cien,int& cincuenta,int& veinte,int& diez,int& cinco,int& uno){
+	cien = valor/100;           //divide en entero si no da, devuelve 0
+	valor %= 100;                // residuo de la divion para q continue abajo
+	cincuenta = valor/50;        
+	valor %= 50;
+	veinte = valor/20;
+	valor %= 20;
+	diez = valor/10;
+	valor %= 10;
+	cinco = valor/5;
+	uno = valor%5;
+}
+
+//una en horas:
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+
+void tiempo(int ,int& x,int& y,int& z);
+
+int main(){
+	int num,seg=0,min=0,hour=0;
+	cout<<" enter secons: ";cin>>num;
+	tiempo(num,hour,min,seg);
+	cout<<" the time is: "<<hour<<":"<<min<<":"<<seg<<endl;
+	system("pause");
+	return 0;
+}
+
+void tiempo(int val,int& x,int& y,int& z){
+	x=val/3600;             // esta formula es muy buena a la hora de calcular ciertas diferencias.
+	val%=3600;
+	y=val/60;
+	z=val%60;
+}
+
+24--------->
+//AREGLOS A UNA FUNCION:
+//para enviar arreglos a un funcion(ejemplo):
+
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+
+void cuadrados(int vec[],int );   //se crea el prototipo con un tipo de valor de vector y uno de cantidad.
+void muestra(int vec[],int );
+
+int main(){
+	const int tama=5;          //const es una constante que sera inmutable en toda la funcion main.
+	int vec[tama]={1,2,3,4,5};  //vector con tamaño en memoria 5 por el "tama" que es la constante entera ya antes definida.
+	cuadrados(vec,tama);         //se envia el nombre del vector, no se pone corchetes se envia el valor dado, y tambien el tamaño del vector
+	muestra(vec,tama);
+	system("pause");
+	return 0;
+}
+
+void cuadrados(int vec[], int ta){          
+	for(int i=0;i<ta;i++){
+		vec[i]*=vec[i];       //al momento de multiplicarse entre si para sacar su cuadrado SE GUARDA COMO UNA REFERENCIA EN MEMORIA VALOR DADO
+	}                             // O SEA QUE LO QUE ENVIEMOS EN LOS ESPACIO DE MEMORIAQ DE "vec" SE ALMACENARA EN LA MISMA MEMORIA TIPO(vec[i] = direccion = &)
+}                                     // Y LO QUE SE ALMACENE EN ESA DIRECCION SERA SU VALOR O CONTENIDO.
+void muestra(int vec[], int ta){
+	for(int i=0;i<ta;i++){       
+		cout<<" "<<vec[i]<<endl;
+	}
+}
+
+25--------->
+// para verificar si un vector o array esta en orden:
+
+int estaordenado(int vec[],int q){
+	int con=0,i;                   
+	while((con==0) && (i<q-1)){     //q-1 porque abajo en el if si sobre pasa la cantidad dara un error, tanto porque no existe un numero o es aglo perdido.(i=0,i=1.....i<q-q).
+		if(vec[i]>vec[i+1]){     //verifica si el acutal es mayor siguiente, si eso pasa significa que no esta en orden Ascendente.
+			con++;           //con++ aumenta para que salga del while y de como resultado que no esta ordenado, puede usarce como bandera.
+		}
+		i++;                     //aumentamos el i para que recorra el vector.
+	}
+	
+	if(con==0){
+		cout<<" The vector is in order. "<<endl;
+	}
+	else{
+		cout<<" The vector isnt in order "<<endl;
+	}
+	return 0;
+}
+
+26---------->
+
+//para enviar una matriz a una funcion usaremos esto:
+void muestraMatriz(matriz[][camtidad_obligatoria_A_colocar],int ,int );   //es obligatorio enviar la longitud exacta de la matriz en la aprte de columnas, es algo que c++ puso como regla.
+//es recomendable usar la cantidad de filas y columnas como una varible constante int "const int".(ejemplo):
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+void muestra(int ma[][3],int ,int );      //definiendo la matriz, la primera es de filas(no es obligatoria definir cuanttos espacios),
+void cuadrada(int ma[][3],int ,int );     //la de columnas si es OBLIGATORIO definirlas, por eso se ve un "[3]" que dfine la parte interior a la primera o sea columnas.
+
+int main(){
+	const int fi=2;
+	const int co=3;
+	int matriz[2][3]={{1,2,3},{4,5,6}};
+	muestra(matriz,fi,co);
+	cuadrada(matriz,fi,co);        //se envia solo el nombre como en los vectores.
+	cout<<" -----"<<endl;
+	muestra(matriz,fi,co);
+	return 0;
+}
+
+void muestra(int ma[][3],int f,int c){    //la funcion ya en si, si define igual que el prototipo.
+	for(int i=0;i<f;i++){
+		for(int j=0;j<c;j++){
+			cout<<" "<<ma[i][j]<<" ";
+		}
+		cout<<endl;
+	}
+}
+
+void cuadrada(int ma[][3],int f,int c){
+	for(int i=0;i<f;i++){
+		for(int j=0;j<c;j++){
+			ma[i][j]*=ma[i][j];
+		}
+	}
+}
+
+27---------->
+
+//para enviar structuras a una funcion usaremos como ejemplo:
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+struct people{      //se crea la estructura y el nombre de la estructura sera "people"
+	char name[30];
+	int age;
+}per;    //el valor a ser llamado o sea la varible de esta estructura.
+
+void datos();
+void muestra(people); //se envia el nombre de la estructura creada como struct en este caso people
+
+int main(){
+	datos();
+	muestra(per);   //se envia la variable de la estructura.
+	getch();
+	return 0;
+}
+
+void datos(){    //aqui es normalmente porque son varibles globales.
+	cout<<" enter name: ";cin.getline(per.name,30,'\n');
+	cout<<" enter age: ";cin>>per.age;
+}
+
+void muestra(people p){   //struct people enviada como variable y el valor a ser llamado en esta funcion sera "p" equivaldria a "per" pero ya sabesmos como son las funciones.
+	cout<<"\n\n name: "<<p.name<<endl;
+	cout<<" age: "<<p.age<<endl;
+}
+
+//otra forma de usar structuras seria:
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+struct datos{
+	char compa[30];
+	int megas;
+};
+datos plan;
+void ingresar();
+
+int main(){
+	ingresar();
+	datos mi=plan;
+	cout<<mi.compa<<" - "<<mi.megas<<endl;
+	return 0;
+}
+
+void ingresar(){
+	cout<<" enter company: ";cin.getline(plan.compa,30,'\n');
+	cout<<" enter megas: ";cin>>plan.megas;
+}
+
+
+//RECORDAR QUE CUANDO SE CREE UNA ESTRUCTURA ESA ESTRUCTURA YA ES UN TIPO DE DATO(EJEMPLO):
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+struct ejercicio{   //Creacion del titulo de la estructura "ejercicio"
+	float num,pala;
+}z1,z2;  //dos varibles creadas
+
+void ingresar();
+ejercicio resolver(ejercicio ,ejercicio );  //funcion de tipo "ejercicio" como tipo de varible.
+void muestra(ejercicio );
+
+int main(){
+	ingresar();
+	ejercicio res = resolver(z1,z2); //se crea una variblenueva de ejercicio llamada "res" que su valor sera el valor retornado por la funion resolver.
+	muestra(res);
+	return 0;
+}
+
+void ingresar(){
+	cout<<" <1> "<<endl;
+	cout<<" enter part real: ";cin>>z1.num;
+	cout<<" enter part imaginary: ";cin>>z1.pala;
+	
+	cout<<" <2> "<<endl;
+	cout<<" enter part real: ";cin>>z2.num;
+	cout<<" enter part imaginary: ";cin>>z2.pala;
+}
+
+ejercicio resolver(ejercicio x,ejercicio y){   //funcion tipo ejercicio creada por el struct
+	x.num += y.num;
+	x.pala += y.pala;
+	return x;    //retorna la variable "x" de la struct ejercicio
+}
+
+void muestra(ejercicio respuesta){
+	if(respuesta.pala>0){
+		cout<<" ===> "<<respuesta.num<<"+"<<respuesta.pala<<"(imaginary value)"<<endl;
+	}
+	else{
+		cout<<" ===> "<<respuesta.num<<respuesta.pala<<"(imaginary value)"<<endl;
+	}
+}
+
+//otro ejemplo:
+
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+
+struct fecha{
+	int year,month,day;
+}f1,f2;
+
+void enter();
+fecha major(fecha ,fecha );
+void muestra(fecha );
+
+int main(){
+	enter();
+	fecha fet = major(f1,f2);
+	muestra(fet);
+	system("pause");
+	return 0;
+}
+
+void enter(){
+	cout<<" <date 1> "<<endl;
+	cout<<" enter year: ";cin>>f1.year;
+	cout<<" enter month: ";cin>>f1.month;
+	cout<<" enter day: ";cin>>f1.day;
+	
+	cout<<" <date 2> "<<endl;
+	cout<<" enter year: ";cin>>f2.year;
+	cout<<" enter month: ";cin>>f2.month;
+	cout<<" enter day: ";cin>>f2.day;
+}
+
+fecha major(fecha x,fecha y){
+	if(x.year==y.year){
+		if(x.month==y.month){
+			if(x.day==y.day){
+				return x;
+			}
+			else{
+				if(x.day>y.day){
+					return x;
+				}
+				else{
+					return y;
+				}
+			}
+		}
+		else{
+			if(x.month>y.month){
+				return x;
+			}
+			else{
+				return y;
+			}
+		}
+	}
+	else{
+		if(x.year>y.year){
+			return x;
+		}
+		else{
+			return y;
+		}
+	}
+}
+
+void muestra(fecha mo){
+	cout<<" < "<<mo.day<<"/"<<mo.month<<"/"<<mo.year<<" >"<<endl;
+}
+
+28--------->
+//recursividad, son las funciones o proccesos que dan respuesta respecto a respuestas.
+//algunas funciones recursivas en c++:
+
+int factorial(int x){
+	if(x==0){
+		x=1;
+	}
+	else{
+		x*=factorial(x-1);
+	}
+	return x;
+}
+
+int suma_anterior(int n){
+	if(n==0){
+		return n;
+	}
+	else{
+		return n+=suma_anterior(n-1);
+	}
+}
+
+int potencia(int x,int y){
+	if(y==0){
+		return 1;
+	}
+	else{
+		return x*=potencia(x,y-1);
+	}
+}
+
+int fibonacci(int n){
+	if(n<=1){
+		return 1;
+	}
+	else{
+		return fibonacci(n-1)+fibonacci(n-2);
+	}
+}
+
+
+// IMPORTANTE: recuerda que para sacar el fibonacci de un numero sale atravez de la suma del numero -1 y el numero -2 ,(num-1)+(num-2). 
+ejemplo >> //leelo de reveersa y comprenderas.
+fibo(5) = fibo(4)+fibo(3)       //fibo(5)=8
+fibo(4) =fibo(3)+fibo(2) 	//fibo(4)=5
+fibo(3)=fibo(2)+fibo(1)         //fibo(3)=3
+fibo(2)=fibo(1)+fibo(0)         //fibo(2)=2
+fibo(1)=1                       //regla general o basica 0 = 1 en fibonacci.
+fibo(0)=1                       //0+1=1
+
+29------------>
+
+**PUNTEROS***
+-para guardar un puntero debemos crear el mismo tipo de varble(ejemplo):
+int num=20,*dir_num;    //varible num que almacena 20; varible con contenido por el "*". el "*dir_num" es una puntero.
+dir_num = &num;        //dir_num es una variable con contenido directo
+cout<<dir_num<<endl;  //imprimira la direccion de num osea "0x213asd".
+cout<<*dir_num<<endl;  //imprimira el contenido de memoria de "0x213asd" que es 20.
+
+-Un vector y un puntero son combatibles entre si:
+Primero antes que nada no es necesario usar un puntero para pasar como referencia con una matriz
+, ya que las matrices y los punteros son compatibles entre ellos con sus castings...
+
+#include<iostream>
+#include <stdio.h>
+using namespace std; 
+
+void SetMt(int* a, int b[])  //recive como parametros a un puntero y un vector.
+{
+  a[0] = 2;    //se almacena en z[0] un 2.
+  b[1] = 4;    //se almacena en z[1] un 4.
+}
+
+int main()
+{
+
+    // creamos un vector.
+    int z[2];       // tamaño de z o del vector es 2.
+
+
+    SetMt(z, z);    //se envia a la funcion el vector.  
+                   //el vector en si es una direccion de memoria.
+
+    cout<<"z ----> "<<z<<endl;      //salida:  z ----> 0x4a7040 
+
+    printf("%d %d ", z[0], z[1]); // Salida: 24
+
+}
+
+Los vectores son punteros constantes. Un vector sin subindice es un puntero al primer elemento del vector.
+Una matriz es un vector de vectores. (Ej: int M[3][3];) de manera que en cada elemento del primer vector "se cuelga" otro vector, pudiendo hacer así referencia a filas y columnas.
+o sea que:
+int x[]={11,12,13}, *dir;
+dir=x;  // puntero -> 11   //primer elemento del vector o sea "11".
+
+//enviar una funcion por puntero:
+
+#include <iostream>
+using namespace std;
+
+bool functionA( int, int, bool (*)( int ) ); //Prototipo
+bool functionB( int ); //Prototipo
+
+void main()
+{
+    int x = 113, y = 226;
+    if ( functionA( x, y, functionB ) )
+		cout << "\nEl resultado es verdadero";
+	else
+		cout << "\nEl resultado es falso";
+}
+
+bool functionA( int param1, int param2, bool (*verificar)( int ) )
+{
+	if ( ( (*verificar)( param1 ) ) && ( (*verificar)( param2 ) ) )
+		return true;
+}
+
+bool functionB( int param )
+{
+	if ( param > 100 )
+		return true;
+	else
+		return false;
+}
+
+
+//otra forma de recorrer una array o vector con punteros seria:
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+void show(int *);   //prototipo con valores a enviar en punteros.
+
+int main(){
+	int vec[]={3,22,5,73,11,33};
+	show(vec);  //envia sin subindices o sea al primer elemento del vector.
+	getch();
+	return 0;
+}
+
+void show(int *var){ 
+	for(int i=0;i<6;i++){
+		cout<<*var++<<endl;  //3-22-5-73-11-33.  //contenido de cada direccion.
+		cout<<var++<<endl;  //direccion de meoria de cada valor en hexagecimal. 
+	}
+}
+
+30----------->  VALORES NULOS - VALORES VACIOS - NULL - FOREACH : 
+
+el uso de '\0' : 
+Si pero por convencion se utiliza:
+
+* 0 en el contexto de numeros enteros (tipo "int").
+* NULL en el contexto de punteros.
+* '\0' en el contexto de caracteres.
+
+// ejemplo 1: Un puntero no constante a un dato constante.
+
+#include <iostream>
+
+void imprimeChars( const char * ); // prototipo
+
+void main ()
+{
+    char cFrase[] = "Hola Mundo";
+    imprimeChars( cFrase );
+}
+
+void imprimeChars( const char *ptrStr )
+{
+    for ( ; *ptrStr != '\0'; ptrStr++ ) //Sin inicialización
+        std::cout << *ptrStr;
+}
+
+// ejemplo 2: 
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+void show(int *);
+
+int main(){
+	int vec[]={3,22,5,73,11};
+	show(vec);
+	getch();
+	return 0;
+}
+
+void show(int *var){
+	for(;*var!=0;var++){
+		cout<<*var<<endl;  
+	}
+}
+
+31----------->
+
+AREGLOS DINÁMICOS
+
+//para especificar la cantidad de memoria exacta ha almacenar sin dejar espacios vacios usaremos : "new y delete".
+
+para usar estos invocaremos jaajaja o llamaremos a la libreria "#include<stdlib.h>"
+
+new: reserva el número de bytes solicitados por la declaracion.
+delete: libera un bloque de bytes reservados con anterioridad.
+
+ejemplo:
+
+#include<iostream>
+#include<conio.h>
+#include<stdlib.h>  //para que podamos usar el "new" y "delete".
+using namespace std;
+
+void notas();
+void show();
+
+int i,quan,*vec;
+
+int main(){
+	notas();
+	show();
+	                 //siempre despues de un "new" usar el "delete" para liberar el espacio de memoria, recomendable al final del programa.
+	delete[] vec;    //libera el espacio de memoria reservado por el puntero "vec".
+	getch();
+	return 0;
+}
+
+void notas(){
+	cout<<" enter quantity of notes: ";cin>>quan;
+	vec = new int[quan];  //crea el arreglo o vector con una cierta cantidad de espacios definidos por la varible "quan" y es almacenada en el punero "vec".
+	for(i=0;i<quan;i++){
+		cout<<i+1<<" enter note: ";cin>>vec[i];
+	}
+}
+
+void show(){
+	cout<<"\n Notes \n"<<endl;
+	for(i=0;i<quan;i++){
+		cout<<vec[i]<<" ---> "<<&vec[i]<<endl;
+	}
+}
+
+//tambien se puede con palabraso chars:
+//ejemplo.
+
+#include<iostream>
+#include<conio.h>
+#include<stdlib.h>
+#include<string.h>
+using namespace std;
+
+void palabra();
+void contar_vocales(char *);
+
+char *pala;
+
+int main(){
+	palabra();
+	contar_vocales(pala);
+
+	delete[] pala;
+	getch();
+	return 0;
+}
+
+void palabra(){
+	pala = new char[20];
+	cout<<" Enter prhase: ";
+	cin.getline(pala,20,'\n');
+	strlwr(pala);
+	fflush(stdin);
+}
+
+void contar_vocales(char *p){
+	int con=0;
+	for(int i=0;i<strlen(p);i++){
+		if('a'==*(p+i) || 'e'==*(p+i) || 'i'==*(p+i) ||'o'==*(p+i) || 'u'==*(p+i)){
+			con++;
+		}
+	}
+	cout<<"\n The quantity of vowels is: "<<con<<endl;
+}
+
+
+//recordar que un puntero se lleva bien con un arreglo por no decir que son casi parecidos.
+
+una ayudita:
+
+int *vector,cantidad=5;
+for(int i=0;i<cantidad;i++){
+	cin>>*(vector+i);     //introduce un valor en el puntero aumentado por el "i" pero en el contenido del puntero "*".
+}
+
+PUNTEROS **PARA MATRICES:
+
+#include<iostream>
+#include<conio.h>
+#include<stdlib.h>
+using namespace std;
+                     // prototipos
+void enter_data();   
+void show(int **);   // se envia un doble puntero o sea un puntero matriz.
+
+int **matriz,i,f,rows,columns;
+
+int main(){
+	enter_data();
+	show(matriz);
+	
+
+	for(i=0;i<rows;i++){              //la nueva forma de liberar la memoria sera haci.
+		delete[] matriz[i];       
+	}
+	delete[] matriz;
+
+	getch();
+	return 0;
+}
+
+void enter_data(){
+	cout<<"\n FASE OF DATA: \n"<<endl;
+	cout<<" Enter quantity of rows: ";cin>>rows;
+	cout<<" Enter quantity of columns: ";cin>>columns;
+	
+	matriz = new int *[rows];   \\cada espacio de memoria es un puntero o sea [0] = *puntero, [1] = *puntero. //Reservar memoria para las filas
+	
+	for(i=0;i<rows;i++) {     //Reservar memoria para las columnas
+		matriz[i] = new int[columns];   //ahora crea memoria para un vector enviado a un puntero ya antes explicado.
+	}      //  puntero[0] que es un puntero tendra una array o vector a su cargo " puntero = [array_cantidad_de_espacio_de_memoria] ".
+	
+	for(i=0;i<rows;i++){
+		for(f=0;f<columns;f++){
+			cout<<" -> enter number ["<<i<<"]["<<f<<"] = ";cin>>*(*(matriz+i)+f);  //recordar que siempre al almacenar un valor usaremos el operador "*" para que sea el nuevo contenido de esa direccion.
+		}
+	}
+}
+
+void show(int **val){
+	cout<<"\n show of data:\n"<<endl;
+	for(i=0;i<rows;i++){                
+		for(f=0;f<columns;f++){
+			cout<<" ["<<i<<"]["<<f<<"] = "<<*(*(val+i)+f)<<" -> "<<(val+i)+f<<endl;  // " *(*(matriz+i)+f) " es equivalente a " matriz[i][f] ". -> contenido.
+		}         //en la primera contenido yla segunda direccion.                          // " ((matriz+i)+f) " es equivalente a " &matriz[i][f] ". -> direccion.
+	}
+	
+	cout<<"\n Matriz\n"<<endl;
+	
+	for(i=0;i<rows;i++){
+		for(f=0;f<columns;f++){
+			cout<<" "<<*(*(val+i)+f);
+		}
+		cout<<endl;
+	}
+	
+	cout<<"\n salida de simplemente matriz como puntero que seria [0][0]\n en codigoseria: cout<<**matriz;"<<endl;
+	cout<<"\n ===> "<<**val<<" este valor es el contenido de la matriz de [0][0]"<<endl;	
+   
+        // recordar que cuando no tiene subindices se enviara la posicion 0, 
+        // y como cada parte de puntero tiene otro puntero dentro se envia denuevo 0,en otra palabras -> [0][0]. 
+}   
+     
+32 --------->
+
+PUNTEROS A ESTRUCTURAS O STRUCT :
+
+// el comando principal para usar en estructuras con puntero sera " -> " donde vendria a ser como el remplaso del " . "
+
+#include<iostream>
+#include<conio.h>
+#include<stdlib.h>
+using namespace std;
+
+struct info{    //creamos el titulo del nuevo tipo de variable
+	char name[30];
+	int age;
+}persona, *dir_persona = &persona;   //creamos primero un campo de varible y luego un puntero que le asignamos el la direccion de "persona" como varible.
+
+void datos(info *);  //prototipos
+void show(info *);   // recordar que cuando enviamos a una funcion usaremos el tipo de var creada o sea el titulo de la structura, o sea "info" que se envia en este caso.
+                     //se envia el tipo de vaor que se enviara y especificar que sera un puntero "*". ejemplo "int *", "char *", "info *".
+int main(){
+	// otra forma de hacer lo anterior seria:
+
+	info persona, *dir_persona;
+	dir_persona = &persona;     //
+	
+	datos(dir_persona);
+	show(dir_persona);
+	
+	getch();
+	return 0;
+}
+
+void datos(info *val){
+	cout<<"\n entry\n\n";                // como vemo usaremos el " -> " como remplazo del operador punto.
+	cout<<" enter name: ";cin.getline(val->name,30,'\n');
+	fflush(stdin);                       // liberamos la memoria del buffer.
+	cout<<" enter age: ";cin>>val->age;  // normal sin puntero = "val.age" ; con puntero = "val->age".
+}
+
+
+void show(info *conte){
+	cout<<"\n exit:\n\n";
+	cout<<" name: "<<conte->name<<"\n age: "<<conte->age<<endl;
+}
+
+// si queremos enviar una array de struct  sera casi lo mismo: EJEMPLO
+
+struct alumno{
+	char name[30];
+	int age;
+	float nota;
+}per[10], *dir_alum = per;   // como es un array solo enviamos el name proque envia ya en si la direccion y como no tiene sub indices envia la primera pocision.
+
+void datos(alumno *);
+void show(alumno *);
+
+int quan;
+
+int main(){
+	datos(dir_alum);
+	show(dir_alum);
+	
+	getch();
+	return 0;
+}
+
+void datos(alumno *dat){
+	cout<<"\n Entry\n\n";
+	cout<<" quantity of students to value: ";cin>>quan;
+	for(int i=0;i<quan;i++){
+		fflush(stdin);
+		cout<<"\n<"<<i+1<<"> estudent: \n";
+		cout<<" enter name: ";cin.getline((dat+i)->name,30,'\n');
+		cout<<" enter age: ";cin>>(dat+i)->age;             //el "dat+i" es el truco de sumar pocisiones de memoria ya lo sabes con ejemplos anteriores en punteros.
+		cout<<" enter average: ";cin>>(dat+i)->nota;                    
+	}
+}
+
+void show(alumno *watch){
+	float major=0.0;
+	int res;
+	cout<<"\n Exit \n\n";
+	for(int i=0;i<quan;i++){
+		if((watch+i)->nota > major){
+			major = (watch+i)->nota;
+			res = i;
+		}
+	}
+	
+	cout<<" name: "<<(watch+res)->name<<"\n age: "<<(watch+res)->age<<"\n best average: "<<(watch+res)->nota<<endl;
+}
+
+33 -------------> PILAS C++ :
+
+// las pilas una de las partes más importantes a acordar o saber es que "la ultima en entra es la primera en salir".
+// LAST INPUT - FIRST INPUT
+
+// formula para INGRESAR ELEMENTOS a una pila:
+#include<iostream>
+#include<conio.h>
+#include<stdlib.h>
+using namespace std;
+
+struct Nodo{
+	int dato;
+	Nodo *siguiente;
+};
+
+void datos();
+void AddPile(Nodo *&,int);
+void TakePile(Nodo *&,int &);
+
+int num;
+
+int main(){
+	Nodo *pila  = NULL;
+	int con=0;
+	while(con<3){
+		datos();
+		AddPile(pila,num);
+		con++;
+	}
+	while(pila!=NULL){
+		TakePile(pila,num);
+		if(pila !=NULL){
+			cout<<num<<","; 	// INPUT : 4 -6 -1 -15   OUTPUT : 15,1,6,4.
+		}     
+		else{
+			cout<<num<<".";
+		}
+	}
+	getch();
+	return 0;
+}
+
+void datos(){
+	cout<<" enter number: ";cin>>num;
+}
+void AddPile(Nodo *&pila,int number){
+	Nodo *new_nodo = new Nodo();
+	new_nodo->dato=number;
+	new_nodo->siguiente=pila;
+	pila=new_nodo;
+	
+	cout<<"\n the number "<<number<<" have been to add to the pila with succesfull\n\n";
+}
+void TakePile(Nodo *&pila,int &val){
+	Nodo *aux = pila;
+	val = aux->dato;
+	pila = aux->siguiente;
+	delete aux;
+}
+
+34 ----------->>> ABS :
+include<stdlib.h>
+int num=-5,val=abs(num); //val=5
+
+35 ------------>>> COLAS C++ :
+
+FRASE : FIRST INPUT -> FIRST OUTPUT .
+
+36 --------------->>> CLASS AND OBJECTS :: CLASES Y OBJETOS :
+
+EJEMPLO 1:
+ 
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+class Persona{
+	private:                    //ATRIBUTOS ENCAPSULADOS.
+		int age;
+		string name;
+	public:
+		Persona(int,string);     //CONSTRUCTOR.
+		void sleep();            //METODOS.
+		void walk();
+};
+
+Persona::Persona(int age_send,string name_send){
+	age = age_send;
+	name = name_send;
+}
+
+void Persona::sleep(){
+	cout<<"\nmy name is "<<name<<" and i am sleeping.\n\n";
+}
+
+void Persona::walk(){
+	cout<<name<<" is walking and he is "<<age<<" year old.\n\n";
+}
+
+int main(){
+
+	Persona p_1(19,"alexander");     //CREACION DEL OBJETO (VERSION 1).
+	p_1.sleep();
+	p_1.walk();
+	
+	Persona p_2 = Persona(27,"luis");    //CREACION DEL OBJETO (VERSION 2).
+	p_2.sleep();
+	p_2.walk();
+		
+	getch();
+	return 0;
+}
+
+-- SI NO ESTAS EN DEVC++ USAR "#include<string>"  PARA PODER USAR LA VARIABLE CADENA "string".
+
+EJEMPLO 2:    //OTRA FORMA DE ESTABLECER UNA CLASE.
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+class Rectangulo{
+	private:
+		int largo;
+		int ancho;
+	public:
+		Rectangulo(int dato_1,int dato_2){
+			largo = dato_1;
+			ancho = dato_2;
+		}
+		void perimetro(){
+			cout<<"\nTHE RECTANGLE PERIMETER IS : "<<2*(largo+ancho)<<endl;
+		}
+		void area();
+};
+
+void Rectangulo::area(){
+	cout<<"\nTHE RECTANGLE AREA IS : "<<ancho*largo<<endl;
+}
+
+int main(){
+
+	Rectangulo figura(3,2);
+	figura.area();
+	figura.perimetro();
+	
+	getch();
+	return 0;
+}
+
+EJEMPLO 3 :  SOBRECARGA DE CONSTRUCTORES
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+class Fecha{
+	private:
+		int day,month,year;
+	public:
+		Fecha(int,int,int);
+		Fecha(long);
+		void show_date();
+};
+
+Fecha::Fecha(int d,int m,int y){        //CONSTRUCTOR 1.
+	day = d;
+	month = m;
+	year = y;
+}
+
+Fecha::Fecha(long dato){               //CONSTRUCTOR 2.
+	year = int(dato/10000);
+	month = int((dato-year*10000)/100);
+	day = int(dato -year*10000 -month*100);
+}
+
+void Fecha::show_date(){
+	cout<<"show date: "<<day<<"/"<<month<<"/"<<year<<endl;
+}
+
+int main(){
+	
+	Fecha dt(9,3,2020);
+	dt.show_date();
+	
+	Fecha dt_2 = Fecha(20200310);
+	dt_2.show_date();
+	
+	getch();
+	return 0;
+}
+
+EJEMPLO 4 : 
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+class Time{
+	private:
+		int hours,minuts,seconds;
+	public:
+		Time(int,int,int);
+		Time(long);
+		void show_time();
+};
+
+Time::Time(int h,int m,int s){   //CONSTRUCTOR 1.
+	hours = h;
+	minuts = m;
+	seconds = s;
+}
+
+Time::Time(long full){		//CONSTRUCTOR 2.
+	hours = full/3600;
+	full %= 3600;
+	minuts = full/60;
+	seconds = full%60;
+}
+
+void Time::show_time(){
+	cout<<" ITS: "<<hours<<":"<<minuts<<":"<<seconds<<" O CLOCK"<<endl;
+	cout<<" TOTAL SECONDS: "<<(hours*3600 + minuts*60 + seconds)<<endl;
+}
+
+int main(){
+	
+	Time saber(5,33,17);
+	saber.show_time();
+	
+	Time saber_2(3661);
+	saber_2.show_time();
+	
+	getch();
+	return 0;
+}
+
+EJEMPLO 5 :    		//DESTRUCTOR Y METER DATOS SIN ENVIAR.
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+class Perro{
+	private:
+		string name,raza;
+	public:
+		Perro();
+		~Perro();   //destructor.     //PARA SACARLO POR TECLADO ES " Alt + 126 ".
+		void datos();
+		void jugar();
+};
+
+Perro::Perro(){   //funcion constructora, como la funcion main.
+	cout<<" name: ";cin>>name;
+	cout<<"raza: ";cin>>raza;
+}
+
+Perro::~Perro(){  //DESTRUCTOR BACIO, SIEMPRE ASI SI Q SI XD.
+}
+
+void Perro::datos(){
+	cout<<" name: "<<name<<"-> raza: "<<raza<<endl;
+}
+void Perro::jugar(){
+	cout<<" "<<name<<" esta jugando en el parque.";
+}
+
+int main(){
+	
+	Perro pr;
+	pr.datos();
+	pr.jugar();
+	
+	getch();
+	return 0;
+}
+
+EJEMPLO 6 :   METODOS CONSTRUCTORES GET & SET :
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+class Nota{
+	private:
+		int promedio,unidad;
+	public:
+		Nota();
+		void setNota_promedio(int );
+		void setNota_unidad(int );
+		int getNota_promedio();
+		int getNota_unidad();
+};
+
+Nota::Nota(){
+}
+
+void Nota::setNota_promedio(int a){
+	promedio = a;
+}
+
+void Nota::setNota_unidad(int b){
+	unidad = b;
+}
+
+int Nota::getNota_promedio(){
+	return promedio;
+}
+
+int Nota::getNota_unidad(){
+	return unidad;
+}
+
+int main(){
+	
+	Nota alum1;
+	
+	alum1.setNota_promedio(19);
+	alum1.setNota_unidad(3);
+	
+	cout<<alum1.getNota_promedio()<<endl;
+	cout<<alum1.getNota_unidad()<<endl;
+	
+	getch();
+	return 0;
+}
+
+EJEMPLO 7 : HERENCIA : 
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+class Gente{            //CLASE PADRE.
+	private:
+		string name;
+		int age;
+	public:
+		Gente(string ,int );
+		void show();
+};
+
+Gente::Gente(string n,int a){
+	name = n;
+	age = a;
+}
+
+void Gente::show(){
+	cout<<" your name is: "<<name<<endl;
+	cout<<" your age is: "<<age<<endl;
+}
+
+class Alumno : public Gente{         //ALUMNO ES HIJA DE GENTE Y PONEMOS PUBLIC PARA QUE TODO LO QUE VA A HEREDAR SEA LO PUBLICO.
+	private:
+		long codigo;
+		float nota_f;
+	public:
+		Alumno(string,int,long,float);      //PARAMETROS PARA LA CLASE PADRE Y LA DE ALUMNO.
+		void show_alumno();
+};
+
+Alumno::Alumno(string n,int a,long c,float nota):Gente(n,a){         //COLOCAMOS TODOS LOS PARAMETROS Y ":" CLASE PADRE ENVIANDO SUS PARAMETROS DE SU CONTRUCTOR.
+	codigo = c;                                        //Y SOLO ASIGNAMOS LOS VALORES A LOS ATRIBUTOS DE ESTA CLASE.
+	nota_f = nota;
+}
+
+void Alumno::show_alumno(){
+	show();                     // LLAMA A LA FUNCION SHOW() DE GENTE QUE ES DE SU PADRE.
+	cout<<" code: "<<codigo<<endl;
+	cout<<" average: "<<nota_f<<endl;	
+}
+
+int main(){
+	Alumno yo("alexander",19,15157334,19.6);      //CREAMOS UN OBJETO PERO CON LA CLASE HIJA ALUMNO.
+	yo.show_alumno();
+		
+	getch();
+	return 0;
+}
+
+EJEMPLO 8 : JERARAQUIA - HERENCIA :
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+class Gente{
+	private:
+		string name;
+		int age;
+	public:
+		Gente(string ,int );
+		void show();
+};
+
+Gente::Gente(string n,int a){
+	name = n;
+	age = a;
+}
+
+void Gente::show(){
+	cout<<" your name is: "<<name<<endl;
+	cout<<" your age is: "<<age<<endl;
+}
+
+class Empleado: public Gente{
+	private:
+		string job;
+	public:
+		Empleado(string,int,string);
+		void show_empleado();
+};
+
+Empleado::Empleado(string n,int a,string j):Gente(n,a){
+	job = j;
+}
+
+void Empleado::show_empleado(){
+	show();
+	cout<<" job: "<<job<<endl;
+}
+
+class Alumno : public Gente{
+	private:
+		long codigo;
+		float nota_f;
+	public:
+		Alumno(string,int,long,float);
+		void show_alumno();
+};
+
+Alumno::Alumno(string n,int a,long c,float nota):Gente(n,a){
+	codigo = c;
+	nota_f = nota;
+}
+
+void Alumno::show_alumno(){
+	show();
+	cout<<" code: "<<codigo<<endl;
+	cout<<" average: "<<nota_f<<endl;	
+}
+
+class Universitario : public Alumno{
+	private:
+		string carrera;
+	public:
+		Universitario(string,int,long,float,string);     //SIEMPRE RESPETANDO LOS ANTERIORES ATRIBUTOS DEL PADRE Y ABUELO.(JERARQUIA)
+		void show_universitario();
+};
+
+Universitario::Universitario(string n,int a,long c,float nota,string car):Alumno(n,a,c,nota){      //SE ENVIA EL CONTRUCTOR DE ALUMNO Y SUS PARAMETROS.
+	carrera = car;
+}
+
+void Universitario::show_universitario(){
+	show_alumno();
+	cout<<" career :"<<carrera<<endl;
+}
+
+int main(){
+	Universitario yo("alexander",19,15157334,19.6,"ing.sistemas");    //JERARQUIA.
+	yo.show_universitario();
+	
+	cout<<" ---------------------\n\n";
+	
+	Empleado alex = Empleado("yorishi",150,"demon slayer");          //OTRA FORMA DE CREAR UN OBJETO.
+	alex.show_empleado();
+	
+	getch();
+	return 0;
+}
+
+EJEMPLO 9: POLIMORFISMO :
+
+//PARA QUE UNA FUNCION DE PADRE PUEDA TENER POLIMORFISMO USAREMOS "VIRTUAL" AL PRINCIO DE LA FUNCION EJEMPLO: "virtual void show();"
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+class Ser{
+	private:
+		string especie;
+	public:
+		Ser(string);
+		virtual void show();         //PARA PODER USAR EL POLIMORFISMO(USAR: "VIRTUAL").
+		string get_especies();
+};
+
+class Perro : public Ser{
+	private:
+		int age;
+	public:
+		Perro(string, int);
+		void show();
+};
+
+class Persona : public Ser{
+	private:
+		string sexo;
+		int edad;
+	public:
+		Persona(string,string,int);
+		void show();
+};
+
+class Ave : public Ser{
+	private:
+		bool can_fly;
+	public:
+		Ave(string,bool);
+		void show();
+};
+
+Ser::Ser(string n){
+	especie = n;
+}
+
+void Ser::show(){
+	cout<<" especies: "<<especie<<endl;
+}
+
+string Ser::get_especies(){
+	return especie;
+}
+
+Perro::Perro(string n,int a):Ser(n){
+	age = a;
+}
+
+void Perro::show(){
+	Ser::show();
+	cout<<" age: "<<age<<endl;
+}
+
+Persona::Persona(string n,string s,int e):Ser(n){
+	sexo = s;
+	edad = e;
+}
+
+void Persona::show(){
+	Ser::show();
+	cout<<" sex: "<<sexo<<endl;
+	cout<<" age: "<<edad<<endl;
+}
+
+Ave::Ave(string n,bool f):Ser(n){
+	can_fly = f;
+}
+
+void Ave::show(){
+	Ser::show();
+	if (can_fly){
+		cout<<" fly: YES"<<endl;
+	}
+	else{
+		cout<<" fly: NO"<<endl;
+	}
+}
+
+int main(){
+	
+	Ser *vec[3];   //CREAMOS UN PUNTERO DE TIPO CLASE SER.
+	
+	vec[0] = new Perro("perro",8);	       //CREAMOS OBJETOS CON SUS RESPECTIVAS CLASES SEGUN SUS PARAMETROS O INSTANCIA DE CLASE.
+	vec[1] = new Persona("humano","masculino",19);
+	vec[2] = new Ave("Cuervo",true);
+	
+	for(int i=0;i<3;i++){
+		cout<<"-------"<<vec[i]->get_especies()<<"-------\n";    //IMPRIME LAS RAYAS Y EN MEDIO LA ESPECIE.
+		vec[i]->show();    // "->" ES COMO USAR "." PERO EN PUNTEROS. MUESTRA LA FUNCION RESPECTIVA SEGUN SU CLASE("SHOW()").
+	}
+
+	
+	getch();
+	return 0;
+}
+
+EJEMPLO 10 : POLIMORFISMO : PROTECTED :
+
+//PROTECTED : ES COMO PRIVADO PERO COMPARTIDO PARA LAS CLASES HIJAS DE ESTA, O SEA SE PUEDE LLAMAR DESDE CUALQUIER CLASE HIJA POR HERENCIA.
+
+#include<iostream>
+#include<conio.h>
+#include<string.h>
+using namespace std;
+
+class Animal{
+	protected:        // USO DEL PROTECTED.
+		string name;
+	public:
+		Animal(string);
+		virtual void eat();
+		
+};
+
+class Humano : public Animal{
+	private:
+		int age;
+	public:
+		Humano(string,int );
+		void eat();
+};
+
+class Perro : public Animal{
+	private:
+		int age_c;
+	public:
+		Perro(string ,int );
+};
+
+Animal::Animal(string n){
+	name = n;
+}
+
+void Animal::eat(){
+	cout<<" the animal "<<name<<" is eating."<<endl;
+}
+
+Humano::Humano(string n,int a):Animal(n){
+	age = a;
+}
+void Humano::eat(){
+	cout<<" the human "<<name<<" is eating."<<endl;
+}
+
+Perro::Perro(string n,int a):Animal(n){
+	age_c = a;
+}
+
+int main(){
+	Animal *array[2];
+	
+	array[0] = new Humano("aldo",24);
+	array[1] = new Perro("fido",8);
+	
+	array[0]->eat();       //SALIDA : THE HUMAN ALDO IS EATING.
+	array[1]->eat();       //SALIDA : THE ANIMAL FIDO IS EATING.
+	
+	getch();
+	return 0;
+}
+
+37 -------------------->>> ALGEBRA DE BOOL:
+
+-- USO DE " ^ " : XOR binario.
+ 	-DEVUELVE TRUE O FALSE SEGUN LOS NUMEROS ENVIADOS, TRUE SI SON DIFERENTES, FALSE SI SON IGUALES.
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+int uso_de_v_invertida(int,int);
+int uso_de_v_invertida_2(int,int);
+
+int main(){
+	cout<<uso_de_v_invertida(-3,-3)<<endl;   //SALIDA : 0  OR false.
+	cout<<uso_de_v_invertida(2,3)<<endl;    //SALIDA : 1   OR true.
+	
+	cout<<uso_de_v_invertida_2(-3,-3)<<endl;   //SALIDA : 1 OR true.
+	cout<<uso_de_v_invertida_2(2,3)<<endl;    //SALIDA : 0   OR false.
+
+	getch();
+	return 0;
+}
+
+int uso_de_v_invertida(int a,int b){   		//NORMAL.
+	return (a ^ b);
+}
+int uso_de_v_invertida_2(int a,int b){     	//PARA VER SI SON IGUALES CON NEGACION.
+	return !(a ^ b);
+}
+
+--USO DE " - " : PARA VER SI SON IGUALES O DIFERENTES :
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+int uso_de_MENOS(int,int);
+
+int main(){
+	cout<<uso_de_MENOS(13,-3)<<endl;  //SALIDA : 0  OR FALSE.
+	cout<<uso_de_MENOS(2,2)<<endl;     //SALIDA : 1  OR TRUE.
+	
+	
+	getch();
+	return 0;
+}
+
+int uso_de_MENOS(int a,int b){
+	return !(a - b);
+}
+
+38 -------------------->>>>  IGUALDAD ENTRE PUNTERO Y REFERENCIA : COMPARACION : NEW & DELETE  WITH CLASS AND STRUCT :
+
+--EJEMPLO 1: " CON * " PUNTERO.
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+void uso_de_v_invertida(int *);
+
+int main(){
+	int num=3;
+	cout<<" var num antes: "<<num<<endl;
+	
+	uso_de_v_invertida(&num);
+
+	cout<<" var num despues: "<<num<<endl;
+	cout<<" var num despues: "<<num<<endl;
+	
+	getch();
+	return 0;
+}
+
+void uso_de_v_invertida(int *a){
+	*a=15;
+}
+
+-- EJEMPLO 2: " CON & " REFERENCIA.
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+void uso_de_v_invertida(int &);
+
+int main(){
+	int num=3;
+	cout<<" var num antes: "<<num<<endl;
+	
+	uso_de_v_invertida(num);
+
+	cout<<" var num despues: "<<num<<endl;
+	cout<<" var num despues: "<<num<<endl;
+	
+	getch();
+	return 0;
+}
+
+void uso_de_v_invertida(int &a){
+	a=15;
+}
+
+--- EJEMPLO 1 Y EJEMPLO 2 SON IGUALES, CON DIFERENCIA QUE UNO ES SOLO PARA ALGO Y EL OTRO PARA MAS COSAS O EN OTRAS PALABRAS VALORES UNICOS Y MATRICES O VECTORES.
+
+--- CAMBIO DE VARIABLES CON NEW & DELETE :
+
+#include<iostream>
+#include<conio.h>
+#include<stdlib.h>
+#include<string.h>
+using namespace std;
+
+class Intencidad{
+	private:
+		int power;
+	public:
+		Intencidad(){
+			power = 10;
+		}
+		void show(){
+			cout<<" poder de intencidad: "<<power<<endl;
+		}
+};
+
+struct Nombre{
+	char name[20];
+};
+
+int main(){
+	Intencidad *puntero = new Intencidad;
+	Nombre *puntero_2 = new Nombre;
+	
+	puntero->show();
+	
+	strcpy(puntero_2->name,"alexander");
+	cout<<" the name is: "<<puntero_2->name<<endl;
+	
+	cout<<"\n---CAMBIO DE PUNTERO A REFRENCIA---\n"<<endl;
+	
+	Intencidad &dato = *puntero;
+	Nombre &dato_2 = *puntero_2;
+	
+	dato.show();
+	
+	strcpy(dato_2.name,"OKINIMESUMA");
+	cout<<"the name 2 is: "<<dato_2.name<<endl;
+	
+	if(puntero) {   //si el puntero no es 0 o NULL o sea se mide en true o false.
+		cout<<" Deleting puntero."<<endl;
+		delete puntero;   //ASI LIBERARA LA MEMORIA DE PUNTEROS Y DE SI MISMA.
+	}
+	if(puntero_2) {
+		cout<<" Deleting puntero_2."<<endl;
+		delete puntero_2; 
+	}
+	//PARA ELIMINAR A UNA REFRENCIA USAMOS :  delete &refrencia_nombre;
+	
+	getch();
+	return 0;
+}
+
+//SALIDA:
+
+ poder de intencidad: 10
+ the name is: alexander
+
+---CAMBIO DE PUNTERO A REFRENCIA---
+
+ poder de intencidad: 10
+the name 2 is: OKINIMESUMA
+ Deleting puntero.
+ Deleting puntero_2.
+
+39--------------------->>>> ARCHIVOS C++ : FILE C++ : FILES C++ :
+
+#include<iostream>
+#include<conio.h>
+#include<fstream>     // LIBRERIA PARA USAR LOS ARCHIVOS.
+#include<stdlib.h>     // PARA PODER USAR EL EXIT(1)
+using namespace std;
+
+void create_file();
+void add_text();
+void read_file();
+
+int main(){
+	create_file();
+	add_text();
+	read_file();
+	
+	getch();
+	return 0;
+}
+
+void create_file(){
+	ofstream archivo;         // OFSTREAM PARA CREAR Y INGRESAR TEXTO.
+	string nombre;
+	
+	cout<<" Enter file name: ";
+	getline(cin,nombre);
+	
+	archivo.open(nombre.c_str(), ios::out);        // PRIMERA FORMA DE INGRESAR EL NOMBRE DEL DOCUMENTO CON LA FUNCION .C_STR()  Y ARCHIVO EN MODO CREACION (OUT).
+	
+	if(archivo.fail()){                            // EN CASO QUE NO SE ENCUENTRE UN ARCHIVO USAMOS LA FUNCION .FAIL() PARA VERIFICAR.
+		cout<<" Error. cant create the file."<<endl;
+		exit(1);
+	}
+	else{
+		archivo<<" HOLA ESTE ES EL ARCHIVO"<<endl;
+		archivo<<" ahora en ingles, hello this is the file."<<endl;
+		
+		archivo.close();        // CIERRA EL ARCHIVO PARA NO EXCEDER EL USO DE MEMORIA.
+	}
+}
+void add_text(){
+	ofstream file;
+	string comentarios;
+	char band='Y';
+	
+	file.open("alexander.txt", ios::app);             // SEGUNDA FORMA DE ENVIAR AL NOMBRE DEL ARCHIVO Y ABRIMOS ARCHIVO EN MODO AÑADIR (APP).
+	
+	if(file.fail()){
+		cout<<" Error. cant add text to the file."<<endl;
+		exit(1);
+	}
+	else{
+		while(band =='Y' || band == 'y'){
+			fflush(stdin);           	// LIMPIA LA MEMORIA DEL BUFFER PARA LA UTILIDAD DEL TECLADO.
+			cout<<" Text: ";
+			getline(cin, comentarios);
+			
+			file<<comentarios<<endl;        // PARECIDO A UN COUT PERO EN VEZ DE COUT EL NOMBRE DEL ARCHIVO Y ENVIAMOS EL MENSAJE COMO PARA IMPRIMIR POR CONSOLA.
+			do{
+				cout<<" Do you want continue? (y/n): ";
+				cin>>band;
+			}while(band != 'Y' && band != 'N'  && band != 'y' && band != 'n');
+		}
+		
+		file.close();
+	}
+}
+void read_file(){
+	ifstream datos;        // IFSTREAM  PARA LEER ARCHIVOS.
+	string info;
+	
+	datos.open("D:\\Alexander\\C++ ALEX\\c++ archivos\\alexander.txt", ios::in);     //TERCERA FORMA DE ENVIAR EL NOMBRE Y ABRIMS EL ARCHIVO EN MODO LECTURA (IN).
+	
+	if(datos.fail()){
+		cout<<" Error. file didnt find."<<endl;
+		exit(1);
+	}
+	else{
+		while(!datos.eof()){    		//MIENTRAS QUE NO SEA EL FINAL
+		   				// .EOF() SI ES EL FINAL ENTONCES RETORNA TRUE, CASO CONTRARIO FALSE.
+		   getline(datos, info);           //EN VEZ DEL CIN PONEMOS LA VARIABLE DEL ARCHIVO COMO TIPO DE OBTENCION DE DATOS.
+		   cout<<info<<endl;               //IMPRIMIMOS COMO SIEMPRE.
+		}
+		datos.close();
+	}
+}
+
+40 --------------------->>> SIZEOF (VALOR) : FOREACH NORMAL :
+
+La función recibe como único parámetro o el nombre de una variable, o el nombre de un tipo de datos,
+y devuelve su tamaño en bytes. De esta forma, sizeof(int) devuelve el número de bytes que se utilizan
+para almacenar un entero. La función se puede utilizar también con tipos de datos estructurados o uniones tal 
+
+
+//PARA UN INT LO DIVIDIREMOS ENTRE CUATRO(/4).
+//PARA UN CHAR LE RESTAREMOS UNO(-1).
+
+int numbers[]={1,2,3,45,81};
+char string[]="alexander";
+
+cout<<sizeof(numbers)/4<<endl;   //5 (porque sale 20/4 , un entero o int vale 4 bytes).
+cout<<sizeof(string)-1<<endl;    //9 (sale 10-1,un char vale 1 byte pero por alguna razon se le suma algo asi que por eso le resto 1).
+
+for(int i=0; i<sizeof(numbers)/4; i++{
+	cout<<numbers[i]<<endl;
+}
+
+//RECORRERA TODO EL ARREGLO : 1,2 ....45,81
+
+for(int i=0; i<sizeof(string)-1; i++{
+	cout<<string[i]<<endl;
+}
+
+//a,l,e,.....,d,e,r
+
+41 ------------------->>>  FUNCION LAMBDA EN C++ : #DEFINE : DEFINE :
+
+#define potencia(x) x*x      
+
+cout<<potencia(5)<<endl;     //25
+
+
+42 ------------------>>> LISTAS C++ : LIST C++ : 
+
+EJEMPLO 1 : 
+EJEMPLO 2 :
+
+------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------" Java "--------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------
+
+system.out.println("hola pendejos del mundo jajaja");
+system.out.println("que pedo que pedo");
+
+    int anoNacim = 2001;
+    String ciudad = "Arequipa";
+    System.out.println("Dia de nacimiento: ");
+    System.out.println("no tengo idea");
+    System.out.println("month: ");
+    System.out.println("febrero");
+    System.out.println("por lo que veo naciste en el año "+anoNacim);
+    System.out.println("de tal forma que debes tener "+(2019-anoNacim)+ " de edad y naciste en "+ciudad);
+    System.out.println("una doctora me puso el nombre T.T");
+  }
+}
+
+1 -------------------------------------------------------------------------
+
+public class if_condicional {
+  public static void main(String[] args) {
+    int anoNacim = 1999;
+    int edad = 2019-anoNacim;
+    System.out.println("");
+    if (edad >=18) {
+       System.out.println("Eres mayor de edad y puedes tomar conbi");
+       System.out.println("");
+    }
+    else {
+       System.out.println("Eres menor de edad y no puedes entrar a los juegos de ni¤os");
+       System.out.println("");
+    }
+   System.out.println("Adios y buenas tardes");
+   System.out.println("");
+  }
+}
+
+2 ----------------------------------------------------------------
+
+public class for_ciclo {
+  public static void main(String[] args) {
+     int anoNacim = 1975;
+     int edad = 2019-anoNacim;
+     for(int c=1; c>=edad; c++) {
+        System.out.println("");
+        System.out.println("ya festeje mi cumplea¤os");
+  }
+  System.out.println("");
+  System.out.println("Entonces tengo "+edad+ " anos de edad");
+  }
+}
+
+3 .........................................................................
