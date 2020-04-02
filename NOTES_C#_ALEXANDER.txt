@@ -1,0 +1,800 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------- C# -----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------->>>>> INICIO COMUN :
+
+//PARA IMPRIMIR POR VARIOS DATOS :
+
+return $"{this.Apellido}, {this.Nombre}";
+Console.WriteLine (" el valor de {0} es muy bajo para damage.",value);
+
+--------------->>>>> INICIO COMUN :
+using System;
+
+namespace alex01
+{
+	class MainClass
+	{
+		public static void Main (string[] args)
+		{
+			Console.WriteLine ("Hello World!");
+			Console.WriteLine ("soy alexander y voy a crear uno de los mejores juegos de la histoia....\n");
+			Console.WriteLine("pero sera duro, y asombroso kakaoii!!!!\n");
+		}
+	}
+}
+
+ENTRADA DE DATOS Y SALIDA :
+
+	string name = Console.ReadLine ();
+	Console.WriteLine ("name: " + name);
+
+
+bool bool1 = true;
+int num =10;
+long  largo=999999999;
+float decimal = 15.5f;
+double doble = 2.2131241513523532525;
+char letra= "A";
+string cadena ="alexander";
+
+
+dynamic dato =10;    //se le puede pasar cualquier dato y puede ser modificado.
+dato ="alex";      //pero no se puede imprimir.
+
+
+var dato1 =30;          //se le puede asignar cualquier dato, pero no se puede modificar.  (dato1="gato" ERROR!!!.)
+var dato2 ="alex";
+var dato3 =213.42f;
+
+console.WriteLine(dato1+dato2);    /saldria "30alex".             //viste es muy bueno. :)         //no se puede aplicar con el bool.
+console.WriteLine(dato1+dato3);    /saldria "243.42".
+
+
+int a,b;
+Console.WriteLine (" enter first number: ");
+a = Convert.ToByte (Console.ReadLine ());
+
+Console.WriteLine (" enter second number: ");
+b = Convert.ToByte (Console.ReadLine ());
+
+Console.WriteLine (" the sum is: "+(a+b));
+
+// RECUERDA QUE CUANDO NO ES UN VALOR EN CHAR O STRING DEBES USAR EL COMANDO "Convert.ToValor_al_que_quieras_ingresar(console.writeline());"
+
+---------------->>>> Math.etc() :
+
+using System;
+
+namespace alex01
+{
+	class MainClass
+	{
+		public static void Main (string[] args)
+		{
+			var dato1 = 10;
+			var dato2 = 3.5;
+
+			Console.WriteLine (Math.Round(dato2));
+			Console.WriteLine (Math.Abs(dato2));
+			Console.WriteLine (Math.Ceiling(dato2));
+			Console.WriteLine (Math.Floor(dato2));
+			Console.WriteLine (Math.Min(dato2,dato1));
+			Console.WriteLine (Math.Max(dato2,dato1));
+			Console.WriteLine (Math.Pow(dato1,2));
+			Console.WriteLine (Math.Sqrt(dato1));
+		}
+	}
+}
+
+
+----------------->>>>> NUMEROS RANDOM como generarlos :
+
+using System;
+
+namespace alex01
+{
+	class MainClass
+	{
+		public static void Main (string[] args)
+		{
+			Random generar = new Random ();            // crea memoria.
+
+			var dato_enviado = generar.Next (1,11);        // dentro del Next ponemos sus limites INICIO - FINAL(nunca tocara el ultimo numero solo en anterior a ese)
+			
+			var dato_double = generar.NextDouble() *10;   //generara un numero entre 0 y 10 en double. sin el "*" el 10 seria un aleatorio entre cero y sus decimales.
+
+			Console.WriteLine (dato_enviado);           //imprimira numeros entre 1 a 10, el 11 no entra es como la pared.
+
+		}
+	}
+}
+
+
+
+----------------->>>> FORMA DE DAR VALOR A UN BOOLEANO CON CONDICION :
+
+using System;
+
+namespace alex01
+{
+	class MainClass
+	{
+		public static void Main (string[] args)
+		{
+			var cantidad=20;           
+			bool aceptar = (cantidad >10 && cantidad<100) ? true : false;     //DONDE SI CUMPLE LA CONDICION RETORNA TRUE CASO CONTRARIO FALSE Y SE DEFINE ACEPTAR CON EL VALOR DATO POR EL "?".
+			Console.WriteLine (aceptar);
+		}
+	}
+}
+
+
+---------------->>> SWITCH() :
+
+using System;
+
+namespace alex01
+{
+	class MainClass
+	{
+		public static void Main (string[] args)
+		{
+			var vowel="a";
+			switch(vowel)
+			{
+			case "a":
+				Console.WriteLine ("la vocal es a.");
+				break;
+			case "e":
+				Console.WriteLine ("la vocal es e.");
+				break;
+			case "i":
+				Console.WriteLine ("la vocal es i.");
+				break;
+			case "o":
+				Console.WriteLine ("la vocal es o.");
+				break;
+			case "u":
+				Console.WriteLine ("la vocal es u.");
+				break;
+			default:
+				Console.WriteLine ("no es una vocal");
+				break;
+			}
+				
+		}
+	}
+}
+
+-------------------->>> WHILE && DO-WHILE :
+
+using System;
+
+namespace alex01
+{
+	class MainClass
+	{
+		public static void Main (string[] args)
+		{
+			var i = 0;
+			while (i<10) {
+				if (i == 5) {
+					i++; 
+					continue;       el bucle continua sin compilar las demas lineas siguientes.
+				}
+				if (i == 7) {
+					break;   //el bucle finaliza.
+				}
+				Console.WriteLine (i);             //resultado final : 0 1 2 3 4 6
+				i++;
+			}
+				
+		}
+	}
+}
+
+DO-WHILE :
+
+using System;
+
+namespace alex01
+{
+	class MainClass
+	{
+		public static void Main (string[] args)
+		{
+			bool con = false;
+
+			do {
+				Console.WriteLine ("seguire todavia. XD.");         //DENTRARA AL BUCLE UNA VEZ.
+			} while(con);  			//SI "con" FUERA TRUE EL BUCLE NO SE DETENDRIA, POR ESO ES FALSE Y SOLO SALDRA UNA VEZ ESE MENSAJE.
+
+		}
+	}
+}
+
+
+------------------>>> FOR && FOREACH :
+
+using System;
+
+namespace alex01
+{
+	class MainClass
+	{
+		public static void Main (string[] args)
+		{
+			for (int i = 0; i <= 10; i++) {
+				Console.WriteLine (i);            //el tipico for ya conocido
+			}
+
+			string cadena = "mostrando cadena";            //DEFINISMOS LA CADENA.
+			foreach(char i in cadena){            //EL PROCESO ES PARECIDO AL DE PYTHON
+				Console.WriteLine (i);
+			}
+		}
+	}
+}
+
+SALIDA :
+
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+m
+o
+s
+t
+r
+a
+n
+d
+o
+
+c
+a
+d
+e
+n
+a
+Presione una tecla para continuar . . .
+
+
+CON ENTEROS UN ARRAY DE ENTEROS :
+
+using System;
+namespace alex01
+{
+	class MainClass
+	{
+		public static void Main (string[] args)
+		{
+			int[] vec = {1,2,-3,4};
+			foreach(int i in vec){
+				Console.WriteLine (i);
+			}
+		}
+	}
+}
+
+salida:
+1
+2
+-3
+4
+------------------------->>>>>>>> TIPOS DE DATOS COMPUESTOS COLECCIONES (STRINGS) :
+
+using System;
+namespace alex01
+{
+	class MainClass
+	{
+		public static void Main (string[] args)
+		{
+			String cadena = "hola alexander";
+
+			Console.WriteLine ("longitud de la string o cadena: " + cadena.Length);
+			Console.WriteLine ("retorna inicio de posicion en la palabra alexander: " + cadena.IndexOf("alexander"));
+			Console.WriteLine ("sub cadena desde la posicion 5 y avanzara 3 posiciones mostrandola: " + cadena.Substring(5,3));
+			Console.WriteLine ("es igual a hola alexander: " + cadena.Equals("hola alexander"));
+			Console.WriteLine ("retorna true si comineza con hola: " + cadena.StartsWith("hola"));
+			Console.WriteLine ("retorna true si termina con alexander: " + cadena.EndsWith("alexander"));
+			Console.WriteLine ("remplaza string hola con adios: " + cadena.Replace("hola","adios"));
+			Console.WriteLine ("remplaza chars a con 4: " + cadena.Replace("a","4"));
+			Console.WriteLine ("borra todos los espacios fuera de la string: " + cadena.Trim());
+			Console.WriteLine ("true or false si la cadena es vacia: " + String.IsNullOrEmpty(cadena));
+			Console.WriteLine ("si esta vacia o espacios en blanco: " + String.IsNullOrWhiteSpace(cadena));
+
+		}
+	}
+}
+
+ARRAYS EN STRING :
+
+using System;
+namespace alex01
+{
+	class MainClass
+	{
+		public static void Main (string[] args)
+		{
+			string[] parte1 = { "hola", "gente", "como", "esta" };
+			string compuesta = string.Join (" ", parte1);      //PRIMER VALOR SERA DE COMO VA UNIR A LAS PALABRAS, EL SEGUNDO ES EL ARRAY.
+		
+			Console.WriteLine (compuesta);
+
+
+			string alex = "hola gente como esta";  //UNA STRING NORMAL, LA DE ABAJO ES UNA CADENA DE STRING.
+			string[] parte2 = alex.Split(' ');     //EN VALOR DATO EN EL PARAMETRO ES CUAL ES EL PUNTO DE SEPARACION DE CADA PALABRA. RECUERDA USAR EL ' ' NO EL " ".
+
+			foreach (string pala in parte2) {
+				Console.WriteLine (pala);
+			}
+		}
+	}
+}
+
+------------------------->>>>>>>> TIPOS DE DATOS COMPUESTOS COLECCIONES (INT) :
+
+using System;
+namespace alex01
+{
+	class MainClass
+	{
+		public static void Main (string[] args)
+		{
+			int[] vec = {1,2,-3,4};
+
+			Console.WriteLine ("vector posicion [0]: "+vec [0]);
+			Console.WriteLine ("vector posicion [1]: "+vec [1]);
+			Console.WriteLine ("vector posicion [2]: "+vec [2]);
+			Console.WriteLine ("vector posicion [3]: "+vec [3]);
+
+			Console.WriteLine ("longitud del array vector: "+vec.Length);
+
+			vec [0] = -200;
+			vec [1] += 10;
+
+			for (int i = 0; i < vec.Length; i++) {
+				Console.WriteLine (vec[i]);
+			}
+
+			foreach(int i in vec){
+				Console.WriteLine (i);
+			}
+
+			Console.WriteLine ("retorna la posicion de -3 que es vec["+ Array.IndexOf(vec,-3)+"].");
+		}
+	}
+}
+
+//INGRESO DATOS ARRAY INT :
+
+using System;
+namespace alex01
+{
+	class MainClass
+	{
+		public static void Main (string[] args)
+		{
+			int[] vec = new int[5];
+
+			for (int i = 0; i < vec.Length; i++) {
+				Console.WriteLine (" ENTER NUMBER ["+i+"] = ");
+				vec [i] = Convert.ToByte (Console.ReadLine ());
+			}
+			foreach(int val in vec){
+				Console.WriteLine ("num: "+val);
+			}
+		}
+	}
+}
+
+------------------------->>>>>>>> LISTAS <> :
+using System;
+using System.Collections.Generic;         //PARA USAR LAS LISTAS IMPORTAREMOS ESTA LIBRERIA. -> using System.Collections.Generic;
+namespace alex01
+{
+	class MainClass
+	{
+		public static void Main (string[] args)
+		{
+			List<int> numeros = new List<int> ();           //CREACION 1
+			Console.WriteLine ("cantidad de numeros en la lista: "+ numeros.Count);  //COUNT DEVUELVE LA CANTIDAD DE VALORES EN ESA LISTA.
+
+			numeros.Add (46);     //AÑADE UN ELEMENTO AL FINAL DE LA LISTA.
+			numeros.Add (21);
+			numeros.Add (52);
+
+			foreach (int num in numeros) {       //ITERACION CON EL FOREACH.
+				Console.WriteLine (num);
+			}
+
+			int[] otros_numeros = { 3, 1, 6, 2 };
+			numeros.AddRange (otros_numeros);       //AÑADE UN ARRAY A FINAL E LA LISTA CON EL ADDRANGE.
+
+			for (int i = 0; i < numeros.Count; i++) {        //ITERACION CON EL FOR.
+				Console.WriteLine ("-> "+numeros[i]);
+			}
+
+			numeros.Clear ();           //LIMPIA LA LISTA, BORRANDO TODOS LOS VALORES.
+
+			Console.WriteLine ("cantidad actual: "+numeros.Count);    //0
+
+			Console.WriteLine ("\n OTRA FORMA DE CREAR UNA LISTA :\n");
+								                        //SE ESTABLECE UN ARRAY EN LOS PARAMETROS.
+			List<int> valores = new List <int> (new int[] {3,5,1,6});           //CREACION 2.   
+
+			valores.Insert (0,93);        //INSERTA EL VALOR "93" EN LA POSICION "0", ENTONCES LOS DEMAS AUMENTAN UNA POSCICION:
+                                                      // ANTES // 3 =[0] - 5 =[1] - 1 =[2] ..... etc.  // AHORA // 93 =[0] - 3 =[1] - 5 =[2] ..... etc.
+			valores.Remove (1);         //REMUEVE DE TODA LA LISTA EL VALOR NUMERO "1".
+ 
+			valores.RemoveAt (2);        //REMUEVE EL VALOR EN LA POSICION "2". EN ESTE CASO ES EL NUMERO "5".
+
+			foreach (int n in valores) {
+				Console.WriteLine (n);
+			}
+
+
+			int[] enviar = { 11, 7, 3, 4, 5 };                  //SE LE ENVIA UN ARRAY AL PARANETRO.
+			List<int> datos = new List<int> (enviar);          //CREACION 3.
+
+			Console.WriteLine ("posicion de 4: "+datos.IndexOf(4));         //INDICA LA POSICION. SI ESTA DEVUELVE LA POSICION, CASO CONTRARIO DEVUELVE "-1".
+			Console.WriteLine ("posicion de 32: "+datos.IndexOf(32));
+			Console.WriteLine ("contine el numero 3: "+datos.Contains(3));   //RETORNA TRUE OR FALSE SEGUN SI LA LISTA CONTIENE EL NUMERO "3" QUE SE APLICA EN ESTE CASO.
+
+			datos.Sort ();         //ORDENA LA LISTA. DEL MENOR AL MAYOR. -> 3,4,5,7,11.
+			datos.Reverse ();       // LE DA VUELTA A LA LISTA. -> 11,7,5,4,3.
+
+			for (int i = 0; i < datos.Count; i++) {
+				Console.WriteLine ("-> "+datos[i]);
+			}
+
+		}
+	}
+}
+
+------------------------->>>>>>>>  FUNCIONES INT:
+
+using System;
+namespace alex01
+{
+	class MainClass
+	{
+		public static int suma_two(int a,int b){       //recuerda poner el state y public o private o internal.
+			return a + b;
+		}
+
+		public static void Main (string[] args)
+		{
+			Console.WriteLine (suma_two(3,2));  //salida 5
+
+		}
+	}
+}
+
+------------------------->>>>>>>>  STRUCTURAS O STRUCT :
+                                                
+ 						  //VERSION 1 : USO CON LISTA : PODRA SEGUIR AUMENTANDO.
+using System;
+using System.Collections.Generic;
+namespace alex01
+{
+	struct customers{
+		public string name;
+		public int departamento;
+		public double pay;
+
+		public customers(string name,int departamento,double pay){  //FUNCION TIPO "customers". 
+			this.name = name;                                  //SE PONE EL THIS PARA QUE LA VARIBLE DADA SEA LOCAL NO GLOVAL, O SEA QUE EL THIS DICE QUE ESA VARIBLE ES SOLO DE ESE MODULO O PARTE DEL PROGRAMA.
+			this.departamento = departamento;
+			this.pay = pay;
+		}
+
+		public void show_info(){
+			Console.WriteLine (" name: "+this.name);
+			Console.WriteLine (" departament n°: "+this.departamento);
+			Console.WriteLine (" cost: "+this.pay);
+		}
+	}
+
+	class MainClass
+	{
+		public static void Main (string[] args)
+		{
+			//customers lalo = new customers("jorishi",105,1500.50);          // UNA FORMA DE METER DATOS.
+			//lalo.show_info ();
+
+			List<customers> clients = new List<customers>();  //CREAMOS UNA LISTA TIPO "CUSTOMERS" QUE ES EL TITULO DE LA ESTRUCTURA Y ES UNA NUEVA VARIBLE CREADA.
+			Console.WriteLine ("enter quantity: ");
+			int quan=Convert.ToByte(Console.ReadLine ());
+
+			for (int i = 0; i < quan; i++) {
+				Console.WriteLine ("\n"+ (i+1) +" .New user: \n");
+				Console.WriteLine ("enter name: ");
+				string dato1 = Console.ReadLine();
+				Console.WriteLine ("enter departament: ");
+				int dato2 = Convert.ToInt32 (Console.ReadLine());
+				Console.WriteLine ("enter pay: ");
+				double dato3 = Convert.ToDouble (Console.ReadLine());
+				clients.Add (new customers(dato1,dato2,dato3));         //AÑADIMOS A LA LISTA.
+			}
+
+			Console.WriteLine ("\n show clients list info: ");
+			foreach (customers val in clients) {
+				if (val.name == "alex") {             //CONDICION PARA VER SI HAY UN CLIENTE CON NOMBRE "alex" SI EXISTE MOSTRAMOS DATOS.
+					Console.WriteLine ("\ncliente: ");
+					val.show_info ();          //FUNCION DE STRUCT.
+				}
+			}
+
+			Console.WriteLine ("\n quantity of elements in the list: ");
+			Console.WriteLine (clients.Count);
+			
+		}
+	}
+}
+
+								//VERSION 2 : CON FUNCIONES.
+
+using System;
+using System.Collections.Generic;
+namespace alex01
+{
+	struct customers{
+		public string name;
+		public int departamento;
+		public double pay;
+
+		public customers(string name,int departamento,double pay){  
+			this.name = name;                        
+			this.departamento = departamento;
+			this.pay = pay;
+		}
+
+		public void show_info(){
+			Console.WriteLine (" name: "+this.name);
+			Console.WriteLine (" departament n°: "+this.departamento);
+			Console.WriteLine (" cost: "+this.pay);
+		}
+	}
+		
+
+	class MainClass
+	{
+		static List<customers> clients= new List<customers> ();      //DECLARAMOS UNA VARAIBLE GLOBAL DE LA CLASE O STATIC.
+
+		public static void enter_data(){
+			Console.WriteLine ("enter quantity: ");
+			int quantity=Convert.ToByte(Console.ReadLine ());
+
+			for (int i = 0; i < quantity; i++) {
+				Console.WriteLine ("\n"+ (i+1) +" .New user: \n");
+				Console.WriteLine ("enter name: ");
+				string name= Console.ReadLine();
+				Console.WriteLine ("enter departament: ");
+				int departamento = Convert.ToInt32 (Console.ReadLine());
+				Console.WriteLine ("enter pay: ");
+				double pay = Convert.ToDouble (Console.ReadLine());
+
+				clients.Add (new customers (name, departamento, pay));  //AÑADIMOS A LA LISTA UN ELEMENTO DE LA STRUCT "customers".
+			}
+		}
+		public static void show_data(){
+			Console.WriteLine ("\n show clients list info: ");
+			foreach(customers val in clients){
+				val.show_info ();
+			}
+		}
+		public static void Main (string[] args)
+		{
+			enter_data ();
+			show_data ();
+		}
+	}
+}
+
+
+
+						//USO CON UN ARRAY :  TENDRA UN LIMITE DE MEMORIA ESTABLECIDA.
+
+using System.Collections.Generic;
+namespace alex01
+{
+	struct customers{
+		public string name;
+		public int departamento;
+		public double pay;
+	}
+
+	class MainClass
+	{
+
+		public static void show_info(customers yo){
+			Console.WriteLine (" name: "+yo.name);
+			Console.WriteLine (" departament n°: "+yo.departamento);
+			Console.WriteLine (" cost: "+yo.pay);
+		}
+
+		public static void enter_data(int quantity,customers[] clients){
+			for (int i = 0; i < quantity; i++) {
+				Console.WriteLine ("\n"+ (i+1) +" .New user: \n");
+				Console.WriteLine ("enter name: ");
+				clients[i].name= Console.ReadLine();
+				Console.WriteLine ("enter departament: ");
+				clients[i].departamento = Convert.ToInt32 (Console.ReadLine());
+				Console.WriteLine ("enter pay: ");
+				clients[i].pay = Convert.ToDouble (Console.ReadLine());
+			}
+		}
+		public static void show_data(customers[] cli){
+			Console.WriteLine ("\n show clients list info: ");
+			for(int i=0;i< cli.Length;i++) {
+				if (cli[i].name == "alex") {
+					Console.WriteLine ("\ncliente: ");
+					show_info (cli[i]);
+				}
+			}
+		}
+		public static void Main (string[] args)
+		{
+			Console.WriteLine ("enter quantity: ");
+			int quan=Convert.ToByte(Console.ReadLine ());
+
+			customers[] clients = new customers[quan];
+
+			enter_data (quan,clients);
+			show_data (clients);
+					
+		}
+	}
+}
+
+//TRATA DE USAR MÁS LA LISTA PLEASE.
+
+
+------------------------->>>>>>>>  PUBLIC - STATIC - PRIVATE :
+
+PUBLIC: SE PUEDE VER DESDE CUALQUIER LADO DE LA CONSOLA, MODIFICAR ETC.
+STATIC: NO PODREMOS USAR THIS. Y TENDREMOS QUE PASAR POR INSTANCIA LOS DATOS, LOS OBJETOS DE ESA CLASE SERA ESPECIFICOS.
+ejemplo:
+
+sin static:
+
+Clase1 yo = new Clase1();
+yo.printname();
+
+con static:
+
+
+Clase1 yo = new Clase1();
+Clase1.printname(yo);
+
+PRIVATE: SOLO LO PUEDE VER O CAMBIAR LA CLASE.
+
+TAMBIEN LAS PROPIEDASDES DE LAS CLASES:
+
+PRIVADA:SOLO LA MISMA CLASE.
+PUBLICA:DESDE CUALQUIER LUGAR.
+PROTEGIDA:SOLO LA MISMA CLASE Y SUS HIJOS UNA CLASE DERIVADA.
+
+------------------------->>>>>>>>  CLASS :
+
+CLASS: CON REFERENCIA A LA MEMORIA.
+STRUCT: CON REFERENCIA AL VALOR.
+
+                                          		// EJEMPLO N° 1 :
+
+using System;
+namespace alex01
+{
+	class Player{
+		public string name;        //varible publica puede ser vista, modificado desde donde sea
+
+		private double damage;      //solo por la clase
+		public double Damage_p{
+			get{ return damage;}                      //con get con solo invocar a "Damage_p" obtendremos el valor de "damage" que es privado.
+			set{ 					  //con set con solo poner "Damage_p = 15" modificaremos el valor obviamente si cumplimos los requisitos ue sdebe ser mayor o igual a 0.
+				if (value >= 0) {
+					damage = value;
+					} 
+				else {
+					Console.WriteLine (" el valor de {0} es muy bajo para damage.",value);
+				}
+			}
+		}
+
+		protected double speed;
+		public double Speed_p{
+			get{ return speed;}
+			set{ 
+				if (value >= 0) {
+					speed = value;
+				} 
+				else {
+					Console.WriteLine (" the value speed {0} is very low.",value);
+				}
+			}
+		}
+
+					// funcion de datos por defectuo.
+		public Player(){  
+			this.name = "";
+			this.Damage_p = 0.0;
+			this.Speed_p = 0.0;
+		}
+		public Player(string name, double damage, double speed){        //metodo constructor.
+			this.name = name;
+			this.Damage_p = damage;
+			this.Speed_p = speed;
+		}
+
+		public void show_pj(){       //imprimer todos los datos del objeto, usamos this para hacer refrencia que los nombres son solo de esta instancia.
+			Console.WriteLine (" name: {0}\n damage: {1}\n speed: {2}",this.name,this.Damage_p,this.Speed_p);
+		}
+		public override string ToString ()        //un metodo de las clases a la hora de imprimir por consola solo el nombre del objeto.
+		{
+			return string.Format ("[Player:name={0}, Damage_p={1}, Speed_p={2}]", name, Damage_p, Speed_p);
+		}
+	}
+
+	class Enemy : Player{          // se podria leer asi : "clase Enemy es hijo o hereda de Player".
+
+		public bool death;
+
+		public Enemy() : base(){         //funcion base de Enemy y aparte esta funcion esta heredando los valores de la funcion base de Player.
+			this.death = false;
+		}
+			
+		//construimos una funcion donde se le enviaran todos los valores de Enemy y aparte heredaremos los valores de Player que son name,damage,speed.
+		public Enemy(string name,double damage,double speed,bool death):base(name,damage,speed){    
+			this.death = death;   //solo añadiremos el nuevo valor para esta clase ya que lo general lo heredamos de Player o de la clase padre.
+		}
+
+		new public void show_pj(){    //usaremos new para redefinir los datos de la funcion "show_pj()" y que no se confunda con la clase padre.
+			Console.WriteLine (" name: {0}\n damage: {1}\n speed: {2}\n live: {3}",
+										name,Damage_p,Speed_p,this.death);
+		}
+
+		public override string ToString ()
+		{
+			return string.Format ("[Enemy: {0}]",name);
+		}
+	}
+
+	class MainClass
+	{
+		public static void Main (string[] args)
+		{
+			Player alex = new Player ("alexander",7.5,3.0);  //creacion de objeto con metodo constructor
+			alex.show_pj ();
+			Console.WriteLine(alex.Damage_p);   //usando el get
+			alex.Speed_p = 5.0;    //usando el set
+			alex.show_pj ();
+			Console.WriteLine (alex);  //usando el ToString
+
+			Player aldo = new Player ();  //creacion de objeto con datos por defectuo.
+			aldo.show_pj ();
+			Console.WriteLine (aldo);
+
+			Enemy diego = new Enemy ("Dk",15.4,2.5,true);  
+			diego.show_pj ();
+
+			Enemy gustavo = new Enemy ("DRETCM",14.5,5.6,true);
+			gustavo.show_pj ();
+			Console.WriteLine (gustavo);
+		}
+	}
+}
+
+
+------------------------->>>>>>>>  :
