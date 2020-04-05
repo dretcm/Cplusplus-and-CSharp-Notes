@@ -2160,6 +2160,68 @@ void show_element(Nodo *&pila,bool &val){
 	}
 }
 
+:: EJEMPLO 3 DE MENU INGRESANDO Y MOSTRANDO ELEMENTOS::
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+struct Nodo{
+	int num;
+	Nodo *next;
+};
+
+void add_pile(Nodo *&,int);
+void show_element(Nodo *&,bool &);
+
+int main(){
+	Nodo *pila = NULL,*general = NULL;
+	bool can = true;
+	int num,op;
+	
+	while(1){
+		cout<<" >-|-O.enter option: ";cin>>op;
+		switch(op){
+			case 1:
+				cout<<" enter number: ";cin>>num;
+				add_pile(pila,num);break;
+			case 2:
+				general = pila;
+				while(can){
+					show_element(pila,can);
+				}
+				pila = general;
+				can = true;
+				break;
+			case 3:
+				cout<<" you exit of the application."<<endl;
+				return 0;  		//ES COMO SALIR, COMO ES UNA FUNCION SE PUEDE SALIR DE UNA PONIENDO RETURN.
+			default: cout<<" no existe esa opcion."<<endl;
+		}
+	}
+	
+	getch();
+	return 0;
+}
+
+void add_pile(Nodo *&pila,int dato){
+	Nodo *new_nodo = new Nodo();
+	new_nodo->num = dato;
+	new_nodo->next = pila;
+	pila = new_nodo;
+}
+
+void show_element(Nodo *&pila,bool &val){	
+	if(pila != NULL){
+		cout<<pila->num<<",";
+		pila = pila->next;	
+	}
+	else{
+		cout<<"inicio."<<endl;
+		val = false;
+	}
+}
+
 34 ----------->>> ABS :
 include<stdlib.h>
 int num=-5,val=abs(num); //val=5
