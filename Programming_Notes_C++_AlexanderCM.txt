@@ -2055,6 +2055,9 @@ void show(alumno *watch){
 // LAST INPUT - FIRST INPUT
 
 // formula para INGRESAR ELEMENTOS a una pila:
+
+::VERSION 1::
+
 #include<iostream>
 #include<conio.h>
 #include<stdlib.h>
@@ -2081,7 +2084,7 @@ int main(){
 	}
 	while(pila!=NULL){
 		TakePile(pila,num);
-		if(pila !=NULL){
+		if(pila != NULL){
 			cout<<num<<","; 	// INPUT : 4 -6 -1 -15   OUTPUT : 15,1,6,4.
 		}     
 		else{
@@ -2108,6 +2111,53 @@ void TakePile(Nodo *&pila,int &val){
 	val = aux->dato;
 	pila = aux->siguiente;
 	delete aux;
+}
+
+::VERSION 2:: BY ME O ALEXANDER O SEA YIOP XD
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+struct Nodo{
+	int num;
+	Nodo *next;
+};
+
+void add_pile(Nodo *&,int);
+void show_element(Nodo *&,bool &);
+int main(){
+	Nodo *pila = NULL;
+	bool can = true;
+	
+	add_pile(pila,4);
+	add_pile(pila,22);
+	
+	while(can){
+		show_element(pila,can);
+	}
+
+	getch();
+	return 0;
+}
+
+void add_pile(Nodo *&pila,int dato){
+	Nodo *new_nodo = new Nodo();
+	new_nodo->num = dato;
+	new_nodo->next = pila;
+	pila = new_nodo;
+}
+
+void show_element(Nodo *&pila,bool &val){
+	
+	if(pila != NULL){
+		cout<<pila->num<<",";
+		pila = pila->next;	
+	}
+	else{
+		cout<<"inicio."<<endl;
+		val = false;
+	}
 }
 
 34 ----------->>> ABS :
