@@ -2136,6 +2136,8 @@ int main(){
 	while(can){
 		show_element(pila,can);
 	}
+	
+	delete pila;
 
 	getch();
 	return 0;
@@ -2199,7 +2201,10 @@ int main(){
 			default: cout<<" no existe esa opcion."<<endl;
 		}
 	}
-	
+
+	delete pila;
+	delete general;
+
 	getch();
 	return 0;
 }
