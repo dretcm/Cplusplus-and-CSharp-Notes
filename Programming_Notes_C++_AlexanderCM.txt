@@ -961,6 +961,25 @@ int main(){
 	return 0;
 }
 
+#include<iostream>
+#include<conio.h>
+using namespace std;
+struct Persona {
+	char nombre[20];
+	int edad;
+	
+}
+persona1= {"Alejandro", 20},
+persona2 = { "Ruperto", 15 };
+
+int main()
+ {
+	cout << " Nombre1: " << persona1.nombre << endl;
+	cout << "Edad1 : " << persona1.edad << endl;
+
+	cout << " Nombre1: " << persona2.nombre << endl;
+	cout << "Edad1 : " << persona2.edad << endl;
+}
 
 // STRUCT CON SUS FUNCIONALIDADES ::
 
