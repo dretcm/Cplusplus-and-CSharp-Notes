@@ -883,7 +883,9 @@ un ejemplo seria el uso del cin.getline(bla_bla_y_'\n') ese '\n' es para el salt
 como si ya termino la funcion.
 conclu: usar fflush(stdin);  para tener un mejor uso y menor problematica en memoria de teclado para liberar los buffers.
 buffer: pequeña memoria que guarda las teclas que introduces en el teclado.
-13------>
+
+13------>  STRUCTURAS :: STRUCT :: STRUCTS ::
+
 \\uso de struct {}: sirve para crear variables definidas, pero sin crearlas otra vez, solo crearemos un objeto más, es parecido a las clases.
 #include<iostream>
 #include<conio.h>
@@ -956,6 +958,37 @@ int main(){
 		cout<<" career: "<<personal[i].carrera<<endl;
 		cout<<" Country: "<<personal[i].ciudadano.pais<<endl;
 	}
+	return 0;
+}
+
+
+// STRUCT CON SUS FUNCIONALIDADES ::
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+struct datos{
+	int num;
+	void enter_data();
+	void show_data();
+};
+
+void datos::enter_data(){
+	cout<<" enter number: ";
+	cin>>num;
+}
+
+void datos::show_data(){
+	cout<<" the data is: "<<num<<endl;
+}
+
+int main(){
+	datos &yo = *new datos();
+	yo.enter_data();
+	yo.show_data();
+	
+	getch();
 	return 0;
 }
 
