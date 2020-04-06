@@ -751,8 +751,19 @@ int main(){
 	
 }
 
-6.strupr(palabra_A_pasar_a_mayuscula);
+6.strupr(palabra_A_pasar_a_mayuscula); //PARA UNA CADENA
+// PARA UNA LETRA O CHAR USAREMOS:
+
+cout << endl << endl << "Desea ingresar otro producto? (S/N): ";
+cin >> resp;
+resp = toupper(resp);
+
 7.strlwr(palabra_a_pasar_a_minuscula);
+// PARA UNA LETRA O CHAR USAREMOS:
+
+cout << endl << endl << "Desea ingresar otro producto? (S/N): ";
+cin >> resp;
+resp = tolower(resp);
 
 8- para convertir de una cadena a un float o integer usaremos:
 #include<stdlib.h>
@@ -3124,6 +3135,137 @@ void read_file(){
 		}
 		datos.close();
 	}
+}
+
+///////// ARCHVIOS BINARIOS :: FILES BINARIES :: WB - AB - AB+ ::
+
+->/// 1 . CREACION DE UN ARCHIVO :: 
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+int main(){
+	FILE *ptr_archivo;
+	ptr_archivo = fopen("C:\\carpeta\\documento_alex.txt","wb");
+	if(ptr_archivo == 0){
+		cout<<"Error, no se pudo crear el archivo."<<endl;
+		system("pause");
+		exit(1);
+	}
+	else{
+		cout<<"se pudo crear el archivo correctamente."<<endl;
+		system("pause");
+		fclose(ptr_archivo);
+	}
+	return 0;
+}
+
+-> /// 2 . AÑADIENDO DATOS BINARIOS AL ARCHIVO ::
+
+°°°fwrite(&persona, sizeof(DNI), 1, ptr_archivo);°°°
+
+1. Como primer parámetro se coloca la dirección del registro que se va a grabar en el
+archivo, en este caso de la variable varProducto.
+2. En un segundo parámetro se debe especificar la cantidad de espacio en bytes que
+ocupará en el archivo, se puede hacer de form explícita o de lo contrario con el
+operador sizeof().
+3. Para el tercer parametro se especifica el número de registros que se van a grabar en
+el archivo, en este caso uno, pero se puede grabar un número mayor de registros a
+la vez.
+4. El último parámetro es para especificar la dirección en disc donde se almaceará los
+registros, en este caso se usa el puntero a archivo ptrArchivo1
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+struct DNI{
+	int number;
+	char full_name[50];
+	bool casado;
+};
+
+int main(){
+	FILE *ptr_archivo;
+	DNI persona;
+	ptr_archivo = fopen("C:\\carpeta\\documento_alex.dat","ab");     //AHORA YA NO EN TXT SINO EN .DAT Y SEGUNDO PARAMETRO EN "AB", PARA AÑADIR EN BINARIO.
+	if(ptr_archivo == 0){      //SI NO SE ENCUENTRA EL PUNTERO RESIVIRA UN NULO.
+		cout<<"Error, no se pudo añadir elementos al archivo."<<endl;
+		system("pause");
+		exit(1);
+	}
+	else{
+		cout<<"se pudo ingresar el archivo correctamente."<<endl;
+		system("pause");
+		system("cls");
+		char var_married;
+		cout<<" DNI \n\n";
+		cout<<" enter name: ";
+		gets(persona.full_name);
+		cout<<" enter id: ";
+		cin>>persona.number;
+		fwrite(&persona, sizeof(DNI), 1, ptr_archivo);    // LA MAS IMPORTANTE PARA ESCRIBIR AL ARCHIVO.DAT.
+		do{
+		cout<<" Do you are married? (Y/N): ";
+		cin>>var_married;
+		var_married = toupper(var_married);
+		}while(var_married != 'Y' && var_married != 'N');
+		if(var_married=='Y'){
+			persona.casado = true;
+		}
+		else{
+			persona.casado = false;
+		}
+		fclose(ptr_archivo);
+	}
+	return 0;
+}
+
+-> /// 3 . LEER ARCHIVOS BINARIOS ::
+
+°°°fread(&varProducto,sizeof(varProducto),1,ptrArchivo1);°°°
+
+1. La función fread(), devuelve el número de registros que leyó del disco, por eso el ciclo
+while se convierte en falso cuando fread() regresa 0 y esto indica que se llegó al final
+del archivo
+
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+struct DNI{
+	int number;
+	char full_name[50];
+	bool casado;
+};
+
+int main(){
+	FILE *ptr_archivo;
+	DNI persona;
+	ptr_archivo = fopen("C:\\carpeta\\documento_alex.dat","ab+");    // AHORA EN IGUAL MODO QUE EL ANTERIOR PERO CON UN + O SEA "AB+" PARA MODO LECTURA.
+	if(ptr_archivo == 0){
+		cout<<"Error, no se pudo encontrar el archivo."<<endl;
+		system("pause");
+		exit(1);
+	}
+	else{
+		cout<<"se pudo ingresar al archivo correctamente."<<endl;
+		system("pause");
+		system("cls");
+		while(fread(&persona, sizeof(DNI), 1, ptr_archivo) == 1){  	// IMPORTANTE.
+			cout<<" DOCUMENTO NACIONAL DE IDENTIDAD\n\n";
+			cout<<" Name: "<<persona.full_name<<endl;
+			cout<<" Numero : "<<persona.number<<endl;
+			if(persona.casado){
+				cout<<" Casado: SI"<<endl;	
+			}
+			else{
+				cout<<" Casado: NO"<<endl;
+			}
+		}
+		fclose(ptr_archivo);
+	}
+	return 0;
 }
 
 40 --------------------->>> SIZEOF (VALOR) : FOREACH NORMAL :
