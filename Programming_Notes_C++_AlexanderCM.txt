@@ -1022,6 +1022,118 @@ int main(){
 	return 0;
 }
 
+// STRUCT Y THIS JUNTO A ARCHIVOS .H :
+
+-----NAME DEL ARCHIVO = "fecha.h" en .h se guarda macros, declaraciones, etc.
+
+#include <iostream>
+using namespace std;
+struct fecha
+{
+    int dia;
+    int mes;
+    int annio;
+    void asignar(int,int,int);
+    void ingresarFecha();
+    void mostrarFecha();
+
+};
+void fecha::asignar(int dia,int mes,int annio){
+	this->dia=dia;
+	this->mes=mes;
+	this->annio=annio;
+}
+void fecha::ingresarFecha()
+{
+	cout<<" Nacimiento::"<<endl;
+	cout<<" ingrese dia: ";
+    cin >> dia;
+    cout<<" ingrese mes: ";
+    cin >> mes;
+    cout<<" ingrese annio: ";
+    cin >> annio;
+}
+void fecha::mostrarFecha(){
+	cout<<"Nacimiento: "<<dia<<"/"<<mes<<"/"<<annio<<endl;
+}
+
+------- name = "pareja.h" :
+
+#include "fecha.h"      //COMO SE VE SE IMPORTA EL MODULO FECHA.H.
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Pareja
+{
+    		//datos
+    int edad;
+    string nombre;
+    char level;
+    int celular;
+    fecha fechanacimiento;
+    		//operaciones
+    void asignar(int, char, int, string,fecha);
+    void mostrar();
+    void ingresar();
+};
+void Pareja::asignar(int edad, char level, int celular, string d,fecha f)
+{
+    this->edad = edad;
+    this->level = toupper(level);
+    this->celular = celular;
+    this->nombre = d;
+    this->fechanacimiento = f;
+}
+void Pareja::mostrar()
+{
+	cout<<"\n DATOS\n\n";
+    cout << "Edad: " << edad << endl;
+    cout << "Nombre: " << nombre << endl;
+    cout << "Nivel: " << level << endl;
+    cout << "Celular: " << celular << endl;
+    fechanacimiento.mostrarFecha();
+}
+void Pareja::ingresar()
+{
+    int a = 0, c = 0;
+    char b = ' ';
+    string n;
+    cout << " Ingresar edad: ";
+    cin >> a;
+    c = getchar();
+    cout << " Ingresar nombre: ";
+    getline(cin,n,'\n');
+
+ 
+
+    cout << " Ingresar Nivel: ";
+    cin >> b;
+    cout << " Ingresar celular: ";
+    cin >> c;
+    fecha f;
+    f.ingresarFecha();
+    this->asignar(a, b, c,n,f);
+}
+
+----SOURCE OR APLICATIBO ::
+
+#include<iostream>
+#include "pareja.h"   // SE IMPORTA EL MODULO ANTERIOR.
+using namespace std;
+int main(){
+	Pareja yo,tu;
+	
+	yo.ingresar();
+	yo.mostrar();
+	
+	fecha hoy={12,5,2006};        //OTRA FORMA DE ASIGNAR ATRIBUTOS DE UNA STRUCTURA.
+	tu.asignar(13,'b',3213134,"paola",hoy);
+	tu.mostrar();
+	
+	return 0;
+}
+
 14------>
 #para crear un objeto seria así:
 nombre_de_la_clase  nombre_Del_objeto;     \\barra bar;
