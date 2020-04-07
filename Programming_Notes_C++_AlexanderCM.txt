@@ -684,7 +684,11 @@ int nums[2][3]={{1,2,3},{4,5,6}};
 //una forma de ingresar una cadena d caracteres muy buena.
 //para eso usaremos:
 char name[40];  ###es importante hacer esto o no funca el codigo.
-cin.getline(name,40,'\n');
+
+cin.getline(name,40,'\n');   //  ES MEJOR PARA CHAR CON ARRAY.
+
+getline(cin,variable_a_guardar,'\n');  // ES MEJOR PARA STRINGS.
+
 //en donde va "name" es donde pondremos la variable char donde queramos digitar los caracteres, en donde dice "40" es la cantidad d espacios a dar a esa char
 //donde dice "\n" es para con q tecla finalizar esta forma de entrada.
 
