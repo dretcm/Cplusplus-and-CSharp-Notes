@@ -1026,7 +1026,7 @@ int main(){
 	return 0;
 }
 
-// STRUCT Y THIS JUNTO A ARCHIVOS .H :
+-> // STRUCT Y THIS JUNTO A ARCHIVOS .H :
 
 THIS = ES LA QUE SI ES LLAMADA EN UNA CLASE O STRUCT SIGNIFICA QUE EL ELEMENTO QUE SE LLAMA ES DE ESTA CLASS O STRUCT EJEMPLO:
 
@@ -1127,7 +1127,7 @@ void Pareja::ingresar()
     this->asignar(a, b, c,n,f);
 }
 
----- SOURCE OR APLICATIVO ::
+---- SOURCE O SUCURSAL O EL APLICATIVO EN .CPP ::
 
 #include<iostream>
 #include "pareja.h"   // SE IMPORTA EL MODULO ANTERIOR.
@@ -1146,6 +1146,42 @@ int main(){
 	ellos.asignar(78,'c',586939439,"hermes",ayer);
 	ellos.mostrar();
 
+	return 0;
+}
+
+
+---- AHORA UNA CLASE NAME =  "paciente.h" :
+
+#include<iostream>
+#include "pareja.h"
+using namespace std;
+class paciente{
+	private:
+		int dni;
+		Pareja persona;
+	public:
+		void todo();
+		void show_todo();
+};
+
+void paciente::todo(){
+	cout<<" Ingresa DNI: ";cin>>dni;
+	persona.ingresar();
+}
+void paciente::show_todo(){
+	persona.mostrar();
+	cout<<"DNI : "<<dni<<endl;
+}
+
+----- APLICATIVO EN .CPP DE TODO :
+
+#include<iostream>
+#include "paciente.h"
+using namespace std;
+int main(){
+	paciente alex;
+	alex.todo();
+	alex.show_todo();
 	return 0;
 }
 
