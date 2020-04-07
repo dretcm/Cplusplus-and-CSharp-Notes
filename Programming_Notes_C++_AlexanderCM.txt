@@ -1026,6 +1026,8 @@ int main(){
 
 THIS = ES LA QUE SI ES LLAMADA EN UNA CLASE O STRUCT SIGNIFICA QUE EL ELEMENTO QUE SE LLAMA ES DE ESTA CLASS O STRUCT EJEMPLO:
 
+.H = PARA CREAR MODULOS DEBEMOS GUARDAR EL FILE NORMALMENTE PERO BORRAN EL CPP QUE ES EL APLICATIVO  Y PONEN .H : h, que significa "standard input-output header" (cabecera estándar E/S), es el archivo de cabecera que contiene las definiciones de las macros, las constantes, las declaraciones de funciones de la biblioteca estándar del lenguaje de programación C para hacer operaciones, estándar, de entrada y salida.
+
 string name;
 this->name = name;  //el primer name es de la class o struct el segundo es un enviado, nuevo, varible creada etc.
 
