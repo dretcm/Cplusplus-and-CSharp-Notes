@@ -1116,7 +1116,7 @@ void Pareja::ingresar()
     this->asignar(a, b, c,n,f);
 }
 
-----SOURCE OR APLICATIBO ::
+---- SOURCE OR APLICATIVO ::
 
 #include<iostream>
 #include "pareja.h"   // SE IMPORTA EL MODULO ANTERIOR.
@@ -1127,10 +1127,14 @@ int main(){
 	yo.ingresar();
 	yo.mostrar();
 	
-	fecha hoy={12,5,2006};        //OTRA FORMA DE ASIGNAR ATRIBUTOS DE UNA STRUCTURA.
+	fecha hoy={12,5,2006}, ayer={4,12,2019};        //OTRA FORMA DE ASIGNAR ATRIBUTOS DE UNA STRUCTURA.
+
 	tu.asignar(13,'b',3213134,"paola",hoy);
 	tu.mostrar();
 	
+	ellos.asignar(78,'c',586939439,"hermes",ayer);
+	ellos.mostrar();
+
 	return 0;
 }
 
