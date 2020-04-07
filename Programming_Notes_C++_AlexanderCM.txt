@@ -1024,6 +1024,11 @@ int main(){
 
 // STRUCT Y THIS JUNTO A ARCHIVOS .H :
 
+THIS = ES LA QUE SI ES LLAMADA EN UNA CLASE O STRUCT SIGNIFICA QUE EL ELEMENTO QUE SE LLAMA ES DE ESTA CLASS O STRUCT EJEMPLO:
+
+string name;
+this->name = name;  //el primer name es de la class o struct el segundo es un enviado, nuevo, varible creada etc.
+
 -----NAME DEL ARCHIVO = "fecha.h" en .h se guarda macros, declaraciones, etc.
 
 #include <iostream>
