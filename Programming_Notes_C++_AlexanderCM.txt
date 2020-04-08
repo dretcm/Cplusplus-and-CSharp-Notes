@@ -3415,7 +3415,7 @@ int main(){
 		cout<<"se pudo ingresar al archivo correctamente."<<endl;
 		system("pause");
 		system("cls");
-		while(fread(&persona, sizeof(DNI), 1, ptr_archivo) == 1){  	// IMPORTANTE.
+		while(fread(&persona, sizeof(persona), 1, ptr_archivo) == 1){  	// IMPORTANTE.
 			cout<<" DOCUMENTO NACIONAL DE IDENTIDAD\n\n";
 			cout<<" Name: "<<persona.full_name<<endl;
 			cout<<" Numero : "<<persona.number<<endl;
