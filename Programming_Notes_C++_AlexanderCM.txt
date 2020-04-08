@@ -3300,7 +3300,7 @@ void read_file(){
 	}
 }
 
-///////// ARCHVIOS BINARIOS :: FILES BINARIES :: WB - AB - AB+ ::
+///////// ARCHIVOS BINARIOS :: FILES BINARIES :: WB - AB - AB+ :: FILES C++ BINARIES ::
 
 ->/// 1 . CREACION DE UN ARCHIVO :: 
 
@@ -3430,6 +3430,40 @@ int main(){
 	}
 	return 0;
 }
+
+-> /// 4 . BUSCAR Y LEER ARCHIVOS BINARIOS ::
+
+void posicion_all(){
+	int pos;
+	FILE *archivo;
+	Almacen depo;
+	
+	archivo = fopen("D:\\alexander\\c++ alex\\punteros\\ejercicio_01\\almacen.dat","ab+");
+	if (archivo==0){
+		cout<<" Error, doesnt login in the file."<<endl;
+		system("pause");
+		exit(1);
+	}
+	else{
+		cout<<"\n Enter Register number: ";cin>>pos;     
+//IMPORTANTE    fseek(archivo, (long)(pos-1) * sizeof(depo), 0);   // LE RESTO -1 EN POS PORQUE NOSOTROS ENVIAMOS 1,2,3.. NORMALMENTE PERO EN POSICIONES DE MEMORIA YA SABEN QUE ES 0,1,2... .
+		fread(&depo, sizeof(depo), 1, archivo);
+		depo.show();
+		fclose(archivo);
+	}
+}
+
+// NUEVO USO CON EL FSEEK() :
+
+fseek(archivo, (long)(pos-1) * sizeof(depo), 0);
+
+Donde los parámetros son:
+ El primer parámetros es el apuntador al archivo en disco
+ El segundo parámetro es el BYTE donde se quiere que empiece la lectura o grabación al archivo en disco. Este BYTE debe ser de tipo LONG, se usa el operador sizeof o tamaño de registro para calcular la pocisión exacta.
+ El tercer parámetro es a partir de donde se quiere posicionar el apuntador interno del archivo, los valores pueden ser:
+0 ---> SEEK_SET principio del archivo. 
+1 ---> SEEK_CUR posición actual.
+2 ---> SEEK_END fin del archivo.
 
 40 --------------------->>> SIZEOF (VALOR) : FOREACH NORMAL :
 
