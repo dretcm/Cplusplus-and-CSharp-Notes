@@ -3455,7 +3455,34 @@ void posicion_all(){
 
 // NUEVO USO CON EL FSEEK() :
 
-fseek(archivo, (long)(pos-1) * sizeof(depo), 0);
+- VA A LA POSICION DE LECTURA DEL ARCHIVO BINARIO EJEMPLO . :
+
+void posicion_all(){
+	int pos;
+	FILE *archivo;
+	Almacen depo;
+	
+	archivo = fopen("D:\\alexander\\c++ alex\\punteros\\ejercicio_01\\almacen.dat","ab+");
+	if (!archivo){
+		cout<<" Error, doesnt login in the file."<<endl;
+		system("pause");
+		exit(1);
+	}
+	else{
+		system("cls");
+		cout<<"\n Enter Registry number: ";cin>>pos;
+		fseek(archivo, (long)(pos-1) * sizeof(depo), 0);
+		fread(&depo, sizeof(depo), 1, archivo);
+		depo.show();
+		system("pause");
+		system("cls");
+		fclose(archivo);
+	}
+}
+
+IMPORTANTE :
+
+fseek(archivo, (long)(posicion-1) * sizeof(Almacen o depo), 0);
 
 Donde los parámetros son:
  El primer parámetros es el apuntador al archivo en disco
@@ -3464,6 +3491,54 @@ Donde los parámetros son:
 0 ---> SEEK_SET principio del archivo. 
 1 ---> SEEK_CUR posición actual.
 2 ---> SEEK_END fin del archivo.
+
+-> // EJEMPLO DE LOS 3 FORMAS O ALGO ASI + BONUS : : 
+
+void modificar(){
+	FILE *file,*file_2;
+	Almacen dato,dato_2;
+	int modi,con_x=0;
+	file = fopen("D:\\alexander\\c++ alex\\punteros\\ejercicio_01\\almacen.dat","ab+");     //MODO AÑADIR Y LEER.
+	file_2 = fopen("D:\\alexander\\c++ alex\\punteros\\ejercicio_01\\almacen_2.dat","wb+");  //MODO AÑADIR, LEER ,Y CREAR  O REMPLAZA SI YA EXISTE.
+
+	if(!file){                     // SI NO EXISTE EL CONTENIDO DEL PUNTERO NO ABRA MEMORIA Y SERIA "0" O FALSE. Y SE PONE EL "!" PARA CONTRADECIR ESO Y DENTRAR AL IF.
+		cout<<" Error, file didnt find."<<endl;
+		system("pause");
+		exit(1);
+	}
+	else{
+		system("cls");
+		cout<<"\n Enter Registry number: ";cin>>modi;
+		
+		fseek(file,(long)(modi-1)*sizeof(dato),0);
+		fread(&dato, sizeof(dato), 1, file);
+		dato.show();
+		dato_2.enter();
+		
+		fseek(file,(long)(0)*sizeof(dato),0);
+		while(fread(&dato,sizeof(dato),1,file)){
+			if(modi-1 == con_x){
+				fwrite(&dato_2, sizeof(Almacen),1,file_2);
+			}
+			else{
+				fwrite(&dato, sizeof(Almacen),1,file_2);
+			}
+			con_x++;
+		}
+		fclose(file);
+		
+		file = fopen("D:\\alexander\\c++ alex\\punteros\\ejercicio_01\\almacen.dat","wb+");   // MODO DE CREAR, LEER, AÑADIR O REMPLAZA SI YA EXISTE.
+		fseek(file_2,(long)(0)*sizeof(Almacen),0);
+		while(fread(&dato,sizeof(Almacen),1,file_2)){
+			fwrite(&dato,sizeof(Almacen),1,file);
+		}
+		system("pause");
+		system("cls");
+		fclose(file_2);
+		remove("almacen_2.dat");     // ELIMINA EL ARCHIVO DE LA MEMORIA DEL DISCO.
+		fclose(file);
+	}
+}
 
 40 --------------------->>> SIZEOF (VALOR) : FOREACH NORMAL :
 
