@@ -2563,7 +2563,110 @@ void show_cola(Nodo *&frente, Nodo *&fin, int &num){
 	delete aux;       //ELIMINAMOS O LIBERAMOS EL ESPACIO EN MEMORIA DE EL ANTERIOR "FRENTE".
 }
 
-//EJEMPLO 2 : 
+//EJEMPLO 2 :
+
+#include<iostream>
+#include<conio.h>
+#include<stdlib.h>
+using namespace std;
+
+struct Nodo{
+	int dato;
+	Nodo *siguiente;
+};
+
+void menu();
+void add_cola(Nodo *&,Nodo *&,int);
+void show_cola(Nodo *&,Nodo *&,int &);
+void continue_cola(Nodo *&,Nodo *&);
+
+int main(){
+	
+	menu();
+	
+	getch();
+	return 0;
+}
+
+void menu(){
+	Nodo *frente = NULL, *fin = NULL,*data1,*data2;
+	int op,valor;
+	do{
+		cout<<"\n \tCOLA\n 1) add element\n 2) show elements\n 3) continue cola\n 4) exit\n Option: ";cin>>op;
+		switch(op){
+			case 1: 
+				cout<<" -> Enter element: ";cin>>valor;
+				add_cola(frente,fin,valor);
+				break;
+			case 2:
+				if(frente != NULL){
+					cout<<"\n SHOW ELEMENTS: ";
+					data1 = frente;   //GUARDO LA MEMORIA DE CADA UNO EN OTRA VAR NODO PARA DESPUES RENOMBRARLAS DENUEVO.
+					data2 = fin;
+					while(frente != NULL){
+						show_cola(frente,fin,valor);
+						if(frente != NULL){
+							cout<<valor<<", ";
+						}
+						else{
+							cout<<valor<<"."<<endl;
+						}
+					}
+					frente = data1;
+					fin = data2;
+				}
+				else{
+					cout<<"\n COLA VACIA\n\n";
+				}
+				break;
+			case 3:
+				if (frente == NULL){
+					cout<<"\n COLA VACIA.\n\n";
+				}
+				else{
+					continue_cola(frente,fin);	
+				}
+				break;
+			case 4: break;
+			default : cout<<"\n Doesnt exist that option.\n"<<endl;break;
+		}
+	}while(op!=4); //MEJOR FORMA DE HACER UN MENU, CON UN "DO-WHILE".
+}
+
+void add_cola(Nodo *&frente,Nodo *&fin,int num){
+	Nodo *nuevo = new Nodo();
+	nuevo->dato = num;
+	nuevo->siguiente = NULL;
+	if(frente ==NULL ){
+		frente = nuevo;
+	}
+	else{
+		fin->siguiente = nuevo;
+	}
+	fin = nuevo;
+}
+void show_cola(Nodo *&frente,Nodo *&fin,int &num){
+	num = frente->dato;        //QUITE EL NODO AUX PORQUE NO DEBO ELIMINAR NADA.
+	if(frente == fin){                // POR ESO TAMPOCO PUSE AL FINAL EL DELETE AUX.
+		frente = NULL;
+		fin = NULL;
+	}
+	else{
+		frente = frente->siguiente;
+	}
+}
+
+void continue_cola(Nodo *&frente,Nodo *&fin){
+	Nodo *aux = frente;
+	if(frente == fin){
+		frente = NULL;
+		fin = NULL;
+	}
+	else{
+		frente = frente->siguiente;
+	}
+	delete aux;
+} 
 
 36 --------------->>> CLASS AND OBJECTS :: CLASES Y OBJETOS :
 
