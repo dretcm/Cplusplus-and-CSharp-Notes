@@ -2458,9 +2458,112 @@ void show_element(Nodo *&pila,bool &val){
 include<stdlib.h>
 int num=-5,val=abs(num); //val=5
 
-35 ------------>>> COLAS C++ :
+35 ------------>>> COLAS C++ : COLA C++ : COLE C++ :
 
 FRASE : FIRST INPUT -> FIRST OUTPUT .
+
+//EJEMPLO 1 : ENTRADA Y SALIDA :
+
+#include<iostream>
+#include<conio.h>
+#include<stdlib.h>    // PARA EL NEW Y DELETE.
+using namespace std;
+
+struct Nodo{		//STRUCT BASICA PARA PILAS,COLAS,LISTAS.
+	int dato;
+	Nodo *siguiente;
+};
+
+void add_cola(Nodo *&,Nodo *&,int);
+bool cola_vacia(Nodo *);
+void show_cola(Nodo *&,Nodo *&,int &);
+
+int main(){
+	Nodo *frente = NULL;  //INIALIZACION DE LA COLA PORQUE SIEMPRE ES VACIA AL INICIAR COMO EN LA VIDA REAL.
+	Nodo *fin = NULL;
+	int val;
+
+	cout<<" enter number: ";cin>>val;
+	add_cola(frente,fin,val);
+
+	cout<<" enter number: ";cin>>val;
+	add_cola(frente,fin,val);
+
+	cout<<" enter number: ";cin>>val;
+	add_cola(frente,fin,val);
+	
+	cout<<"\n Salida de los elementos de la cola:\n";
+
+	while( frente != NULL){
+		show_cola(frente,fin,val);
+		if(frente != NULL){
+			cout<<val<<", ";
+		}
+		else{
+			cout<<val<<"."<<endl;
+		}
+	}
+	
+	getch();
+	return 0;
+}
+
+void add_cola(Nodo *&frente, Nodo *&fin, int num){
+	Nodo *nuevo = new Nodo();      //CREAMOS ESPACIO EN MEMORIA DINAMICO PARA NODO.
+	nuevo->dato = num;             //AGREGAMOS SUS VALORES: INT, Y NULL PORQUE ACABA DE ENTRAR A LA COLA Y ATRAS DE EL NO HAY NADIE.
+	nuevo->siguiente = NULL;
+	
+	if(cola_vacia(frente)){        //PARA VER SI NO HAY NADIE EN LA COLA ES EQUIVALENTE A "frente == NULL".
+		frente = nuevo;        //A FRENTE QUE ES NULL LE DAMOS LA DIRECCION DE MEMORIA DE "NUEVO" QUE ES EL NODO CREADO.
+	}
+	else{                          //CASO CONTRARIO QUE NO ESTE VACIA LA COLA.
+		fin->siguiente = nuevo;     // A "FIN" QUE ANTERIOR MENTE FUE EL PRIMER ELEMENTO QUE SU SIGUIENTE POR PUNTERO ES NULL SE CAMBIA SU DIRECCION A EL NUEVO NODO CREADO.
+						// Y AL CAMBIAR EL SIGUIENTE DE FIN TMB POR DEFECTUO SE CAMBIA LA DE "FRENTE" PERO DEL NODO ALMACENADO DE NULL A EL NUEVO NODO.
+	}
+	
+	fin = nuevo;
+	// IMPORTANTE: 
+//AL SER CREADO EL NUEVO NODO Y GRACIAS A LA LINEA DE "fin->siguiente = nuevo" ESO SOLO AFECTA A LA MEMORIA DE EL NUEVO NODO ANTERIOR
+// Y AQUI "FIN" CAMBIA DE EL NODO ANTERIOR A UN NUEVO NODO O SEA A OTRO TIPO DE MEMORIA, CAMBIA DE INSTANCIA YA NO AFECTARIA A EL NODO ANTERIOR DE "fin->siguiente"
+// PORQUE ESE ES OTRA DIRECCION DE MEMORIA, AHORA CON LA NUEVA ASIGNACION SU PUNTERO DE "FIN->SIGUIENTE" ES NULL NO ES EL NODO ANTERIOR "NUEVO" QUE FUE ASIGNADO EN EL "ELSE".
+
+	// MEJOR EXPLICACION : 
+||si cambias la direccion a la que apunta fin-> siguiente   cambias la direccion a la que apunta nuevo_nodo-> siguiente del nodo anteriormente creado.
+||basicamente es como si asignaras     "nuevo_nodo->siguiente(anterior) = nuevo_nodo(actual)" 
+||y asi el nodo anterior apunta al nodo nuevo.
+
+	cout<<" el valor numerico \""<<num<<"\" se a agregado a la cola"<<endl;
+}
+
+bool cola_vacia(Nodo *frente){
+	/*
+			//forma tradicional y comun.
+	if(frente = NULL){
+		return true;
+	}
+	else{
+		return false;
+	}
+			//forma avanzada y elegante.
+	*/
+	return (frente == NULL)? true : false;
+}
+
+void show_cola(Nodo *&frente, Nodo *&fin, int &num){
+	num = frente->dato;    //SE CAMBIA MEDIANTE LA REFERENCIA EL VALOR DE "NUM".
+	Nodo *aux = frente;	// AHORA "AUX" COMPARTE EL MISMO TIPO DE DATO DE MEMORIA QUE "FRENTE".
+	
+	if(frente == fin){	// SI "FRENTE" Y "FIN" TIENE EL MISMO TIPO DE MEMORIA. 
+		frente = NULL;	// OSEA QUE LLEGATON AL FINAL O LA COLA ESTA VACIA.
+		fin = NULL;
+	}
+	else{	//CASO CONTRARIO "FRENTE" CAMBIA DE MEMORIA CON EL NODO SUCESOR A ESTE.
+		frente = frente->siguiente;     
+	}
+	delete aux;       //ELIMINAMOS O LIBERAMOS EL ESPACIO EN MEMORIA DE EL ANTERIOR "FRENTE".
+}
+
+//EJEMPLO 2 : 
 
 36 --------------->>> CLASS AND OBJECTS :: CLASES Y OBJETOS :
 
