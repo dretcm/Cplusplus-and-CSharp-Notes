@@ -3787,7 +3787,7 @@ cout<<potencia(5)<<endl;     //25
 EJEMPLO 1 : 
 EJEMPLO 2 :
 
-43 ------------------>> PRAGMA ONCE : IFNDEF : #PRAGMA ONCE : #IFNDEF #DEFINE #ENDIF :
+43 ------------------>> PRAGMA ONCE : IFNDEF : #PRAGMA ONCE : #IFNDEF #DEFINE #ENDIF : archivo .h :
 
 ----#ifndef ARCHIVO_H
 /* Archivo alex.h */
@@ -3816,6 +3816,8 @@ class yo{
 }
 
 /* puede ser una struct, funcion, dato global. */
+
+/*  EN CONCLUSION SON LO MISMO SOLO QUE EL PRAGMA ES MAS SIMPLE */
 
 44 ---------------->>>>
 
