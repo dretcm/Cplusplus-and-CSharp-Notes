@@ -3787,6 +3787,38 @@ cout<<potencia(5)<<endl;     //25
 EJEMPLO 1 : 
 EJEMPLO 2 :
 
+43 ------------------>> PRAGMA ONCE : IFNDEF : #PRAGMA ONCE : #IFNDEF #DEFINE #ENDIF :
+
+----#ifndef ARCHIVO_H
+/* Archivo alex.h */
+
+#include<iostream>
+#ifndef ALEX_H
+#define ALEX_H
+
+class yo{
+	public:
+		int edad;
+}
+
+/* puede ser una struct, funcion, dato global. */
+
+#endif ALEX_H      /* otra opcion es " #endif " solo eso */
+
+------#pragma once
+/* Archivo alex.h */
+#include<iostream>
+#pragma once
+
+class yo{
+	public:
+		int edad;
+}
+
+/* puede ser una struct, funcion, dato global. */
+
+44 ---------------->>>>
+
 ------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------" Java "--------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------
