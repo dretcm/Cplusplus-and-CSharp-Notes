@@ -3296,4 +3296,64 @@ public class for_ciclo {
   }
 }
 
-3 .........................................................................
+3 ............................ COLA CON ARRAY : ENTRADA : FOR : SWITCH : DO-WHILE : ETC : 
+
+package programa_cola;
+import java.util.Scanner;
+
+
+public class Programa_cola {
+    
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        int[] cola = new int[30];
+        int val;
+        cola tail = new cola();
+        do{
+            System.out.println(" ---------COLA---------\n");
+            System.out.println("1)add\n2)show all\n3)advance\n4)exit\n Option: ");
+            val = entrada.nextInt();
+            switch(val){
+                case 1:
+                    tail.add_anything();break;
+                case 2:
+                    tail.show_all();break;
+                case 3:
+                    tail.advance();break;
+                case 4:break;
+                default: System.out.println("\nThat option doesnt exist.\n");break;
+            }
+        }while(val != 4);
+    }
+}
+
+package programa_cola;     		//CONECCION CON EL PROGRAMA MAIN O CLASE MAIN
+import java.util.Scanner;    		//PARA PODER USAR EL INPUT DE CONSOLA
+
+public class cola {					//CLASE COLA
+    Scanner entrada = new Scanner(System.in);
+    int[] tail = new int[30]; 			//ARRAY
+    int pos = 0, val;
+    
+    public void add_anything(){
+       System.out.println(" Enter number: ");
+       val = entrada.nextInt();
+       tail[pos] = val;
+       pos++;
+    }
+    
+    public void show_all(){
+        System.out.println("\n SHOW ALL: ");
+        for(int i=0; i<pos ;i++){
+            System.out.println(" -> " + tail[i]);
+        }
+    }
+    public void advance(){
+        for(int i = 0;i<pos;i++){
+            tail[i] = tail[i+1];
+        }
+        pos--;
+    }  
+}
+
+4 ...................
