@@ -2688,6 +2688,37 @@ int uso_de_MENOS(int a,int b){
 
 38 -------------------->>>>  IGUALDAD ENTRE PUNTERO Y REFERENCIA : COMPARACION : NEW & DELETE  WITH CLASS AND STRUCT :
 
+MEJOR CONCEPTO : CUANDO SE CREA POR PARAMATROS "(INT &) O (STRUCT &) O (CLASS &)" SE SABE QUE SE PODRA JUGAR CON EL VALOR DE LA MEMORIA EN SI O SEA QUE CAMBIARA SI ESQUE LE DAMOS UN VALOR EN LA FUNCION.
+ejemplo 0:
+
+struct hola{
+	hola *next;
+};
+
+void change(hola *&dato){
+	hola *nuevo = new hola();
+	dato = nuevo;  //LA MEMORIA SE CAMBIO EN TODO EL PROGRAMA.
+}
+
+/* -DIFERENTE A : */
+void change(hola *dato){
+	hola *nuevo = new hola();
+	dato = nuevo;  //LA MEMORIA SE CAMBIO SOLO EN ESTA INSTANCIA.
+}
+
+--> OTRO DATO IMPORTANTE :
+
+int dato = 3;     //modo simplificado.
+cout<<&dato<<endl; //0x9a1520
+
+//ES IGUAL A:
+
+int &dato = *new int[1];   //modo original, es lo que realmente pasa.
+dato = 3;
+cout<<&dato<<endl; //0x9a1520
+
+////RECORDAR QUE POR REFERENCIA SOLO SE ALACENA UN VALOR, SI QUEREMOS UN ARRAY USAREMOS "*" PUNTEROS.
+
 --EJEMPLO 1: " CON * " PUNTERO.
 
 #include<iostream>
