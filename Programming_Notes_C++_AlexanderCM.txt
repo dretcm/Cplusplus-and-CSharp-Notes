@@ -281,13 +281,17 @@ cout<<setw(cantidad_de_espacios_a_saltar)<<" hola"<<endl;
 
 12------>
 #include<conio.h>
-\\ fflush(stdin); 
+
+PRIMER PUNTO \\ fflush(stdin);
+ 
 sirve para limpiar la memoria del teclado enviada al ordenador o pc, para que los envios sean más limpios y no ocasionen problemas en un futuro.
 un ejemplo seria el uso del cin.getline(bla_bla_y_'\n') ese '\n' es para el salto de linea, una vez usado el cin.getline('\n') ese comando de salto de linea
 '\n' ya dejara se ser util, o sea si pones un cin.getline(\n) y más abajo un cin.getline(\n) el segundo no funcionara o estara inavilitado y pasara
 como si ya termino la funcion.
 conclu: usar fflush(stdin);  para tener un mejor uso y menor problematica en memoria de teclado para liberar los buffers.
 buffer: pequeña memoria que guarda las teclas que introduces en el teclado.
+
+SEGUNDO PT TAMBIEN SE PODRIA USAR EL " cin.ignore(); "
 
 13------>  STRUCTURAS :: STRUCT :: STRUCTS ::
 
