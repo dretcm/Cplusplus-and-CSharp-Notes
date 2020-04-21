@@ -3172,6 +3172,31 @@ void modificar(){
 	}
 }
 
+->PARA INGRESAR VARIOS REGISTROS :
+
+#include<iostream>
+#include "menu.h" //DONDE SE ENCUENTRAN LA CLASS YO Y DEMAS FUNCIONES.
+using namespace std;
+int main(){
+	FILE *arg;
+	Yo some[2];
+	int con=2;
+	arg = fopen("D:\\yatusabe.dat","wb");
+	
+	for(int i=0;i<con;i++){
+		some[i].enter();
+	}
+	
+	fwrite(some,sizeof(some),con,arg);   //ALMACENO 2 REGISTROS, Y EN EL PRIMER PARAMETRO SE ENVIO EL PRIMER ELEMENTO O EL INICIO DE MEMORIA DE ESE ARRAY.
+	fclose(arg);
+	
+	for(int i=0;i<con;i++){
+		some[i].show();
+	}	
+	
+	return 0;
+}
+
 40 --------------------->>> SIZEOF (VALOR) : FOREACH NORMAL :
 
 La función recibe como único parámetro o el nombre de una variable, o el nombre de un tipo de datos,
