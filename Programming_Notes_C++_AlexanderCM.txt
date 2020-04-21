@@ -3269,7 +3269,13 @@ class yo{
 
 /*  EN CONCLUSION SON LO MISMO SOLO QUE EL PRAGMA ES MAS SIMPLE */
 
-44 ---------------->>>>
+44 ---------------->>>> PUNTEROS EN FUNCIONES : *FUNCION() :
+
+int *get_array(){  		//AL IGUAL QUE CREAR UNA VARIABLE SE AGREGA EL " * " PARA EL APUNTADOR.
+	return array;		//ESTO DEVOLVERA LA PRIMERA POSICION O DIRECCION DEL ARRAY.
+}
+
+45 ---------------->>>>
 
 ------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------" Java "--------------------------------------------------
