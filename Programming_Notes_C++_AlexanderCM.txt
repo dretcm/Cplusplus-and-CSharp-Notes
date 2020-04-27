@@ -721,7 +721,8 @@ int main(){
 \\ buenisa pagina para aprender ciertas funciones, solo falta buscar librerias.
 http://www.casdreams.com/auladeinformatica/cet/comandos_de_c.htm
 
-20--------->
+20--------->   PASSWORD : CONTRASEÑA : KBHIT() : GETCH() : 
+
 \\para escribir una cadena pero sin que se muestre el mensaje y salga "*"
 
 #include<iostream>
@@ -753,6 +754,32 @@ int main(){
 	}
 	
 	return 0;
+}
+
+---FUNCION PARA UNA MEJOR GENERADORA DE PASSWORDS:
+---RETORNA UNA CADENA.
+
+char *genery_password(){
+	char letra,dato[20];
+	int i=0;
+	do{
+		if(kbhit()){
+			char letra=getch();
+			if(letra != 13){
+				cout<<"*";
+				dato[i] = letra;
+				i++;
+			}
+			else{
+				break;
+			}
+		}
+	}while(true);
+	char resultado[i];
+	for(int a=0;a<=i;a++){
+		resultado[a] = dato[a];
+	}
+	return resultado;
 }
 
 21------------->
