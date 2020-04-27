@@ -771,15 +771,15 @@ char *genery_password(){
 				i++;
 			}
 			else{
+				for(int a=i;a<20;a++){
+					dato[a] = NULL;
+				}
 				break;
 			}
 		}
 	}while(true);
-	char resultado[i];
-	for(int a=0;a<=i;a++){
-		resultado[a] = dato[a];
-	}
-	return resultado;
+	
+	return dato;
 }
 
 21------------->
