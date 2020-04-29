@@ -1879,7 +1879,7 @@ void show_element(Nodo *&pila,bool &val){
 include<stdlib.h>
 int num=-5,val=abs(num); //val=5
 
-35 ------------>>> COLAS C++ : COLA C++ : COLE C++ :
+35 ------------>>> COLAS C++ : COLA C++ : TAIL C++ : TAILS C++ :
 
 FRASE : FIRST INPUT -> FIRST OUTPUT .
 
@@ -2088,6 +2088,80 @@ void continue_cola(Nodo *&frente,Nodo *&fin){
 	}
 	delete aux;
 } 
+
+
+---- THE BEST FORM FOR ME IS :
+
+#include<iostream>
+using namespace std;
+
+struct Node{
+	int num;
+	Node *next;
+};
+
+void add(Node *&,Node *&);
+void show(Node *&,Node *&);
+void show_all(Node *,Node *);
+
+int main(){
+	Node *front = NULL, *end=NULL;
+	int op;
+	do{
+		cout<<" 1) add\n 2) show\n 3) show all\n 4) exit\n Enter option: ";cin>>op;
+		switch(op){
+			case 1:
+				add(front,end);
+				break;
+			case 2:
+				show(front,end);
+				break;
+			case 3:
+				show_all(front,end);
+				break;
+			case 4:
+				break;
+			default:break;
+		}
+	}while(op != 4 );
+	return 0;
+}
+
+void add(Node *&front,Node *&end){
+	Node *new_n = new Node();
+	int data;
+	cout<<" Enter number to save: ";cin>>data;
+	new_n->num = data;
+	new_n->next = NULL;
+	
+	if(front == NULL){
+		front = new_n;
+	}
+	else{
+		end->next = new_n;
+	}
+	end = new_n;
+}
+
+void show(Node *&front,Node *&end){
+	cout<<" the number : "<<front->num<<" : left the tail."<<endl;
+	Node *aux = front;
+	if(front == end){
+		front = NULL;
+		end = NULL;
+	}
+	else{
+		front = front->next;
+	}
+	delete aux;
+}
+
+void show_all(Node *front,Node *end){
+	while(front != NULL){
+		cout<<" best: "<<front->num<<endl;
+		front = front->next;
+	}
+}
 
 36 --------------->>> CLASS AND OBJECTS :: CLASES Y OBJETOS :
 
