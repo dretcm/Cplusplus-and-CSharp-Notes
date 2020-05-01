@@ -2161,6 +2161,138 @@ void show_all(Node *front,Node *end){
 	}
 }
 
+
+------COLA CON CLASES Y DATO PERSONA CLASS :
+// RECORDAR QUE CUANDO TODO LO QUE ESTE DENTRO DE LAS FUNCIONES AL ENVIAR PUNTERO SE CAMBIARAN EXCEPTO EL MISMO PUNERO EJEMPLO:
+
+ejemplo 1-- blabla(Node *algo){ //SIN REFERENCIA
+	Node nuevo_nodo = new Node();
+	algo->persona.edad = 19;    // CAMBIA EL CONTENIDO DE LA MEMORIA POR EL APUNTADOR.
+	algo = nuevo_nodo;          // NO CAMBIA EL NODO "algo" SOLO CAMBIA EN ESA INSTANCIA NO EN EL PROGRAMA.
+}
+ejemplo 2-- blabla(Node *&algo){   //CON REFERENCIA
+	Node nuevo_nodo = new Node();
+	algo->persona.edad = 19;    // CAMBIA EL CONTENIDO DE LA MEMORIA POR EL APUNTADOR.
+	algo = nuevo_nodo;          // SI CAMBIA EL NODO "algo" PORQUE SE ESTA ENVIANDO EL NODO POR REFERENCIA YA NO COMO UN SIMPLE PUNTERO SINO UN PUNTERO QUE SERA MODIFICADO.
+}
+
+#include<iostream>
+using namespace std;
+
+class Person{
+	private:
+		char name[30];
+		int dni;
+	public:
+		void enter_data();
+		void show_data();
+		char *get_name(){
+			return name;
+		}
+};
+
+void Person::enter_data(){
+	fflush(stdin);
+	cout<<" Enter name: ";cin.getline(name,30,'\n');
+	fflush(stdin);
+	cout<<" Enter Dni: ";cin>>dni;
+}
+void Person::show_data(){
+	cout<<" Name: "<<name<<endl;
+	cout<<" Dni: "<<dni<<endl;
+}
+
+struct Node{
+	Person im;
+	Node *next;
+};
+class Tail{
+	private:
+		int quan,pos;
+	public:
+		Tail(){
+			quan = 0;
+			pos = 0;
+		}
+	void add(Node *&,Node *&);
+	void advance(Node *&,Node *&);
+	void show(Node *);
+	void modificate(Node *);
+};
+
+int main(){
+	Node *front = NULL, *end = NULL;
+	Tail cola;
+	int op;
+	do{
+		cout<<" 1) add\n 2) show\n 3) advance\n 4) modificate\n 5) exit\n option: ";cin>>op;
+		switch(op){
+			case 1:
+				cola.add(front,end);break;
+			case 2:
+				cola.show(front);break;
+			case 3:
+				cola.advance(front,end);break;
+			case 4:
+				cola.modificate(front);
+				break;
+			case 5:break;
+			default:cout<<"\n That option doesnt exist.\n";
+		}
+	}while(op != 5);
+	return 0;
+}
+
+void Tail::add(Node *&front,Node *&end){
+	Node *nuevo = new Node();
+	nuevo->im.enter_data();
+	nuevo->next = NULL;
+	if(front == NULL){
+		front = nuevo;
+	}
+	else{
+		end->next = nuevo;
+	}
+	end = nuevo;
+	quan++;
+}
+
+void Tail::advance(Node *&front,Node *&end){
+	cout<<" the person \""<<front->im.get_name()<<"\" left the tail. "<<endl;
+	Node *aux = front;
+	if(front == end){
+		front = NULL;
+		end = NULL;
+	}
+	else{
+		front = front->next;
+	}
+	delete aux;
+	quan--;
+}
+
+void Tail::show(Node *front){
+	int x = 1;
+	while(front != NULL){
+		cout<<x<<". Registry: \n";
+		front->im.show_data();
+		front = front->next;
+		x++;
+	}
+}
+
+void Tail::modificate(Node *front){
+	cout<<" Enter position: ";cin>>pos;
+	int con=1;
+	while(front != NULL){
+		if(con == pos){
+			front->im.enter_data();
+		}
+		front = front->next;
+		con++;
+	}
+}
+
 36 --------------->>> CLASS AND OBJECTS :: CLASES Y OBJETOS :
 
 EJEMPLO 1:
