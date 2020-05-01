@@ -377,9 +377,7 @@ struct Persona {
 	char nombre[20];
 	int edad;
 	
-}
-persona1= {"Alejandro", 20},
-persona2 = { "Ruperto", 15 };
+}persona1= {"Alejandro", 20}, persona2 = { "Ruperto", 15 };
 
 int main()
  {
