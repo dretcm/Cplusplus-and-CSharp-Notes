@@ -3431,6 +3431,156 @@ int main(){
 	return 0;
 }
 
+-> // ARCHIVOS CON 15 NOMBRES Y ENTRAD DE DATOS, CLASS ETC : //
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+void entry(char *cade,int quan){
+	fflush(stdin);
+	cin.getline(cade,quan,'\n');
+	fflush(stdin);
+}
+
+struct Directory{
+	char name_dir[15][40];
+	int quan = 0;
+	void enter_name();
+	char *get_name(){
+		return name_dir[quan-1];
+	}
+	char *get_name_pos(){
+		int pos;
+		cout<<" Enter position: ";cin>>pos;
+		return name_dir[pos-1];
+	}
+	int get_quan(){
+		return quan;
+	}
+};
+
+void Directory::enter_name(){
+	cout<<" Enter name Directory (name_directory.dat): ";entry(name_dir[quan],40);
+	quan++;
+}
+
+class Person{
+	private:
+		char name[30];
+		int age;
+		int dni;
+	public:
+		void enter();
+		void show();
+};
+
+void Person::enter(){
+	cout<<" Enter name: ";entry(name,30);
+	cout<<" Enter dni: ";cin>>dni;
+	cout<<" Enter age: ";cin>>age;
+}
+
+void Person::show(){
+	cout<<" name: "<<name<<endl;
+	cout<<" dni: "<<dni<<endl;
+	cout<<" age: "<<age<<endl;
+}
+
+class Files{
+	public:
+		char origin[60]="D:\\Alexander\\c++\\", auxiliar[60]="D:\\Alexander\\c++\\";
+		FILE *file;
+		Directory dir;
+		Person person;
+		void enter_data();
+		void show_data();
+		void create_data();
+		void clean_dir(char *);
+};
+
+void Files::clean_dir(char *cade){
+	for(int i=0; i<20;i++){
+		cade[i] = NULL;
+	}
+	strcpy(cade,auxiliar);
+}
+
+void Files::create_data(){
+	dir.enter_name();
+	strcat(origin,dir.get_name());
+	file = fopen(origin,"wb");
+	if(!file && dir.quan > 14){
+		cout<<"\n Error, Program.\n"<<endl;
+		system("pause");
+		exit(1);
+	}
+	else{
+		fclose(file);
+	}
+	cout<<" Created: "<<origin<<endl;
+	clean_dir(origin);
+}
+
+void Files::enter_data(){
+	strcat(origin,dir.get_name_pos());
+	cout<<" Current : "<<origin<<endl;
+	file = fopen(origin,"ab");
+	if(!file){
+		cout<<"\n Error, Program.\n"<<endl;
+		system("pause");
+		exit(1);
+	}
+	else{
+		person.enter();
+		fwrite(&person,sizeof(person),1,file);
+		fclose(file);
+	}
+	clean_dir(origin);
+}
+
+void Files::show_data(){
+	strcat(origin,dir.get_name_pos());
+	cout<<" Current : "<<origin<<endl;
+	file = fopen(origin,"rb");
+	if(!file){
+		cout<<"\n Error, Program.\n"<<endl;
+		system("pause");
+		exit(1);
+	}
+	else{
+		fread(&person,sizeof(person),1,file);
+		person.show();
+		fclose(file);
+	}
+	clean_dir(origin);
+}
+
+void Menu(){
+	Files algo;
+	int op;
+	do{
+		cout<<"\t Registry:\n 1) new\n 2) enter\n 3) show\n 4) exit\n option:  ";cin>>op;
+		switch(op){
+			case 1:
+				algo.create_data();break;
+			case 2:
+				algo.enter_data();break;
+			case 3:
+				algo.show_data();break;
+			case 4:break;
+			default: cout<<"\n That Option Doesnt Exist.\n\n";
+		}
+	}while(op != 4);
+}
+
+int main(){
+	
+	Menu();
+	
+	return 0;
+}
+
 40 --------------------->>> SIZEOF (VALOR) : FOREACH NORMAL :
 
 La función recibe como único parámetro o el nombre de una variable, o el nombre de un tipo de datos,
