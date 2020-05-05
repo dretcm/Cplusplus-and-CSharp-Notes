@@ -3509,7 +3509,57 @@ int *get_array(){  		//AL IGUAL QUE CREAR UNA VARIABLE SE AGREGA EL " * " PARA E
 	return array;		//ESTO DEVOLVERA LA PRIMERA POSICION O DIRECCION DEL ARRAY.
 }
 
-45 ---------------->>>>
+45 ---------------->>>> OPERADOR TERNACRIO : " ?: " :
+
+-EXAMPLE 1:
+
+#include<iostream>
+using namespace std;
+
+int main(){
+	int day;
+	cout<<" Enter day: ";cin>>day;
+	
+	(day == 7)? cout<<"adios"<<endl : cout<<"hola"<<endl; 	// COMO UN CONDIFICIONAL SI DAY ES IGUAL A 7 SALE POR CONSOLA "ADIOS" CASO CONTRARIO "HOLA"
+	
+	return 0;
+}
+
+--EQUIVALENTE A HACER :
+
+#include<iostream>
+using namespace std;
+
+int main(){
+	int day;
+	cout<<" Enter day: ";cin>>day;
+	
+	if(day == 7){
+		cout<<" adios"<<endl;
+	}
+	else{
+		cout<<" adios"<<endl;
+		
+	}
+	return 0;
+}
+
+-EXAMPLE 2:
+
+int tiempo_de_apertura = (día == FIN_DE_SEMANA) ? 12 : 9;
+
+// TAMBIEN SE PUEDE POR ASIGNACION DONDE SI DIA ES IGUAL A FINSEMANA TIEMPO APERTURA SERA 12 CASO CONTRARIO 9.
+
+--EQUIVALENTE A HACER :
+
+int tiempo_de_apertura;
+
+if (día == FIN_DE_SEMANA)
+    tiempo_de_apertura = 12;
+else
+    tiempo_de_apertura = 9;
+
+46 ------------------->>>
 
 ------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------" Java "--------------------------------------------------
