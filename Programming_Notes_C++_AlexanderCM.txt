@@ -3709,6 +3709,19 @@ if (día == FIN_DE_SEMANA)
 else
     tiempo_de_apertura = 9;
 
+--EXAMPLE 3 : RECURSIVIDAD :
+
+#include<iostream>
+using namespace std;
+
+int fact(int val){
+	return ( val <= 1 )? 1 : val*fact(val-1);
+}
+int main(){
+	cout<<fact(5)<<endl;
+	return 0;
+}
+
 46 ------------------->>>
 
 ------------------------------------------------------------------------------------------------------------------------------------
