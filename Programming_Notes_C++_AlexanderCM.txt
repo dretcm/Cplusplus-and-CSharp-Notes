@@ -3618,8 +3618,139 @@ cout<<potencia(5)<<endl;     //25
 
 42 ------------------>>> LISTAS C++ : LIST C++ : 
 
-EJEMPLO 1 : 
-EJEMPLO 2 :
+---EJEMPLO 1 : 
+
+#include<iostream>
+using namespace std;
+
+struct Node{
+	int number;
+	Node *next;
+};
+
+int get_num(){
+	int dato;
+	cout<<" Enter number: ";cin>>dato;
+	return dato;
+}
+
+bool find_list(Node *,int);
+void show_list(Node *);
+void add_list(Node *&,int );
+void delete_list(Node *&,int ); 	//FORM 1
+void delete_element(Node *&,int );	//FORM 2
+void clear_list(Node *&);
+
+int main(){
+	Node *lista = NULL;
+	int op;
+	do{
+		cout<<" \tLIST:\n 1)add\n 2)show\n 3)delete form 1\n 4)delete form 2\n 5)find number\n 6)clear list\n option: ";cin>>op;
+		switch(op){
+			case 1:add_list(lista,get_num());break;
+			case 2:show_list(lista);break;
+			case 3:delete_element(lista,get_num());break;
+			case 4:delete_list(lista,get_num());break;
+			case 5:find_list(lista,get_num());break;
+			case 6:clear_list(lista);break;
+		}
+	}while(1);
+	
+	return 0;
+}
+
+void add_list(Node *&lista,int val){
+	Node *new_node = new Node();
+	new_node->number = val;
+	new_node->next = NULL;
+	
+	Node *aux1 = lista;
+	Node *aux2;
+	
+	while((aux1!=NULL) && (aux1->number<val)){
+		aux2 = aux1;
+		aux1 = aux1->next;
+	}
+	
+	if(aux1==lista){
+		lista = new_node;
+	}
+	else{
+		aux2->next = new_node;
+	}
+	new_node->next = aux1;
+	cout<<" "<<new_node->number<<" add to list."<<endl;
+}
+
+void show_list(Node *lista){
+	while(lista!=NULL){
+		cout<<" -> "<<lista->number<<endl;
+		lista = lista->next;
+	}
+}
+
+bool find_list(Node *lista,int val){
+	while(lista!=NULL){
+		if(val == lista->number){
+			cout<<" Si se encuentra el numero."<<endl;
+			return true;
+		}
+		lista = lista->next;
+	}
+	cout<<" No se encontro el numero."<<endl;
+	return false;
+}
+
+void delete_list(Node *&lista,int val){
+	Node *aux1 = lista;
+	Node *aux2=NULL;
+	bool band = false;
+	while(aux1 != NULL){
+		if(aux1->number != val){
+			band = true;
+			add_list(aux2,aux1->number);
+		}
+		aux1 = aux1->next;
+	}
+	if(!band){
+		cout<<" No se encuantra ese numero."<<endl;
+	}
+	lista = aux2;
+}
+
+void delete_element(Node *&lista,int val){
+	if(lista!=NULL){
+		Node *borrar_dato = lista;
+		Node *anterior = NULL;
+		while((borrar_dato != NULL) && (borrar_dato->number != val)){
+			anterior = borrar_dato;
+			borrar_dato = borrar_dato->next;
+		}
+	
+		if(borrar_dato == NULL){
+			cout<<" No existe ese elemento."<<endl;
+		}
+		else if(anterior == NULL){
+			lista = borrar_dato->next;
+			delete borrar_dato;
+		}
+		else{
+			anterior->next = borrar_dato->next;
+			delete borrar_dato;
+		}	
+	}
+}
+
+void clear_list(Node *&lista){
+	Node *aux = NULL;
+	while(lista!=NULL){
+		aux = lista->next;
+		delete lista;
+		lista = aux;
+	}
+}
+
+---EJEMPLO 2 :
 
 43 ------------------>> PRAGMA ONCE : IFNDEF : #PRAGMA ONCE : #IFNDEF #DEFINE #ENDIF : archivo .h :
 
