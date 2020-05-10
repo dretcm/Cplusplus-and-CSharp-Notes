@@ -146,14 +146,16 @@ int main(){
 }
 
 6.strupr(palabra_A_pasar_a_mayuscula); //PARA UNA CADENA
-// PARA UNA LETRA O CHAR USAREMOS:
+
+6.1// PARA UNA LETRA O CHAR USAREMOS:
 
 cout << endl << endl << "Desea ingresar otro producto? (S/N): ";
 cin >> resp;
 resp = toupper(resp);
 
 7.strlwr(palabra_a_pasar_a_minuscula);
-// PARA UNA LETRA O CHAR USAREMOS:
+
+7.1// PARA UNA LETRA O CHAR USAREMOS:
 
 cout << endl << endl << "Desea ingresar otro producto? (S/N): ";
 cin >> resp;
