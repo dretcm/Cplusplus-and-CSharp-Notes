@@ -3752,6 +3752,131 @@ void clear_list(Node *&lista){
 
 ---EJEMPLO 2 :
 
+#include<iostream>
+using namespace std;
+
+struct Node{
+	int number;
+	Node *next;
+};
+
+int get_num(){
+	int num;
+	cout<<" Enter number: ";cin>>num;
+	return num;
+}
+
+void add_element(Node *&list,int val);
+void show_elements(Node *list);
+void delete_element(Node *&list,int val);
+int calculate_less(Node *list);
+int calculate_major(Node *list);
+void calculate_average(Node *list);
+
+
+int main(){
+	Node *list = NULL;
+	char con;
+	do{
+		add_element(list,get_num());
+		cout<<" do you want to continue? y/n: ";cin>>con;
+		con = toupper(con);
+	}while(con == 'Y');
+	
+	show_elements(list);
+	
+	cout<<"\nless: "<<calculate_less(list)<<endl;
+	
+	cout<<"\nmajor: "<<calculate_major(list)<<endl;	
+	calculate_average(list);
+	
+	return 0;
+}
+
+void calculate_average(Node *list){
+	int cont=0,sum=0;
+	while(list != NULL){
+		sum += list->number;
+		cont++;
+		list = list->next;
+	}
+	cout<<" all sum: "<<sum<<endl;
+	cout<<" average: "<<sum/cont<<endl;
+}
+
+void add_element(Node *&list,int val){
+	Node *new_node = new Node();
+	new_node->number = val;
+	new_node->next = NULL;
+	
+	Node *aux1 = list;
+	Node *aux2 = NULL;
+
+	if(list == NULL){
+		list = new_node;
+	}
+	else{
+		while(aux1 != NULL){
+			aux2 = aux1;
+			aux1 = aux1->next;
+		}
+		aux2->next = new_node;		
+	}
+	cout<<"\n Add number "<<new_node->number<<" to the list.\n"<<endl;
+}
+
+void show_elements(Node *list){
+	while(list != NULL){
+		cout<<" -> "<<list->number;
+		list = list->next;
+	}
+}
+
+void delete_element(Node *&list,int val){
+	bool there = true;
+	
+	Node *aux1 = list;
+	Node *aux2 = NULL;
+		
+	while(aux1 != NULL){
+		if(aux1->number != val){
+			add_element(aux2,aux1->number);
+		}
+		else{
+			there = false;
+		}
+		aux1 = aux1->next;
+	}
+	
+	if(there){
+		cout<<" No existe ese numero."<<endl;
+	}
+	
+	list = aux2;
+}
+
+int calculate_less(Node *list){
+	int reply = 1000;	
+	while(list != NULL){
+		if(reply > list->number){
+			reply = list->number;
+		}
+		list = list->next;
+	}
+	return reply;
+}
+
+int calculate_major(Node *list){
+	int reply = 0;	
+	while(list != NULL){
+		if(reply < list->number){
+			reply = list->number;
+		}
+		list = list->next;
+	}
+	return reply;	
+}
+
 43 ------------------>> PRAGMA ONCE : IFNDEF : #PRAGMA ONCE : #IFNDEF #DEFINE #ENDIF : archivo .h :
 
 ----#ifndef ARCHIVO_H
