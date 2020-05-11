@@ -1292,9 +1292,8 @@ fibo(2)=fibo(1)+fibo(0)         //fibo(2)=2
 fibo(1)=1                       //regla general o basica 0 = 1 en fibonacci.
 fibo(0)=1                       //0+1=1
 
-29------------>
+29------------>   **PUNTEROS***
 
-**PUNTEROS***
 -para guardar un puntero debemos crear el mismo tipo de varble(ejemplo):
 int num=20,*dir_num;    //varible num que almacena 20; varible con contenido por el "*". el "*dir_num" es una puntero.
 dir_num = &num;        //dir_num es una variable con contenido directo
@@ -1439,9 +1438,7 @@ void show(int *var){
 	}
 }
 
-31----------->
-
-AREGLOS DINÁMICOS
+31----------->   ARREGLOS DINÁMICOS :: MEMORIA DINAMICA ::
 
 //para especificar la cantidad de memoria exacta ha almacenar sin dejar espacios vacios usaremos : "new y delete".
 
@@ -1537,7 +1534,7 @@ for(int i=0;i<cantidad;i++){
 	cin>>*(vector+i);     //introduce un valor en el puntero aumentado por el "i" pero en el contenido del puntero "*".
 }
 
-PUNTEROS **PARA MATRICES:
+----> PUNTEROS ** PARA MATRICES :: 
 
 #include<iostream>
 #include<conio.h>
