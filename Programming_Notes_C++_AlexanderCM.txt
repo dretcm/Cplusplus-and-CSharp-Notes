@@ -782,7 +782,7 @@ char *genery_password(){
 	return dato;
 }
 
-21------------->
+21-------------> :: USE TEMPLATE ::
 
 // cuando no sabemos que clase de valor se enviara a una funcion usaremos el " template <class nombre_de_tipo_de_variblea_random> " ejemplo:
 
