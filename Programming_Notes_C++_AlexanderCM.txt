@@ -3853,7 +3853,22 @@ int main(){
 	return 0;
 }
 
-46 ------------------->>>
+46 ------------------->>> AUTO REFERENCIA ::
+
+Clase& sumaEntero(int n){     //Retorna el contenido de la direccion de memoria de este clase.
+	variableEntera += n;	
+	return *this;		// this = puntero , * = indireccion, puntero + indireccion = referencia.
+}				//  *this = una variable, no una direccion de memoria.
+
+Clase& sumaFlotante(float n){
+	variableFlotante += n;
+	return *this;
+}
+
+
+objeto.sumaEntero(5).sumaFlotante(3.5);  //hace el proceso 1 y luego retorna la variable de la clase y llama a otra funcion retornando la variable de clase.
+
+47 ------------------>>>
 
 ------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------" Java "--------------------------------------------------
