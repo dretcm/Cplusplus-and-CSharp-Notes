@@ -3908,13 +3908,23 @@ class yo{
 
 /*  EN CONCLUSION SON LO MISMO SOLO QUE EL PRAGMA ES MAS SIMPLE */
 
-44 ---------------->>>> PUNTEROS EN FUNCIONES : *FUNCION() :
+44 ---------------->>>> PUNTEROS EN FUNCIONES : *FUNCION() : FUNCION PUNTERO : FUCTION POINTER : PUNTERO FUNCION :
 
 int *get_array(){  		//AL IGUAL QUE CREAR UNA VARIABLE SE AGREGA EL " * " PARA EL APUNTADOR.
-	return array;		//ESTO DEVOLVERA LA PRIMERA POSICION O DIRECCION DEL ARRAY.
+	return array;		//ESTO DEVOLVERA LA PRIMERA POSICION O "DIRECCION" DE MEMORIA DEL ARRAY, CLASS, STRUCT ETCTCETCETC.
 }
 
-45 ---------------->>>> OPERADOR TERNACRIO : " ?: " :
+class Gato{
+	public:
+		int hijos;
+		Gato *get_gato();
+}
+
+Gato*::get_Gato(){
+	return this;   	    //RETORNA LA DIRECCION DE MEMORIA DE LA CLASE.
+}
+
+45 ---------------->>>> OPERADOR TERNARIO : " ?: " :
 
 -EXAMPLE 1:
 
@@ -3992,7 +4002,7 @@ Clase& sumaFlotante(float n){
 
 objeto.sumaEntero(5).sumaFlotante(3.5);  //hace el proceso 1 y luego retorna la variable de la clase y llama a otra funcion retornando la variable de clase.
 
-47 ------------------>>>
+47 ------------------>>> ARBOL C++ : TREE C++ : ARBOLES C++ : TREES C++ :
 
 ------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------" Java "--------------------------------------------------
