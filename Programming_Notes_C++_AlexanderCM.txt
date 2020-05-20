@@ -4004,6 +4004,172 @@ objeto.sumaEntero(5).sumaFlotante(3.5);  //hace el proceso 1 y luego retorna la 
 
 47 ------------------>>> ARBOL C++ : TREE C++ : ARBOLES C++ : TREES C++ :
 
+48 ------------------>>> FRIEND FUNCTION : FUNCTION FRIEND : FUNCION AMIGO : PROTOTIPO DE CLASE : CLASS PROTOTYPE :
+
+>> FUNCION AMIGA: 
+- SIRVE PARA PODER ACCEDER A LOS ATRIBUTOS PRIVADOS, PROTEGIDOS Y PUBLICOS DE LA CLASE ENVIADA POR PARAMETROS.
+- HAY VECES EN LA CUAL TENDREMOS QUE TOCAR VARIOS ATRIBUTOS PRIVADOS EN VARIAS FUNCIONES Y PARA ENVITAR LA SOBRE CARGA
+  DE OPERADORES USAREMOS LAS FUNCIONES AMIGA CON LA PALABRA "friend"; RECORDA QUE LA CLASE AMIGA NO ES UN MIENBRO DE LA CLASE
+  ASI QUE SE LLAMA COMO CUALQUIER OTRA FUNCION NORMAL, NO COMO LOS METODOS DE UNA CLASE.
+
+>> PROTOTIPO DE CLASE:
+- HAY VECES EN LAS CUALES EL PROGRAMA NO IDENTIFICA EL TIPO DE DATO AGREGADO POR ESO ES RECOMENDABLE USAR EL PROTOTIPO DE CLASE.
+  COMO SE USA? PUES SOLO PONEMOS EL TIPO DE DATO "class Carro;" Y SEGUIMOS CON LA FUNCION COMUN "class Empresa{ etc...."
+- PARA LLAMAR A LA CLASE USADA POR EL PROTOTIPO USAREMOS HEADER O ARCHIVOS .H, ENCABEZADOS DE CODIGO, SE VERA TODO EN ESTE EJEMPLO.
+
+>> RECORDAR SIEMPRE USAR EL PRAGMA ONCE PARA TODO ARCHIVO ENCABEZADO, HEADER, O .H.
+- PARA INTERCONECTAR CLASES U OBJETOS ES IMPORTANTE USAR ESTE TIPO DE ARCHIVO, PORQUE EL PROCESADOR LEERIA EL CODIGO EN FORMA SISTEMATICA NO DE FORMA LINEAL.
+
+////////////////////Archivo: Fecha_header.h ////////////////////////////// 
+#pragma once
+#include<iostream>
+
+using namespace std;
+
+void entry(char* word,int quan){
+	fflush(stdin);
+	cin.getline(word,quan,'\n');
+	fflush(stdin);
+}
+
+class Fecha{
+	private:
+		int dia,mes,annio;
+	public:
+		Fecha(int d,int m,int a){
+			this->dia = d;
+			this->mes = m;
+			this->annio = a;
+		}
+		void show(){
+			cout<<dia<<"/"<<mes<<"/"<<annio<<endl;
+		}
+		~Fecha(){
+			cout<<" La fecha fue eliminada."<<endl;
+		}
+};
+
+////////////////////Archivo: Esposo.h ////////////////////////////// 
+#pragma once
+#include "Fecha_header.h"
+#include "Esposa.h"
+
+class Esposa;
+
+class Esposo{
+	friend void change(Esposo *&,Esposa *&);    //PROTOTIPO FUNCION AMIGO
+	private:
+		char name[30];
+		Fecha *fecha_matrimonio;
+		Esposa *conyugue;
+	public:
+		Esposo();
+		~Esposo();
+		void casarce(Esposa *e,Fecha *f);
+		char* get_name();
+};
+
+////////////////////Archivo: Esposa.h ////////////////////////////// 
+#pragma once
+#include "Fecha_header.h"
+#include "Esposo.h"
+
+class Esposo;
+
+class Esposa{
+	friend void change(Esposo *&,Esposa *&);  //PROTOTIPO FUNCION AMIGO.
+	private:
+		char name[30];
+		Fecha *fecha_matrimonio;
+		Esposo *conyugue;
+	public:
+		Esposa();
+		~Esposa();
+		void casarce(Esposo *e,Fecha *f);
+		char* get_name();
+};
+
+////////////////////Archivo: Esposo.cpp ////////////////////////////// 
+#include "Esposo.h"
+
+Esposo::Esposo(){
+	cout<<" Enter name esposo: ";entry(name,30);
+	this->fecha_matrimonio = NULL;
+	this->conyugue = NULL;
+}
+Esposo::~Esposo(){
+	delete this->fecha_matrimonio;
+	delete this->conyugue;
+}
+void Esposo::casarce(Esposa *e,Fecha *f){
+	this->fecha_matrimonio = f;
+	this->conyugue = e;
+	cout<<" soy "<<this->name<<" y estoy casado con: "<<this->conyugue->get_name()<<endl;
+}
+
+char* Esposo::get_name(){
+	return name;
+}
+
+////////////////////Archivo: Esposa.cpp ////////////////////////////// 
+#include "Esposa.h"
+
+
+Esposa::Esposa(){
+	cout<<" Enter name esposa: ";entry(name,30);
+	this->fecha_matrimonio = NULL;
+	this->conyugue = NULL;
+}
+Esposa::~Esposa(){
+	delete this->fecha_matrimonio;
+	delete this->conyugue;
+}
+void Esposa::casarce(Esposo *e,Fecha *f){
+	this->fecha_matrimonio = f;
+	this->conyugue = e;
+	cout<<" soy "<<this->name<<" y estoy casado con: "<<this->conyugue->get_name()<<endl;
+}
+
+char* Esposa::get_name(){
+	return name;
+}
+
+////////////////////Archivo: Source.cpp //////////////////////////////
+#include<iostream>
+#include "Esposa.cpp"
+#include "Esposo.cpp"
+#include "Fecha_header.h"
+
+#include<string.h>
+using namespace std;
+
+
+void change(Esposo *&e1,Esposa *&e2){       // FUNCION CORRIENDE, FUNCION AMIGO
+	char aux[30];
+	strcpy(aux,e1->name);          // COMO SE VE SE ESTAN TOCANDO LOS ATRIBUTOS PRIVADOS.
+	strcpy(e1->name,e2->name);
+	strcpy(e2->name,aux);
+	cout<<" Esposo e1 : "<<e1->name<<endl;
+	cout<<" Esposa e2: "<<e2->name<<endl;
+}
+
+int main(){
+	Fecha *fch = new Fecha(19,5,2020);
+	Esposa *alexa = new Esposa();
+	Esposo *alex= new Esposo();
+	
+	alexa->casarce(alex,fch);
+	alex->casarce(alexa,fch);
+	
+	change(alex,alexa);   // SE CAMBIARON LOS NOMBRES.
+	
+	cout<<alexa->get_name()<<endl;       //IMPRIMIRA EL NOMBRE DEL ESPOSO.
+	cout<<alex->get_name()<<endl;	   //IMPRIMIRA EL NOMBRE DE LA ESPOSA.
+	return 0;
+}
+
+49 --------------------->>>>
+
 ------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------" Java "--------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------
