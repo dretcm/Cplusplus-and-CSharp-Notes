@@ -17,7 +17,7 @@ for(int i=1; i<=10; i++){
 // una forma de usar el for. el i++ tambien puede ser i +=1  o  i=i+1.
 //el int i=1 puede tambien ser añadida al inicio con int i,a,b; y en el for iria for(i=1;----)
 ------------------------------------------------
-#include<time.h>
+--->> #include<time.h>
 //y este tipo de metodo es requerible q se use el #include<stdlib.h>
 //porque el conio.h no corre. 
 srand(time(NULL));
@@ -4168,7 +4168,47 @@ int main(){
 	return 0;
 }
 
-49 --------------------->>>>
+49 --------------------->>>> SOBRE CARGA DE OPERADORES :: SOBRECARGA DE OPERADORES :: C++
+
+#include<iostream>
+using namespace std;
+
+class Pareja {
+public:
+    double a, b;
+
+    Pareja(const double a, const double b)    // CONSTRUCTOR NORMAL
+    {
+        this->a = a;
+        this->b = b;
+    }
+};
+
+ 
+
+// Sobrecarga del operador +
+Pareja& operator +(const Pareja& p1, const Pareja& p2)     // FUNCION TIPO PAREJA, QUE RESIVE 2 CLASES DE ESTE TIPO Y RETORNA UNA CLASE DEL MISMO TIPO.
+{ 							// SE AGREGA EL "OPERATOR" CON CUALQUIER OTRO OPERADOR " +, -, and, or, <<, etc.." PARA INTERPRETARLOS COMO PARAMETROS.
+    return *(new Pareja(p1.a + p2.a, p1.b + p2.b));
+}
+
+ 
+
+int main()
+{
+    Pareja A(50, 75);      // CLASES NOMALMENTE CREADAS.
+    Pareja B(150, 175);
+    Pareja C = A + B;      // CLASE CON SOBRE CARGA DE CONSTRUCTORES.
+ 
+
+    cout << "A = " << A.a << ',' << A.b << "\n";     // 50 - 75
+    cout << "B = " << B.a << ',' << B.b << "\n";     // 150 - 175
+    cout << "C = " << C.a << ',' << C.b << "\n";     // 200 - 250
+    
+    return 0;
+}
+
+50 --------------------->>>
 
 ------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------" Java "--------------------------------------------------
