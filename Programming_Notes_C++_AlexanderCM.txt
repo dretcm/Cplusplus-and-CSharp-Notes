@@ -4338,7 +4338,79 @@ int main()
     return 0;
 }
 
-50 --------------------->>>
+50 --------------------->>> CLASES ABSTRACTAS :: ABSTRACT CLASS ::
+
+EJEMPLO 1:
+
+#include<iostream>
+class Mamifero //clase abstracta(una clase abstracta no puede generar instancias).
+{
+public:
+    Mamifero() :edad(1) { std::cout << "constructor M"; }
+    virtual ~Mamifero() { std::cout << "destructor M"; }
+    virtual void hablar() const { std::cout << "mamifero talk"; }
+protected:
+    int edad;
+};
+
+ 
+
+class Gato : public Mamifero  //clase derivada.
+{
+public:
+    Gato() { std::cout << "constructor G \n"; }
+    ~Gato() { std::cout << "Destructor G \n";}
+    void hablar() const { std::cout << "miau \n"; }
+    void ronronear() const { std::cout << " Rrrr \n"; }
+};
+
+ 
+
+class Perro : public Mamifero
+{
+public:
+    Perro() { std::cout << "Constructor P \n"; }
+    ~Perro() { std::cout << "Destructor P \n"; }
+    void hablar() const {std::cout << "\nguau \n";}
+};
+
+ 
+
+int main()
+{
+    const int numeroMamifero = 2;
+    Mamifero* zoo[numeroMamifero];
+    Mamifero* pMamifero;
+    int elegir, i;
+
+    for (i = 0; i < numeroMamifero; i++)
+    {
+        std::cout << "(1)Perro \n(2)gato \n";
+        std::cin >> elegir;
+        if (elegir == 1)
+            pMamifero = new Perro;
+        else
+            pMamifero = new Gato;
+        zoo[i] = pMamifero;
+    }
+    
+    std::cout << "\n";
+    
+    for (i = 0; i < numeroMamifero; i++)
+    {
+        zoo[i]->hablar();
+        Gato* pRealGato = dynamic_cast<Gato*> (zoo[i]); // si zoo[i] esta declara como clase Gato retorna la memoria de este, caso contrario retorna null o 0.
+        if (pRealGato)
+            pRealGato->ronronear();
+        else
+            std::cout<<"no hay gato \n";
+        delete zoo[i];
+    }
+
+    return 0;
+}
+
+51 ------------------>>>
 
 ------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------" Java "--------------------------------------------------
