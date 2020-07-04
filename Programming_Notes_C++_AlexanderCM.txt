@@ -3876,6 +3876,142 @@ int calculate_major(Node *list){
 	return reply;	
 }
 
+
+EJEMPLO 3 ----- LIST WITH BINARY FILES :: LISTA CON ARCHIVOS BINARIOS ::
+
+#include<iostream>
+#include<stdio.h>
+#include "People.h"
+using namespace std;
+
+struct Node {
+	People* some;   // "People es una clase simple de registro de un nombre, con entrada, salida, get ,y set"
+	Node* next;
+};
+void comprobate(Node*&);
+void creat();
+void add_element(People* people);
+void refresh(Node*&);
+
+void add(Node*&);
+void add_refresh(Node*&,People* people);
+void show(Node*);
+
+int main() {
+	Node* list = NULL;
+	int op;
+	comprobate(list);
+	do {
+		cout << "\n 1) add\n 2) show\n 3) exit\n option: "; cin >> op;
+		switch (op)
+		{
+		case 1:
+			add(list); break;
+		case 2:
+			show(list); break;
+		case 3:
+			break;
+		default:
+			cout << " error\n\n";
+			break;
+		}
+		system("pause");
+	} while (op != 3);
+	return 0;
+}
+
+void add(Node*& list) {
+	Node* aux = new Node;
+	aux->some = new People;
+	aux->some->enter_name();
+	aux->next = NULL;
+	Node* aux2 = list;
+	if (list == NULL) {
+		list = aux;
+	}
+	else {
+		while (aux2->next != NULL) {
+			aux2 = aux2->next;
+		}
+		aux2->next = aux;
+	}
+	add_element(aux->some);
+}
+void add_refresh(Node*& list, People* people) {
+	Node* aux2 = list;
+	Node* aux = new Node;
+	aux->next = NULL;
+	aux->some = new People;  //memoria a establecer, no perteneciente al DB.
+	aux->some->set_name(people->get_name());
+	if (list == NULL) {
+		list = aux;
+	}
+	else {
+		while (aux2->next != NULL) {
+			aux2 = aux2->next;
+		}
+		aux2->next = aux;
+	}
+}
+void show(Node* list) {
+	Node* aux = list;
+	while (aux != NULL) {
+		aux->some->show_name();
+		aux = aux->next;
+	}
+}
+
+FILE* file;
+errno_t error;
+void comprobate(Node*& list) {
+	error = fopen_s(&file, "D:\\lista.dat", "rb");
+	if (error) {
+		creat();
+	}
+	else {
+		refresh(list);
+	}
+}
+void creat() {
+	error = fopen_s(&file, "D:\\lista.dat", "wb"); //si la funcion no responde, devuelve 1.
+	if (error) {
+		cout << " File Cant Created\n";
+		exit(0);
+	}
+	else {
+		cout << " File Created\n";
+		fclose(file);
+	}
+}
+void add_element(People* people) {
+	error = fopen_s(&file, "D:\\lista.dat", "ab");
+	if (error) {
+		cout << " Element Cant Added\n";
+		exit(0);
+	}
+	else {
+		cout << " Element Added\n";
+		fwrite(people, sizeof(People), 1, file);
+		fclose(file);
+	}
+}
+void refresh(Node*& list) {
+	error = fopen_s(&file, "D:\\lista.dat", "rb");
+	if (error) {
+		cout << " Element Cant read\n";
+		exit(0);
+	}
+	else {
+		cout << " Elements read\n";
+		Node* aux= new Node;
+		People* people = new People;  //memoria dinamica temporal
+		while (fread(people, sizeof(People), 1, file)) {
+			add_refresh(list,people);
+		}
+		fclose(file);
+	}
+}
+
 43 ------------------>> PRAGMA ONCE : IFNDEF : #PRAGMA ONCE : #IFNDEF #DEFINE #ENDIF : archivo .h :
 
 ----#ifndef ARCHIVO_H
@@ -4338,7 +4474,7 @@ int main()
     return 0;
 }
 
-50 --------------------->>> CLASES ABSTRACTAS :: ABSTRACT CLASS ::
+50 --------------------->>> CLASES ABSTRACTAS :: ABSTRACT CLASS :: USE DYNAMIC_CAST<*>() ::
 
 EJEMPLO 1:
 
