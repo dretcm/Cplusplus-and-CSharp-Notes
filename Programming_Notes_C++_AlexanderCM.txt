@@ -6,6 +6,23 @@
 para q peude ejecutarce.
 #include<stdlib.h> y system("pause"); ----al final, tambien puede pausarce el programa 
 al ejecutarce, es parecido al #include<conio.h> y getch();.
+--------------------
+// convertir un int a char, char a int, float, etc.
+
+int a=3;
+char a_char = (char)a;
+int b = (int)a_char;
+
+float a=3.5;
+char a_char = (char)a;
+int b = (int)a_char;
+
+// with ascci:
+char a = '9';
+int b = (int)arr_c[i] - 48;  // the numbers chars in ASCII begin in 48 ('9' -> 57 - 48 -> 9).
+
+char a = '9';
+int b = arr_c[i]-'0'; // ASCII letter 'num' to num.
 ---------------------
 do{
 }while----------es parecido al while, pero con la diferencia q en do while se ejecutara
@@ -4546,7 +4563,34 @@ int main()
     return 0;
 }
 
-51 ------------------>>>
+51 ------------------>>> for each try : 
+
+#include<iostream>
+#include<stdlib.h>
+#include<string.h>
+
+using namespace std;
+
+int main(){
+	char *arr_c = new char[10];
+	cout<< "Enter number: ";cin>>arr_c;
+	int length = strlen(arr_c);
+	
+	int *arr = new int[10];
+	
+	for(int i=0;i<length;i++){
+		arr[i] = (int)arr_c[i] - 48;  // the numbers chars in ASCII begin in 48.
+		//arr[i] = arr_c[i]-'0'; // ASCII letter 'num' to num.
+	}
+	
+	for(int i=0;i<length;i++){
+		cout<<arr[i]<<endl;
+	}
+
+	return 0;
+}
+
+52 ------------------>>>
 
 ------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------" Java "--------------------------------------------------
