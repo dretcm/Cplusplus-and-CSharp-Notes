@@ -41,7 +41,9 @@ srand(time(NULL));
 valor=(1+rand()%(100)); 
 //esto dara numeros aleatorios o algo aprecido a eso.
 ------------------------------------------------
-//los arrays en c++ serian haci
+
+//los arrays en c++ serian haci :
+
 int numbers[10];
 char frases[15];
 float reals[20];
@@ -55,6 +57,14 @@ int numbers[]={1,3,5,7,9};
 char lettlers[]={'a','b','c'};
 // lettlers[0]='a';
 // lettlers[1]='b';
+
+// other form :
+
+int [] {1,2,3,45,5};
+
+// is equals to:
+
+int [5] {1,2,45,5};
 
 --VARIABLE STRING O CADENA :
 
