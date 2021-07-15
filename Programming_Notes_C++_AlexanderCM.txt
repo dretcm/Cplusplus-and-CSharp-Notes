@@ -1,6 +1,9 @@
 ﻿------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------" C ++ "--------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------
+# best onlie ide:
+https://onecompiler.com 
+
 1.//para usar el len en c++ se usa el comando "strlen(palabra_a_contar)";
 #include<conio.h>  y getch() ---al final del programa antes del return 0;;
 para q peude ejecutarce.
@@ -194,7 +197,7 @@ char num[]="123"
 int numero_integer;
 float numero_float;
 numero_integer = atoi(num);  \\123     integer 
-numero_float = stof(num);   \\123.00   float
+numero_float = atof(num);   \\123.00   float
 
 
 7---->
@@ -4717,3 +4720,42 @@ public class cola {					//CLASE COLA
 }
 
 4 ...................
+
+import java.util.Scanner;
+
+public class Main {
+    public static int a,b;
+    public static void main(String[] args){
+        print_complejos();
+        System.out.print(a + " + " + b + "i, " + a + " - " + b + "i, " + a);
+    }
+    
+    public static void print_complejos(){
+        a = 3;
+        b = 5;
+    }
+}
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        print_complejo(5,3);
+        print_complejo(5,-3);
+        print_complejo(5,0);
+        
+        
+    }
+    
+    public static void print_complejo(int a, int b){
+        if (b == 0){
+            System.out.println(a);
+        }
+        else{
+            if (b>0) System.out.println(a + " + " + b + "i");
+            else System.out.println(a + " - " + (b*-1) + "i");
+        }
+    }
+}
+
+5 --------------->
