@@ -4,11 +4,31 @@
 # best onlie ide:
 https://onecompiler.com 
 
+# RUN a script .cpp by console:
+# remenber that g++ must local varible system "C:\Program Files (x86)\Dev-Cpp\MinGW64\bin\g++"
+D:\...>g++ test.cpp -o go_test.exe      # this create a file "go_test.exe"
+D:\...>go.exe
+
+# RUN in NotePad++:
+NPP_SAVE
+CD "$(CURRENT_DIRECTORY)"
+"C:\Program Files (x86)\Dev-Cpp\MinGW64\bin\g++" "$(FILE_NAME)" -o "$(NAME_PART).exe"
+"$(NAME_PART).exe"
+
+# $(CURRENT_DIRECTORY) is equals to "D:\...\"
+# $(FILE_NAME) is equals to "test.cpp"
+# $(FILE_PART) is equals to "test"
+
+-------------------
+
 1.//para usar el len en c++ se usa el comando "strlen(palabra_a_contar)";
+
 #include<conio.h>  y getch() ---al final del programa antes del return 0;;
 para q peude ejecutarce.
+
 #include<stdlib.h> y system("pause"); ----al final, tambien puede pausarce el programa 
-al ejecutarce, es parecido al #include<conio.h> y getch();.
+al ejecutarce, es parecido al #include<conio.h> y getch();
+
 --------------------
 // convertir un int a char, char a int, float, etc.
 
