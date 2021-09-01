@@ -6,13 +6,21 @@ https://onecompiler.com
 
 # RUN a script .cpp by console:
 # remenber that g++ must local varible system "C:\Program Files (x86)\Dev-Cpp\MinGW64\bin\g++"
+# or with https://sourceforge.net/projects/mingw-w64/
 D:\...>g++ test.cpp -o go_test.exe      # this create a file "go_test.exe"
 D:\...>go.exe
 
-# RUN in NotePad++:
+# RUN in NotePad++ with path:
 NPP_SAVE
 CD "$(CURRENT_DIRECTORY)"
 "C:\Program Files (x86)\Dev-Cpp\MinGW64\bin\g++" "$(FILE_NAME)" -o "$(NAME_PART).exe"
+"$(NAME_PART).exe"
+
+
+# RUN in NotePad++ with system variable:
+NPP_SAVE
+CD "$(CURRENT_DIRECTORY)"
+g++ "$(FILE_NAME)" -o "$(NAME_PART).exe"
 "$(NAME_PART).exe"
 
 # $(CURRENT_DIRECTORY) is equals to "D:\...\"
@@ -56,13 +64,61 @@ for(int i=1; i<=10; i++){
 }
 // una forma de usar el for. el i++ tambien puede ser i +=1  o  i=i+1.
 //el int i=1 puede tambien ser añadida al inicio con int i,a,b; y en el for iria for(i=1;----)
-------------------------------------------------
+
+------------------------------------------------ use time.h : use random :
+
 --->> #include<time.h>
 //y este tipo de metodo es requerible q se use el #include<stdlib.h>
 //porque el conio.h no corre. 
 srand(time(NULL));
 valor=(1+rand()%(100)); 
 //esto dara numeros aleatorios o algo aprecido a eso.
+
+v1 = rand() % 100;         // v1 in the range 0 to 99
+v2 = rand() % 100 + 1;     // v2 in the range 1 to 100
+v3 = rand() % 30 + 1985;   // v3 in the range 1985-2014 
+
+
+// Measure execution time of a function in C++
+
+#include <algorithm>
+#include <chrono>
+#include <iostream>
+#include<vector>
+using namespace std;
+using namespace std::chrono;
+
+int main()
+{
+  
+    vector<int> values(10000);
+  
+    // Generate Random values
+    auto f = []() -> int { return rand() % 10000; };
+  
+    // Fill up the vector
+    generate(values.begin(), values.end(), f);
+  
+    // Get starting timepoint
+    auto start = high_resolution_clock::now();
+  
+    // Call the function, here sort()
+    sort(values.begin(), values.end());
+  
+    // Get ending timepoint
+    auto stop = high_resolution_clock::now();
+  
+    // Get duration. Substart timepoints to 
+    // get durarion. To cast it to proper unit
+    // use duration cast method
+    auto duration = duration_cast<microseconds>(stop - start);
+  
+    cout << "Time taken by function: "
+         << duration.count() << " microseconds" << endl;
+  
+    return 0;
+}
+
 ------------------------------------------------
 
 //los arrays en c++ serian haci :
@@ -106,6 +162,23 @@ int main(){
 	return 0;
 }
 
+----------------->>> use printf :
+int a=1;
+float b=3.2;
+char c = "a";
+bool d = true;
+double e=123.2131231231231123131231312312323;
+long double f=213.23131231232323213...1231231332312313;
+string g = "hello";
+
+printf("%i", a) // or printf("%d", a)
+printf("%f", b)
+printf("%c", c)  // aslo we use code ascii
+printf("%d", d)
+printf("%f", e)
+printf("%lf", f)
+printf("%s", g)
+
 ----------------------------------------------------
 //use of flag or bandera in spanish
 char band='f';
@@ -120,6 +193,49 @@ if (xnumber >10){
 int nums[100][100];
 //o la ya definida
 int nums[2][3]={{1,2,3},{4,5,6}};
+
+--------------------- return an Array from function :
+
+remember is that C++ does not advocate to return the address of a local variable to outside of the function so 
+you would have to define the local variable as static variable.
+
+#include <iostream>
+#include <ctime>
+
+using namespace std;
+
+// function to generate and retrun random numbers.
+int * getRandom( ) {
+
+   static int  r[10];
+
+   // set the seed
+   srand( (unsigned)time( NULL ) );
+   
+   for (int i = 0; i < 10; ++i) {
+      r[i] = rand();
+      cout << r[i] << endl;
+   }
+
+   return r;
+}
+
+// main function to call above defined function.
+int main () {
+
+   // a pointer to an int.
+   int *p;
+
+   p = getRandom();
+   
+   for ( int i = 0; i < 10; i++ ) {
+      cout << "*(p + " << i << ") : ";
+      cout << *(p + i) << endl;
+   }
+
+   return 0;
+}
+
 ---------------------
 //una forma de ingresar una cadena d caracteres muy buena.
 //para eso usaremos:
@@ -131,6 +247,50 @@ getline(cin,variable_a_guardar,'\n');  // ES MEJOR PARA STRINGS.
 
 //en donde va "name" es donde pondremos la variable char donde queramos digitar los caracteres, en donde dice "40" es la cantidad d espacios a dar a esa char
 //donde dice "\n" es para con q tecla finalizar esta forma de entrada.
+
+
+------------ use math.h : use math :
+
+https://www.cplusplus.com/reference/cmath/
+
+pow(2, 8) // 256
+sqrt(9) // 3
+
+atan(y/x); // range: [-pi/2, pi/2]
+
+atan2(y,x) // return a reply in radians  // range of atan2: [-pi, pi]
+atan2(y,x) * 180 / 3.1416 // return a reply in radians and we converted to degrees
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+#define PI 3.14159265
+
+int main(){
+	cout<<atan2(6,4)*180/PI<<endl;
+	cout<<atan2(7,-3)*180/PI<<endl;
+	cout<<atan2(-2,2)*180/PI<<endl;
+	cout<<atan2(-3,-5)*180/PI<<endl;
+	cout<<atan2(-2,2)*180/PI + 360<<endl;
+	cout<<atan2(-3,-5)*180/PI + 360<<endl;
+	return 0;
+}
+
+OUTPUT:
+56.3099
+113.199
+-45
+-149.036
+315
+210.964
+
+
+float theta, angle = 35;
+theta = angle * 3.1416 / 180.0;
+sin(theta); // recieve a angle in radians
+cos(theta); // recieve a angle in radians
+
+------------ use string.h :
 
 1.strlen(palabra_a_contar); \\o sea la longitud de la cadena.
 2.strcpy(palabra_a_almacenar, palabra_ya_almacenada);
@@ -4623,7 +4783,164 @@ int main(){
 	return 0;
 }
 
-52 ------------------>>>
+52 ------------------>>> vector : use vector : use list :
+
+#include <iostream>
+#include <vector>
+  
+using namespace std;
+  
+int main()
+{
+    vector<int> g1;
+  
+    for (int i = 1; i <= 5; i++)
+        g1.push_back(i);
+  
+    cout << "Size : " << g1.size();
+    cout << "\nCapacity : " << g1.capacity();
+    cout << "\nMax_Size : " << g1.max_size();
+  
+    // resizes the vector size to 4
+    g1.resize(4);
+  
+    // prints the vector size after resize()
+    cout << "\nSize : " << g1.size();
+  
+    // checks if the vector is empty or not
+    if (g1.empty() == false)
+        cout << "\nVector is not empty";
+    else
+        cout << "\nVector is empty";
+  
+    // Shrinks the vector
+    g1.shrink_to_fit();
+    cout << "\nVector elements are: ";
+    for (auto it = g1.begin(); it != g1.end(); it++)
+        cout << *it << " ";
+  
+    return 0;
+}
+
+OUTPUT
+
+Size : 5
+Capacity : 8
+Max_Size : 4611686018427387903
+Size : 4
+Vector is not empty
+Vector elements are: 1 2 3 4
+
+
+
+// example 2
+
+#include <iostream>
+#include <vector>
+ 
+int main()
+{
+    // Create a vector containing integers
+    std::vector<int> v = { 7, 5, 16, 8 };
+ 
+    // Add two more integers to vector
+    v.push_back(25);
+    v.push_back(13);
+ 
+    // Print out the vector
+    std::cout << "v = { ";
+    for (int n : v) {
+        std::cout << n << ", ";
+    }
+    std::cout << "}; \n";
+}
+
+Output:
+
+v = { 7, 5, 16, 8, 25, 13, };
+
+
+
+// example 3:
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+int main() {
+    // Array of string objects
+    std::string arr[] = {
+        "first",
+        "sec",
+        "third",
+        "fourth"
+    };
+
+    // Vector with a string array
+    std::vector < std::string > vecOfStr(arr, arr + sizeof(arr) / sizeof(std::string));
+    for (std::string str: vecOfStr)
+        std::cout << str << std::endl;
+}
+
+
+#include<iostream>
+#include<vector>
+
+using namespace std;
+
+int main() {
+    vector <int> v {
+        1,
+        2,
+        3,
+        4,
+        5
+    };
+    int n = v.size();
+    cout << "Size of the vector is :" << n;
+}
+
+OUTPUT
+5
+
+
+// list
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <list>
+
+int main() {
+    // std::list of 5 string objects
+    std::list < std::string > listOfStr;
+    listOfStr.push_back("first");
+    listOfStr.push_back("sec");
+    listOfStr.push_back("third");
+    listOfStr.push_back("fouth");
+    // Vector with std::list
+    std::vector < std::string > vecOfStr(listOfStr.begin(), listOfStr.end());
+    for (std::string str: vecOfStr)
+        std::cout << str << std::endl;
+}
+
+
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+int main() {
+    std::vector < std::string > vecOfStr;
+    vecOfStr.push_back("first");
+    vecOfStr.push_back("sec");
+    vecOfStr.push_back("third");
+    // Vector with other string object
+    std::vector < std::string > vecOfStr3(vecOfStr);
+}
+
+
+53 ------------------>>>
 
 ------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------" Java "--------------------------------------------------
