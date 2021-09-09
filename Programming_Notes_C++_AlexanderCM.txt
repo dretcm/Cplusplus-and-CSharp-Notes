@@ -37,6 +37,47 @@ para q peude ejecutarce.
 #include<stdlib.h> y system("pause"); ----al final, tambien puede pausarce el programa 
 al ejecutarce, es parecido al #include<conio.h> y getch();
 
+------------------>>> Init variables : int input with char : cin :
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int a, b=2, c(3);
+	a = 1;
+	// c(4); // Error
+
+	cout << "a":<<a<<endl;
+	cout << "b":<<b<<endl;
+	cout << "c":<<c<<endl;
+
+	return 0;
+}
+
+OUTPUT:
+a: 1
+b: 2
+c: 3
+
+// cin wiht error:
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int a;
+	cout << "enter a character:; cin >> a;
+	cout << "a: " << a << endl;   // if we put a character in a int input the compiler will take it as None or 0.
+
+	return 0;
+}
+
+OUTPUT:
+enter a character: u
+a: 0
+
 --------------------
 // convertir un int a char, char a int, float, etc.
 
@@ -54,16 +95,19 @@ int b = (int)arr_c[i] - 48;  // the numbers chars in ASCII begin in 48 ('9' -> 5
 
 char a = '9';
 int b = arr_c[i]-'0'; // ASCII letter 'num' to num.
+
 ---------------------
 do{
 }while----------es parecido al while, pero con la diferencia q en do while se ejecutara
 por lo menos 1 vez
+
 ---------------------------
 for(int i=1; i<=10; i++){
 
 }
 // una forma de usar el for. el i++ tambien puede ser i +=1  o  i=i+1.
 //el int i=1 puede tambien ser añadida al inicio con int i,a,b; y en el for iria for(i=1;----)
+
 
 ------------------------------------------------ use time.h : use random :
 
@@ -162,10 +206,11 @@ int main(){
 	return 0;
 }
 
------------------>>> use printf :
+----------------->>> use printf :  use sizeof : use scanf :
+
 int a=1;
 float b=3.2;
-char c = "a";
+char c = 'a';
 bool d = true;
 double e=123.2131231231231123131231312312323;
 long double f=213.23131231232323213...1231231332312313;
@@ -179,6 +224,83 @@ printf("%f", e)
 printf("%lf", f)
 printf("%s", g)
 
+
+
+// size of:
+// data types : https://ccia.ugr.es/~jfv/ed1/c/cdrom/cap2/cap24.htm
+
+#include <iostream>
+}
+int main(){
+	int a=1;
+	float b=3.2;
+	char c = 'a';
+	bool d = true;
+	double e=123.2131231231231123131231312312323;
+	long double f=213123213.25353531312312323232131231231332312313;
+	long int g =  133113131;
+	string h = "hello";
+	
+	std::cout <<"int bytes: "<<sizeof(a)<<std::endl;
+	std::cout <<"char bytes: "<<sizeof(b)<<std::endl;
+	std::cout <<"float bytes: "<<sizeof(c)<<std::endl;
+	std::cout <<"bool bytes: "<<sizeof(d)<<std::endl;
+	std::cout <<"double bytes: "<<sizeof(e)<<std::endl;
+	std::cout <<"long double bytes: "<<sizeof(f)<<std::endl;
+	std::cout <<"long int bytes: "<<sizeof(g)<<std::endl;
+	std::cout <<"string bytes: "<<sizeof(h)<<std::endl;
+
+	return 0;
+}
+OUTPUT:
+int bytes: 4
+char bytes: 4
+float bytes: 1
+bool bytes: 1
+double bytes: 8
+long double bytes: 16
+long int bytes: 4
+string bytes: 32
+
+
+// scanf :
+
+#include <stdio.h>
+
+int main ()
+{
+  char str [80];
+  int i;
+
+  printf ("Enter your family name: ");
+  scanf ("%79s",str);  
+  printf ("Enter your age: ");
+  scanf ("%d",&i);
+  printf ("Mr. %s , %d years old.\n",str,i);
+  printf ("Enter a hexadecimal number: ");
+  scanf ("%x",&i);
+  printf ("You have entered %#x (%d).\n",i,i);
+  
+  return 0;
+}
+
+-------------------->>> use elif : use else if :
+
+#include <iostream>
+using namespace std;
+int main ()
+{
+	int a = 3;
+	if (a == 1) cout << "a"<<endl;
+	else if (a == 2) cout << "b"<<endl;
+	else if (a == 3) cout << "c"<<endl;
+	else cout << "d"<<endl;
+	
+  return 0;
+}
+
+OUTPUT:
+c
 ----------------------------------------------------
 //use of flag or bandera in spanish
 char band='f';
@@ -193,6 +315,31 @@ if (xnumber >10){
 int nums[100][100];
 //o la ya definida
 int nums[2][3]={{1,2,3},{4,5,6}};
+
+----------------------------------- get memory variable :
+
+#include <iostream>
+using namespace std;
+int main ()
+{
+  char str = 'a';
+  int integer = 12;
+  float flt = 3.14;
+
+  cout << "address of char   :" << (void *)&str <<endl;
+  cout << "address of char   :" << static_cast<void *>(&str) << endl;
+
+  cout << "address of integer   :" << &integer <<endl;
+  cout << "address of flaot   :" << &flt << endl;
+
+  return 0;
+}
+
+OUTPUT:
+address of char   :0x3a53ffa6f
+address of char   :0x3a53ffa6f
+address of integer   :0x3a53ffa68
+address of flaot   :0x3a53ffa64
 
 --------------------- return an Array from function :
 
@@ -486,12 +633,65 @@ void cambio(int *val1,int *val2){
 	*val1 = *val2;     //el nuevo contenido de n1 sera n2
 	*val2 = aux;       //el contenido nuevo de n2 sera aux que contiene el valor de n1
 }
+
+
 11----->
+
 para el uso de espacios usaremos:
 #include<iomanip>
 cout<<setw(cantidad_de_espacios_a_saltar)<<" hola"<<endl;
 
-12------>
+11 ------------- >>> types of cin : use cin : string cin :
+
+#include <iostream>
+#include<conio.h>
+
+using namespace std;
+int main ()
+{
+	char name0, *name1 = new char[30], name2[30];
+	string name3, name4;
+	
+	cout << "0: "; cin>>name0;   // one char
+	fflush(stdin);
+	
+	cout << "1: "; cin>>name1;  // severals chars(30), but without spaces.
+	fflush(stdin);
+	
+	cout << "2: "; cin.getline(name2,30,'\n'); // severals chars until 30.
+	fflush(stdin);
+	
+	cout << "3: "; getline(cin, name3); // severals words
+	fflush(stdin);
+	
+	cout << "4: "; cin>>name4;  // severals words, but without spaces.
+	
+	cout << "name 0: " << name0<<endl;
+	cout << "name 1: " << name1<<endl;
+	cout << "name 2: " << name2<<endl;
+	cout << "name 3: " << name3<<endl;
+	cout << "name 4: " << name4<<endl;
+	
+	delete [] name1;  // this is neccesary.
+  return 0;
+}
+
+OUTPUT:
+
+0: a
+1: bc
+2: d e
+3: f g
+4: h i
+name 0: a
+name 1: bc
+name 2: d e
+name 3: f g
+name 4: h
+
+
+12------> clean the buffer : clean the data of cin :
+
 #include<conio.h>
 
 PRIMER PUNTO \\ fflush(stdin);
