@@ -78,6 +78,19 @@ OUTPUT:
 enter a character: u
 a: 0
 
+
+------------------->>> special tokens :
+
+Escape        sequence Description
+
+\n 	Newline. Position the screen cursor to the beginning of the next line.
+\t 	Horizontal tab. Move the screen cursor to the next tab stop.
+\r 	Carriage return. Position the screen cursor to the beginning of the current line; do not advance to the next line.
+\a 	Alert. Sound the system bell.
+\\ 	Backslash. Used to print a backslash character.
+\' 	Single quote. Used to print a single-quote character.
+\" 	Double quote. Used to print a double-quote character
+
 --------------------
 // convertir un int a char, char a int, float, etc.
 
@@ -108,6 +121,27 @@ for(int i=1; i<=10; i++){
 // una forma de usar el for. el i++ tambien puede ser i +=1  o  i=i+1.
 //el int i=1 puede tambien ser añadida al inicio con int i,a,b; y en el for iria for(i=1;----)
 
+
+--------------------- use namespace :
+
+//////// main.cpp /////////
+#include <iostream>
+#include "my_package"
+
+int main(){
+	std::cout << "hi"<< std:endl;
+	mp::show();
+	return 0;
+}
+
+/////// my_package.cpp ///////
+#include <iostream>
+namespace mp
+{
+	void show(){
+		std::cout<<"my cout package"<<std::endl;
+	}
+}
 
 ------------------------------------------------ use time.h : use random :
 
