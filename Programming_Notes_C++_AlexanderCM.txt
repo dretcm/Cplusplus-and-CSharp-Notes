@@ -240,7 +240,7 @@ int main(){
 	return 0;
 }
 
------------------>>> use printf :  use sizeof : use scanf :
+----------------->>> use printf :  use sizeof : use scanf : ascii cout : linux ascii :
 
 int a=1;
 float b=3.2;
@@ -252,7 +252,7 @@ string g = "hello";
 
 printf("%i", a) // or printf("%d", a)
 printf("%f", b)
-printf("%c", c)  // aslo we use code ascii
+printf("%c", c)  // aslo we use code ascii // printf("%c", 254)
 printf("%d", d)
 printf("%f", e)
 printf("%lf", f)
@@ -318,6 +318,20 @@ int main ()
   return 0;
 }
 
+
+
+// ascii linux:
+
+#include <iostream>
+int main(){
+	int num = 254;
+	char a = char(num), b = char(254);  
+
+	// char c=254; // only in windows.
+
+	std::cout<<a<<b<<std::endl;
+	return 0;
+}
 -------------------->>> use elif : use else if :
 
 #include <iostream>
@@ -1057,8 +1071,39 @@ int main(){
 	cout<<" reverse: "<<c2<<endl;
 }
 
-17---------->
+17----------> COLOR CONSOLE : COLOR CHAR : COLOR STRING :
 
+
+// COLOR CHAR
+#include <iostream>
+
+#define RESET   "\033[0m"
+#define BLACK   "\033[30m"      /* Black */
+#define RED     "\033[31m"      /* Red */
+#define GREEN   "\033[32m"      /* Green */
+#define YELLOW  "\033[33m"      /* Yellow */
+#define BLUE    "\033[34m"      /* Blue */
+#define MAGENTA "\033[35m"      /* Magenta */
+#define CYAN    "\033[36m"      /* Cyan */
+#define WHITE   "\033[37m"      /* White */
+#define BOLDBLACK   "\033[1m\033[30m"      /* Bold Black */
+#define BOLDRED     "\033[1m\033[31m"      /* Bold Red */
+#define BOLDGREEN   "\033[1m\033[32m"      /* Bold Green */
+#define BOLDYELLOW  "\033[1m\033[33m"      /* Bold Yellow */
+#define BOLDBLUE    "\033[1m\033[34m"      /* Bold Blue */
+#define BOLDMAGENTA "\033[1m\033[35m"      /* Bold Magenta */
+#define BOLDCYAN    "\033[1m\033[36m"      /* Bold Cyan */
+#define BOLDWHITE   "\033[1m\033[37m"  
+
+
+int main() {
+  std::cout << GREEN<< "Hello World!\n"<<RESET;
+  std::cout << YELLOW << "Hello World!"<<RESET;
+}
+
+
+
+\\ COLOR CONSOLE
 \\usos con la libreria " #include<windows.h> " :
 system("pause"); \\para dar pausa a la pantalla.
 system("cls"); \\limpia toda la ventana.
@@ -1101,7 +1146,11 @@ C = Rojo claro
 D = Purpura claro
 E = Amarillo claro
 F = Blanco brillante
+
+
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! COLOR !!!!!!!!!!!!!!!!!!!!!!!!!
+
+----------------
 
 Sleep(10 000);  \\para que le de pausa unos 10 segundos, pudes poner 5000 y dara 5 segundos y asi segun tu logica.
 
