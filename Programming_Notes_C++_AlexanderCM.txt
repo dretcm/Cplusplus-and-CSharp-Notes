@@ -91,24 +91,6 @@ Escape        sequence Description
 \' 	Single quote. Used to print a single-quote character.
 \" 	Double quote. Used to print a double-quote character
 
---------------------
-// convertir un int a char, char a int, float, etc.
-
-int a=3;
-char a_char = (char)a;
-int b = (int)a_char;
-
-float a=3.5;
-char a_char = (char)a;
-int b = (int)a_char;
-
-// with ascci:
-char a = '9';
-int b = (int)arr_c[i] - 48;  // the numbers chars in ASCII begin in 48 ('9' -> 57 - 48 -> 9).
-
-char a = '9';
-int b = arr_c[i]-'0'; // ASCII letter 'num' to num.
-
 ---------------------
 do{
 }while----------es parecido al while, pero con la diferencia q en do while se ejecutara
@@ -485,7 +467,7 @@ theta = angle * 3.1416 / 180.0;
 sin(theta); // recieve a angle in radians
 cos(theta); // recieve a angle in radians
 
------------- use string.h :
+------------ use string.h : dtype string and functions :
 
 1.strlen(palabra_a_contar); \\o sea la longitud de la cadena.
 2.strcpy(palabra_a_almacenar, palabra_ya_almacenada);
@@ -566,7 +548,121 @@ cout << endl << endl << "Desea ingresar otro producto? (S/N): ";
 cin >> resp;
 resp = tolower(resp);
 
-8- para convertir de una cadena a un float o integer usaremos:
+
+
+// dtype string :
+
+// example 1:
+#include <iostream>
+#include <string>
+
+using std::cout; using std::endl;
+using std::copy; using std::string;
+
+int main() {
+    string string1("Starting string ");
+    string string2("end of the string ");
+
+    cout << "string1:  " << string1 << endl;
+    string1 += string2;
+    cout << "string1:  " << string1 << endl;
+
+    return EXIT_SUCCESS;
+}
+// OUTPUT:
+string1:  Starting string
+string1:  Starting string end of the string
+
+
+// Example 2:
+#include <iostream>
+#include <string>
+
+using std::cout; using std::endl;
+using std::copy; using std::string;
+
+string concTwoStrings(const string &s1, const string& s2)
+{
+    return s1 + s2;
+}
+
+int main() {
+    string string1("Starting string ");
+
+    string string2 = concTwoStrings(string1, " conc two strings");
+    cout << "string2: " << string2 << endl;
+
+    return EXIT_SUCCESS;
+}
+//OUTPUT:
+string2: Starting string  conc two strings
+
+
+
+//Example 3 : USE APPEND:
+#include <iostream>
+#include <string>
+
+using std::cout; using std::endl;
+using std::copy; using std::string;
+
+int main() {
+    string string("Temporary string");
+
+    string.append(" appended sequence");
+    cout << string << endl;
+
+    return EXIT_SUCCESS;
+}
+//OUPUT:
+Temporary string appended sequence
+
+
+//Example 4 :
+#include <iostream>
+#include <string>
+
+using std::cout; using std::endl;
+using std::copy; using std::string;
+
+int main() {
+    string string1("Starting strings");
+    string string2("end of the string");
+
+    string1.append(" ").append(string2).append("\n");
+    cout << string1;
+
+    return EXIT_SUCCESS;
+}
+//OUTPUT:
+Starting string end of the string
+
+
+------------------------- use atoi, atofm etc : char to int, string to int : etc :
+
+// ago form:
+
+// convertir un int a char, char a int, float, etc.
+
+int a=3;
+char a_char = (char)a;
+int b = (int)a_char;
+
+float a=3.5;
+char a_char = (char)a;
+int b = (int)a_char;
+
+// with ascci:
+char a = '9';
+int b = (int)arr_c[i] - 48;  // the numbers chars in ASCII begin in 48 ('9' -> 57 - 48 -> 9).
+
+char a = '9';
+int b = arr_c[i]-'0'; // ASCII letter 'num' to num.
+
+
+
+// new form :
+
 #include<stdlib.h>
 char num[]="123"
 int numero_integer;
@@ -574,14 +670,9 @@ float numero_float;
 numero_integer = atoi(num);  \\123     integer 
 numero_float = atof(num);   \\123.00   float
 
-
-7---->
-para una array con full letras como un ingreso de nombres usaremos
-int main(){
-	char cade[3][7],na;    \\ esta cade define primero "[3]" la cantidad de palabras que se alamcenaran en el array, y "[7]" para la longitud de la palabra.
-	for(int i=0;i<2;i++){
-		cin>>cade[i];
-	}
+// string to int:
+string numero = "123";
+int int_numero = atoi(numero.c_str());  // numero.c_str(): string to char_array object.
 
 8-------> 
 programa para contar cuantas vocales exiten en la cadena:
@@ -689,7 +780,7 @@ para el uso de espacios usaremos:
 #include<iomanip>
 cout<<setw(cantidad_de_espacios_a_saltar)<<" hola"<<endl;
 
-11 ------------- >>> types of cin : use cin : string cin :
+11 ------------- >>> types of cin : use cin : string cin : types cin :
 
 #include <iostream>
 #include<conio.h>
