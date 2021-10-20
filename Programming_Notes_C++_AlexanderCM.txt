@@ -79,7 +79,7 @@ enter a character: u
 a: 0
 
 
-------------------->>> special tokens :
+------------------->>> special tokens : use beep :
 
 Escape        sequence Description
 
@@ -91,17 +91,193 @@ Escape        sequence Description
 \' 	Single quote. Used to print a single-quote character.
 \" 	Double quote. Used to print a double-quote character
 
----------------------
-do{
-}while----------es parecido al while, pero con la diferencia q en do while se ejecutara
-por lo menos 1 vez
 
----------------------------
-for(int i=1; i<=10; i++){
 
+// Beep windows.h :
+
+#include <iostream> 
+#include <windows.h> // WinApi header 
+
+using namespace std;
+
+int main() 
+{ 
+    Beep(523,500); // 523 hertz (C5) for 500 milliseconds     
+    cin.get(); // wait 
+    return 0; 
 }
-// una forma de usar el for. el i++ tambien puede ser i +=1  o  i=i+1.
-//el int i=1 puede tambien ser añadida al inicio con int i,a,b; y en el for iria for(i=1;----)
+
+
+// Notes of music :
+
+DO RE MI FA SOL LA SI
+C  D  E  F  G   A  B
+
+#include <iostream> 
+#include <windows.h>
+using namespace std;
+
+#define time 200
+#define Do Beep(261,time)
+#define Re Beep(293,time)
+#define Mi Beep(329,time)
+#define Fa Beep(349,time)
+#define Sol Beep(392,time)
+#define La Beep(440,time)
+#define Si Beep(493,time)
+					  
+int main() 
+{ 
+    //Beep(1000,1000);
+	Do;Do;Do;Fa;La;
+	Do;Do;Do;Fa;La;
+	
+	Fa;Fa;Mi;Mi;Re;Re;Do;
+
+	Do;Do;Do;Mi;Sol;
+	Do;Do;Do;Mi;Sol;
+	
+	Sol;La;Sol;Fa;Mi;Re;Do;
+	
+    cin.get(); // wait 
+    return 0; 
+}
+
+--------------------- types of clear screen :
+
+// form 1
+system("cls");
+// system("clear screen"); optional
+
+// CODE ANSI : https://en.wikipedia.org/wiki/ANSI_escape_code
+// form 2
+std::cout << "\033[H\033[2J\033[3J";
+
+// form 3
+#include <windows.h>
+void clear_screen() {
+    COORD topLeft  = { 0, 0 };
+    HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+    CONSOLE_SCREEN_BUFFER_INFO screen;
+    DWORD written;
+
+    GetConsoleScreenBufferInfo(console, &screen);
+    FillConsoleOutputCharacterA(
+        console, ' ', screen.dwSize.X * screen.dwSize.Y, topLeft, &written
+    );
+    FillConsoleOutputAttribute(
+        console, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_BLUE,
+        screen.dwSize.X * screen.dwSize.Y, topLeft, &written
+    );
+    SetConsoleCursorPosition(console, topLeft);
+}
+
+
+--------------------------- char null : use null : pointer and reference : use pointers
+
+char a = '\0'; // these is equivalent to NULL value.
+int b = NULL; // null, but with other types of data char.
+string c = NULL;
+
+
+//null pointer :
+
+int *ptr = nullptr;
+
+// pointer and reference :
+#include <iostream>
+
+int main (){
+        char ptrStr1[15] = "Hola Mundo";
+	char *ptrStr = *&ptrStr1;
+	std::cout << &ptrStr1<<std::endl;  // 0x61fead
+        std::cout << *ptrStr1<<std::endl; // H
+	std::cout << *&ptrStr1<<std::endl; // Hola Mundo
+	
+	ptrStr[0] = 'A';
+	std::cout << ptrStr1<<std::endl; // Aola Mundo
+		
+	return 0;
+}
+
+
+// pointer modificate by the  "*" :
+#include <iostream>
+
+int main (){
+        int *ptr, num = 3;
+	ptr = &num;
+	*ptr = 5;
+
+	std::cout << num <<std::endl;  // 5
+        std::cout << *ptr <<std::endl; // 5
+	num = 6;
+	std::cout << num <<std::endl;  // 6
+        std::cout << *ptr <<std::endl; // 6
+		
+	return 0;
+}
+
+
+// with arrays :
+#include <iostream>
+
+int main (){
+    	int *ptr, arr[5] = {1,2,3,4,5};
+	ptr = &(arr[0]);
+
+	std::cout << *ptr <<std::endl;  // 1
+	ptr++;
+    	std::cout << *ptr <<std::endl; // 2
+	ptr+=2;
+	std::cout << *ptr <<std::endl;  // 4
+		
+	return 0;
+}
+
+
+// functions with arrays : funtion array pointer :
+
+#include <iostream>
+using namespace std;
+
+void show(int *arr){
+	// first for:
+	std::cout<<*arr<<std::endl;
+	arr++;
+	std::cout<<*arr<<std::endl;
+	arr++;
+	std::cout<<*arr<<std::endl;
+	arr++;
+	std::cout<<*arr<<std::endl;
+	
+	arr-=3; // return to the first element by means of memmory
+	
+	// second for:
+	for(int i=0; i<4; i++){
+		std::cout<<arr[i]<<std::endl;
+	}
+	
+	arr[0] = 123;  // changue the value by the memmory.
+}
+
+int main() {
+	int arr[]={3,2,1,5};
+	show(arr);
+	std::cout<<"change after function: "<<arr[0]<<std::endl;
+	return 0;
+}
+
+//OUTPUT:
+3
+2
+1
+5
+3
+2
+1
+5
+change after function: 123
 
 
 --------------------- use namespace :
@@ -222,7 +398,7 @@ int main(){
 	return 0;
 }
 
------------------>>> use printf :  use sizeof : use scanf : ascii cout : linux ascii :
+----------------->>> use printf :  use sizeof : use scanf : ascii cout : linux ascii : lenghr array :
 
 int a=1;
 float b=3.2;
@@ -277,6 +453,19 @@ double bytes: 8
 long double bytes: 16
 long int bytes: 4
 string bytes: 32
+
+
+// get lenght of array :
+
+#include <iostream>
+int main(){
+	int arr[3] = {1,2,3};
+	std::cout<<"lenght of int arr: "<<sizeof(arr) / sizeof(arr[0])<<std::endl;
+
+	return 0;
+}
+//Output:
+lenght of int arr: 3
 
 
 // scanf :
@@ -469,10 +658,13 @@ cos(theta); // recieve a angle in radians
 
 ------------ use string.h : dtype string and functions :
 
-1.strlen(palabra_a_contar); \\o sea la longitud de la cadena.
-2.strcpy(palabra_a_almacenar, palabra_ya_almacenada);
+1.strlen(variable); \\o sea la longitud de la cadena.
+
+2.strcpy(variable, variable o palabra); // strcpy(name, "Carlos");
+
 3.if(strcmp(palabra1,palabra2) ==0); \\para compara si son iguales, exiten(==0 (para si son iguales, != 0 (si son diferentes), <0 o >0 ( para ver si es mayor o menor alfabeticamente))
 --ejemplo: if(strcmp(alex,pedro) <0){cout<<pedro<<"es mayor alfabeticamente<<endl;}
+
 4.strcat(p1,p2); \\pues "strcat" une candenas ya hechas, parecido a strcpy pero strcpy solo copea y elimina la cadena que se va a copiar al la varible y mete la nueva copiada.
 \\en strcat concatena, une las candemas sin eliminar ningun char como lo haria strcpy que elimina la base.
 
@@ -491,8 +683,8 @@ int main(){
 
 	system("pause");
 	return 0;
-	
 }
+
 5.strrev(palabra_a_digitar) \\cadena alrevez.
 -modo normal para dar reversa a una cadena:
 
@@ -534,20 +726,24 @@ int main(){
 
 6.strupr(palabra_A_pasar_a_mayuscula); //PARA UNA CADENA
 
-6.1// PARA UNA LETRA O CHAR USAREMOS:
+6.1 // PARA UNA LETRA O CHAR USAREMOS:
 
-cout << endl << endl << "Desea ingresar otro producto? (S/N): ";
-cin >> resp;
-resp = toupper(resp);
+char resp = 'a';
+resp = toupper(resp); // 'A'
+// or
+char resp = 'a';
+resp_upper = resp - 32;  // a: 97 -> A:65 ascii code
+
 
 7.strlwr(palabra_a_pasar_a_minuscula);
 
 7.1// PARA UNA LETRA O CHAR USAREMOS:
 
-cout << endl << endl << "Desea ingresar otro producto? (S/N): ";
-cin >> resp;
-resp = tolower(resp);
-
+char resp = 'A'
+resp = tolower(resp); // 'a'
+// or
+char resp = 'A';
+resp_upper = resp + 32;  // A: 65 -> a:97 ascii code
 
 
 // dtype string :
@@ -1165,7 +1361,7 @@ int main(){
 17----------> COLOR CONSOLE : COLOR CHAR : COLOR STRING :
 
 
-// COLOR CHAR
+// COLOR CHAR linux:
 #include <iostream>
 
 #define RESET   "\033[0m"
@@ -1192,6 +1388,46 @@ int main() {
   std::cout << YELLOW << "Hello World!"<<RESET;
 }
 
+
+// COLOR CHAR windows:
+#include <iostream>
+#include <conio.h>
+#include <windows.h> //set color
+using namespace std;
+
+//COLORS LIST
+//1: Blue
+//2: Green
+//3: Cyan
+//4: Red
+//5: Purple
+//6: Yellow (Dark)
+//7: Default white
+//8: Gray/Grey
+//9: Bright blue
+//10: Brigth green
+//11: Bright cyan
+//12: Bright red
+//13: Pink/Magenta
+//14: Yellow
+//15: Bright white
+//Numbers after 15 include background colors
+
+void Color(int color)
+{
+ SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+}
+
+main(){
+	Color(4);
+	cout<<"red"<<endl;
+	Color(2);
+	cout<<"green"<<endl;
+	Color(7);
+	cout<<"reset color to default"<<endl;
+ getch();
+ return 0;
+}
 
 
 \\ COLOR CONSOLE
@@ -1241,7 +1477,7 @@ F = Blanco brillante
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! COLOR !!!!!!!!!!!!!!!!!!!!!!!!!
 
-----------------
+18 ---------------->>>  use sleep : use delay :
 
 Sleep(10 000);  \\para que le de pausa unos 10 segundos, pudes poner 5000 y dara 5 segundos y asi segun tu logica.
 
@@ -1305,7 +1541,26 @@ int main(){
 \\ buenisa pagina para aprender ciertas funciones, solo falta buscar librerias.
 http://www.casdreams.com/auladeinformatica/cet/comandos_de_c.htm
 
-20--------->   PASSWORD : CONTRASEÑA : KBHIT() : GETCH() : 
+20 ---------------->   PASSWORD : CONTRASEÑA : KBHIT() : GETCH() : GET KEYS OF KEYBOARD : LINUX KEY :
+
+// key :
+
+#include<iostream>
+#include<conio.h>
+
+using namespace std;
+
+int main(){
+	while(true){
+		if(kbhit()){
+			char tecla = getch();
+			cout <<"tecla: "<<tecla<<endl;
+		}
+	}
+
+	return 0;
+}
+
 
 \\para escribir una cadena pero sin que se muestre el mensaje y salga "*"
 
@@ -1364,6 +1619,88 @@ char *genery_password(){
 	}while(true);
 	
 	return dato;
+}
+
+// WINDOWS :
+
+#include <conio.h>
+#include <iostream>
+using namespace std;
+
+#define KEY_UP    72
+#define KEY_LEFT  75
+#define KEY_RIGHT 77
+#define KEY_DOWN  80
+
+int main()
+{
+    int c, ex;
+
+    while(1)
+    {
+        c = getch();
+
+        if (c && c != 224)
+        {
+            cout << endl << "Not arrow: " << (char) c << endl;
+        }
+        else
+        {
+            switch(ex = getch())
+            {
+                case KEY_UP     /* H */:
+                    cout << endl << "Up" << endl;//key up
+                    break;
+                case KEY_DOWN   /* K */:
+                    cout << endl << "Down" << endl;   // key down
+                    break;
+                case KEY_LEFT   /* M */:
+                    cout << endl << "Left" << endl;  // key left
+                    break;
+                case KEY_RIGHT: /* P */
+                    cout << endl << "Right" << endl;  // key right
+                    break;
+                default:
+                    cout << endl << (char) ex << endl;  // not arrow
+                    break;
+            }
+        }
+    }
+
+    return 0;
+}
+
+
+
+// LINUX KEYS right, left, up , down:
+
+#include <iostream>
+#include <termios.h>
+#define STDIN_FILENO 0
+using namespace std;
+int main()
+{
+// Black magic to prevent Linux from buffering keystrokes.
+    struct termios t;
+    tcgetattr(STDIN_FILENO, &t);
+    t.c_lflag &= ~ICANON;
+    tcsetattr(STDIN_FILENO, TCSANOW, &t);
+
+// Once the buffering is turned off, the rest is simple.
+    cout << "Enter a character: ";
+    char c,d,e;
+    cin >> c;
+    cin >> d;
+    cin >> e;
+    cout << "\nYour character was ";
+// Using 3 char type, Cause up down right left consist with 3 character
+    if ((c==27)&&(d=91)) {
+        if (e==65) { cout << "UP";}
+        if (e==66) { cout << "DOWN";}
+        if (e==67) { cout << "RIGHT";}
+        if (e==68) { cout << "LEFT";}
+    }
+    return 0;
 }
 
 21-------------> :: USE TEMPLATE ::
