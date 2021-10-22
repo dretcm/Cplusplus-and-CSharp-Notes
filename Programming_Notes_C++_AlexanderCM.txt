@@ -425,8 +425,8 @@ printf("%s", g)
 }
 int main(){
 	int a=1;
-	float b=3.2;
-	char c = 'a';
+	char b = 'a';
+	float c=3.2;
 	bool d = true;
 	double e=123.2131231231231123131231312312323;
 	long double f=213123213.25353531312312323232131231231332312313;
@@ -446,8 +446,8 @@ int main(){
 }
 OUTPUT:
 int bytes: 4
-char bytes: 4
-float bytes: 1
+char bytes: 1
+float bytes: 4
 bool bytes: 1
 double bytes: 8
 long double bytes: 16
