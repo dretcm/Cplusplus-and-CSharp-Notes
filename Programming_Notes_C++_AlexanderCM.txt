@@ -355,6 +355,34 @@ int main()
     return 0;
 }
 
+
+
+// use time(NULL); :
+
+return a int of the clock in your pc:
+example:
+12312351
+... // later 1 sec
+12312352
+... // later 1 sec
+12312353
+... etc sec
+
+// use clock();
+
+return to pulses of the clock in your pc
+2
+3
+4
+5
+6
+7
+...
+123
+124
+...
+743
+
 ------------------------------------------------
 
 //los arrays en c++ serian haci :
@@ -422,7 +450,7 @@ printf("%s", g)
 // data types : https://ccia.ugr.es/~jfv/ed1/c/cdrom/cap2/cap24.htm
 
 #include <iostream>
-}
+
 int main(){
 	int a=1;
 	char b = 'a';
@@ -431,7 +459,7 @@ int main(){
 	double e=123.2131231231231123131231312312323;
 	long double f=213123213.25353531312312323232131231231332312313;
 	long int g =  133113131;
-	string h = "hello";
+	std::string h = "hello";
 	
 	std::cout <<"int bytes: "<<sizeof(a)<<std::endl;
 	std::cout <<"char bytes: "<<sizeof(b)<<std::endl;
@@ -450,9 +478,9 @@ char bytes: 1
 float bytes: 4
 bool bytes: 1
 double bytes: 8
-long double bytes: 16
+long double bytes: 12
 long int bytes: 4
-string bytes: 32
+string bytes: 24
 
 
 // get lenght of array :
@@ -653,8 +681,9 @@ OUTPUT:
 
 float theta, angle = 35;
 theta = angle * 3.1416 / 180.0;
-sin(theta); // recieve a angle in radians
-cos(theta); // recieve a angle in radians
+sin(theta); // recieve a angle in radians and return and angle in radiands.
+cos(theta); // recieve a angle in radians and return and angle in radiands.
+
 
 ------------ use string.h : dtype string and functions :
 
@@ -1386,6 +1415,28 @@ int main(){
 int main() {
   std::cout << GREEN<< "Hello World!\n"<<RESET;
   std::cout << YELLOW << "Hello World!"<<RESET;
+}
+
+
+// BLOCK COLOR:
+
+#include <iostream>
+using namespace std;
+
+int main(void)
+{
+  int i, j, n;
+  system(" ");
+  for (i = 0; i < 11; i++) {
+    for (j = 0; j < 10; j++) {
+      n = 10*i + j;
+      if (n > 108) break;
+	  cout <<"\033["<<n<<"m "<<n<<"\033[m";   // the key is the space " "
+    }
+    printf("\n");
+  }
+  system("pause");
+  return 0;
 }
 
 
@@ -3998,7 +4049,7 @@ the name 2 is: OKINIMESUMA
  Deleting puntero.
  Deleting puntero_2.
 
-39--------------------->>>> ARCHIVOS C++ : FILE C++ : FILES C++ :
+39--------------------->>>> ARCHIVOS C++ : FILE C++ : FILES C++ : files : 
 
 #include<iostream>
 #include<conio.h>
@@ -4109,7 +4160,7 @@ int main(){
 	return 0;
 }
 
--> /// 2 . AÑADIENDO DATOS BINARIOS AL ARCHIVO ::
+-> /// 2 . AÑADIENDO DATOS BINARIOS AL ARCHIVO :: files :: write files ::
 
 °°°fwrite(&persona, sizeof(DNI), 1, ptr_archivo);°°°
 
