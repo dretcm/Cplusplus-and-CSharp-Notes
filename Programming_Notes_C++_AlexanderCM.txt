@@ -280,6 +280,29 @@ int main() {
 change after function: 123
 
 
+// *& in functions:
+#include <iostream>
+using namespace std;
+
+void run_run(int *&ptr){
+  ptr = new int;
+  *ptr = 5;
+  cout<<"value func: "<<*ptr<<endl;
+}
+
+int main() {
+  int *p = nullptr;
+  run_run(p);
+  cout<<"value: "<<*p<<endl;
+  
+  //delete p;
+  return 0;
+} 
+
+OUTPUT:
+value func: 5
+value: 5
+
 --------------------- use namespace :
 
 //////// main.cpp /////////
@@ -1389,6 +1412,7 @@ int main(){
 
 17----------> COLOR CONSOLE : COLOR CHAR : COLOR STRING :
 
+// CODE ANSI : https://en.wikipedia.org/wiki/ANSI_escape_code
 
 // COLOR CHAR linux:
 #include <iostream>
@@ -1420,6 +1444,25 @@ int main() {
 
 // BLOCK COLOR:
 
+#define RESET   "\033[0m"
+#define BLOCK_BLACK   "\033[40m"      
+#define BLOCK_RED     "\033[41m"     
+#define BLOCK_GREEN   "\033[42m"      
+#define BLOCK_YELLOW  "\033[43m"     
+#define BLOCK_BLUE    "\033[44m"    
+#define BLOCK_MAGENTA "\033[45m"      
+#define BLOCK_CYAN    "\033[46m"    
+#define BLOCK_WHITE   "\033[47m"      
+
+#define BLOCK_LIGHT_BLACK   "\033[100m"     
+#define BLOCK_LIGHT_RED     "\033[101m"      
+#define BLOCK_LIGHT_GREEN   "\033[102m"      
+#define BLOCK_LIGHT_YELLOW  "\033[103m"      
+#define BLOCK_LIGHT_BLUE    "\033[104m"     
+#define BLOCK_LIGHT_MAGENTA "\033[105m"     
+#define BLOCK_LIGHT_CYAN    "\033[106m"      
+#define BLOCK_LIGHT_WHITE   "\033[107m"   
+
 #include <iostream>
 using namespace std;
 
@@ -1431,7 +1474,7 @@ int main(void)
     for (j = 0; j < 10; j++) {
       n = 10*i + j;
       if (n > 108) break;
-	  cout <<"\033["<<n<<"m "<<n<<"\033[m";   // the key is the space " "
+	  cout <<"\033["<<n<<"m "<<n<<"\033[m";
     }
     printf("\n");
   }
@@ -1655,7 +1698,7 @@ char *genery_password(){
 	do{
 		if(kbhit()){
 			char letra=getch();
-			if(letra != 13){
+			if(letra != 13){   // 13 in ascii is the ENTER
 				cout<<"*";
 				dato[i] = letra;
 				i++;
@@ -4049,7 +4092,7 @@ the name 2 is: OKINIMESUMA
  Deleting puntero.
  Deleting puntero_2.
 
-39--------------------->>>> ARCHIVOS C++ : FILE C++ : FILES C++ : files : 
+39--------------------->>>> ARCHIVOS C++ : FILE C++ : FILES C++ : files : data base : database : 
 
 #include<iostream>
 #include<conio.h>
@@ -4283,7 +4326,8 @@ void posicion_all(){
 	}
 	else{
 		cout<<"\n Enter Register number: ";cin>>pos;     
-//IMPORTANTE    fseek(archivo, (long)(pos-1) * sizeof(depo), 0);   // LE RESTO -1 EN POS PORQUE NOSOTROS ENVIAMOS 1,2,3.. NORMALMENTE PERO EN POSICIONES DE MEMORIA YA SABEN QUE ES 0,1,2... .
+		//IMPORTANTE    
+		fseek(archivo, (long)(pos-1) * sizeof(depo), 0);   // LE RESTO -1 EN POS PORQUE NOSOTROS ENVIAMOS 1,2,3.. NORMALMENTE PERO EN POSICIONES DE MEMORIA YA SABEN QUE ES 0,1,2... .
 		fread(&depo, sizeof(depo), 1, archivo);
 		depo.show();
 		fclose(archivo);
