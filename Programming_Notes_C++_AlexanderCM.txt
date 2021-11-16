@@ -886,6 +886,95 @@ int main() {
 Starting string end of the string
 
 
+// for get string lenght :
+string name = "amelia";
+cout<<"lenght: "<<name.lenght()<<endl;  // or its alias : name.size()
+
+
+// found on string from delimeter:
+#include <iostream>
+#include <sstream>
+#include <vector>
+#include <array>
+ 
+int main()
+{
+    std::istringstream input("abc|def|gh");
+    std::vector<std::array<char, 4>> v;
+ 
+    // note: the following loop terminates when std::ios_base::operator bool()
+    // on the stream returned from getline() returns false
+    for (std::array<char, 4> a; input.getline(&a[0], 4, '|'); ) {
+        v.push_back(a);
+    }
+ 
+    for (auto& a : v) {
+        std::cout << &a[0] << '\n';
+    }
+}
+
+Output:
+abc
+def
+gh
+
+Parameters
+s	-	pointer to the character string to store the characters to
+count	-	size of character string pointed to by s
+delim	-	delimiting character to stop the extraction at. It is extracted but not stored.
+
+
+#include <iostream>
+#include <sstream>
+using namespace std;
+
+int main(void){
+	// strind data = "a;bbb;1000;true;";   // alternative
+	// istringstream input(data);
+
+	istringstream input("aea;1;0;");
+    
+	for (string element; input.getline(&element[0], 24, ';'); ) {
+        cout<<&element[0]<<endl;
+    }
+
+  return 0;
+}
+OUTPUT:
+aea
+1
+0
+
+// with files :
+
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <cstdint>
+ 
+int main()
+{
+    // read() is often used for binary I/O
+    std::string bin = {'\x12', '\x12', '\x12', '\x12'};
+    std::istringstream raw(bin);
+    std::uint32_t n;
+    if(raw.read(reinterpret_cast<char*>(&n), sizeof n))
+        std::cout << std::hex << std::showbase << n << '\n';
+ 
+    // prepare file for next snippet
+    std::ofstream("test.txt", std::ios::binary) << "abcd1\nabcd2\nabcd3";
+ 
+    // read entire file into string
+    if(std::ifstream is{"test.txt", std::ios::binary | std::ios::ate}) {
+        auto size = is.tellg();
+        std::string str(size, '\0'); // construct string to stream size
+        is.seekg(0);
+        if(is.read(&str[0], size))
+            std::cout << str << '\n';
+    }
+}
+
 ------------------------- use atoi, atofm etc : char to int, string to int : etc :
 
 // ago form:
@@ -918,9 +1007,38 @@ float numero_float;
 numero_integer = atoi(num);  \\123     integer 
 numero_float = atof(num);   \\123.00   float
 
+
 // string to int:
 string numero = "123";
 int int_numero = atoi(numero.c_str());  // numero.c_str(): string to char_array object.
+
+
+// stod example string to double
+
+#include <stdlib.h>
+
+int main()
+{
+    string word;  
+    openfile >> word;
+    double lol = atof(word.c_str()); /*c_str is needed to convert string to const char*
+                                     previously (the function requires it)*/
+    return 0;
+}
+
+#include <iostream>   // std::cout
+#include <string>     // std::string, std::stod
+
+int main ()
+{
+  std::string orbits ("365.24 29.53");
+  std::string::size_type sz;     // alias of size_t
+
+  double earth = std::stod (orbits,&sz);
+  double moon = std::stod (orbits.substr(sz));
+  std::cout << "The moon completes " << (earth/moon) << " orbits per Earth year.\n";
+  return 0;
+}
 
 8-------> 
 programa para contar cuantas vocales exiten en la cadena:
