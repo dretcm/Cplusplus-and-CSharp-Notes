@@ -4005,6 +4005,151 @@ int main(){
 	return 0;
 }
 
+
+
+# example with files :
+//////////////////////////////////// printer.h ////////////////////////////////////
+#pragma once
+#include <iostream>
+using namespace std;
+
+class Printer{
+	public:
+  	    int size;
+		string img;
+
+        Printer(int , string );
+        virtual ~Printer();
+		virtual bool same_pos(int, int);
+		string get_img();
+};
+
+//////////////////////////////////// printer.cpp ////////////////////////////////////
+#include "printer.h"
+
+Printer::Printer(int size, string img){
+	this->size = size;
+	this->img = img;
+}
+
+Printer::~Printer(){
+}
+
+bool Printer::same_pos(int x, int y){
+	return false;
+}
+
+string Printer::get_img(){
+	return img;
+}
+
+//////////////////////////////////// snake.h ////////////////////////////////////
+#pragma once
+#include <time.h>
+#include <conio.h>
+#include "obstacle.h"
+#include "printer.cpp"
+
+class Obs;
+
+class Snake : public Printer{
+    public:
+        int x, y, len, **snake, t, limit_t;
+        char *keys, state;
+        Snake(int , string, int);
+        ~Snake();
+
+		void snake_controller(Obs *, char );
+		void change_course();
+		bool same_pos(int, int);
+		void crash_snake();
+		int get_len();
+		void add_tail();
+};
+
+//////////////////////////////////// obstacle.h ////////////////////////////////////
+#pragma once
+#include "snake.h"
+#include "printer.h"
+
+class Snake;
+
+class Obs : public Printer{
+    public:
+        int **obs, max_obs, n_obs;
+        Obs(int , string);
+        ~Obs();
+
+        bool same_pos(int,int);
+		bool collide_obs(int,int);
+		void collide_snakes(Snake *, Snake *);
+        void crash(int,int);
+        int get_n_obs();
+};
+
+//////////////////////////////////// snake.cpp ////////////////////////////////////
+#include "snake.h"
+
+Snake::Snake(int size, string img, int player):Printer(size, img){
+	len = 1;
+	limit_t = 10;
+	t = 0;
+	
+    snake = new int *[size];
+	for(int i=0; i<size; i++){    
+		snake[i] = new int[2];
+	}
+	
+    snake[0][0] = size/2;
+    snake[0][1] = size/2;
+
+	keys = new char[4];
+...
+
+//////////////////////////////////// obstacle.cpp ////////////////////////////////////
+#include "obstacle.h"
+
+Obs::Obs(int size, string img):Printer(size, img){
+    max_obs = 5;
+    n_obs = 0;
+
+    obs = new int *[max_obs];
+	for(int i=0;i<max_obs;i++){    
+		obs[i] = new int[2];
+	}
+}
+
+Obs::~Obs(){
+	for(int i=0;i<max_obs;i++){
+		delete[] obs[i];       
+	}
+	delete[] obs;
+}
+
+...
+
+//////////////////////////////////// apple.h ////////////////////////////////////
+#pragma once
+#include <time.h>
+#include "obstacle.h"
+#include "printer.h"
+
+class Obs;
+
+class Apple : public Printer{
+	public:
+  	    int *apple;
+        bool mostrar;
+
+        Apple(int, string);
+        ~Apple();
+	    void appear_apple(Obs *);
+		bool same_pos(int,int);
+		int *get_apple();
+		void ate_apple();
+};
+
+
 37 -------------------->>> ALGEBRA DE BOOL:
 
 -- USO DE " ^ " : XOR binario.
