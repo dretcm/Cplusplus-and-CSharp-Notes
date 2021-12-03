@@ -27,6 +27,13 @@ g++ "$(FILE_NAME)" -o "$(NAME_PART).exe"
 # $(FILE_NAME) is equals to "test.cpp"
 # $(FILE_PART) is equals to "test"
 
+
+
+-------- error of compiler or confuse of compiler :
+
+Defining the following macro before including any standard library headers should fix your problem: 
+#define _GLIBCXX_USE_CXX11_ABI 0
+
 -------------------
 
 1.//para usar el len en c++ se usa el comando "strlen(palabra_a_contar)";
@@ -36,6 +43,24 @@ para q peude ejecutarce.
 
 #include<stdlib.h> y system("pause"); ----al final, tambien puede pausarce el programa 
 al ejecutarce, es parecido al #include<conio.h> y getch();
+
+
+------------------- Get current directory :
+
+#include <iostream>
+#include <unistd.h>
+
+using namespace std;
+
+int main() {
+    char tmp[256];
+    getcwd(tmp, 256);
+
+    cout << "Current working directory: " << tmp << endl;   // Output: Current working directory: D:\CODIGOS\C++ ALEX\ucsp
+
+    system("pause");
+    return 0;
+}
 
 ------------------>>> Init variables : int input with char : cin :
 
@@ -973,6 +998,51 @@ int main()
         if(is.read(&str[0], size))
             std::cout << str << '\n';
     }
+}
+
+
+// normal form : string separate : separate string : split string :
+
+#include <iostream>
+using namespace std;
+
+int data_len(string data){
+	int n = 0;
+	for (int i=0; i<data.length(); i++){
+		if(data[i] == ';')
+			n++;
+    }	
+	return n;
+}
+
+string *get_data(string data, int len){
+	string word = "";
+	string *arr = new string [len];
+	int n = 0;
+	for (int i=0; i<data.length(); i++){
+		if(data[i] == ';'){
+			arr[n] = word;
+			word = "";
+			n++;
+		}
+		else{
+			word += data[i];
+		}
+    }
+	return arr;
+}
+
+int main() {
+	string data = "tuki;29;1;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;bki;61;61;61;124;254;124;2;5;38;1;1000218.600000;10000.000000;100.000000;59.300000;59.300000;0.000000;0.000000;nada;61;61;61;124;254;124;2;5;38;1;100.000000;10000.000000;100.000000;0.000000;0.000000;0.000000;0.000000;nada;61;61;61;124;254;124;2;5;38;1;100.000000;10000.000000;100.000000;0.000000;0.000000;0.000000;0.000000;nada;61;61;61;124;254;124;2;5;38;1;100.000000;10000.000000;100.000000;0.000000;0.000000;0.000000;0.000000;nada;61;61;61;124;254;124;2;5;38;1;100.000000;10000.000000;100.000000;0.000000;0.000000;0.000000;0.000000;nada;61;61;61;124;254;124;2;5;38;1;100.000000;10000.000000;100.000000;0.000000;0.000000;0.000000;0.000000;nada;61;61;61;124;254;124;2;5;38;1;100.000000;10000.000000;100.000000;0.000000;0.000000;0.000000;0.000000;nada;61;61;61;124;254;124;2;5;38;1;100.000000;10000.000000;100.000000;0.000000;0.000000;0.000000;0.000000;15;1;2021;";
+	int n = data_len(data);
+	string *arr = get_data(data, n);
+	
+	for(int i=0; i<n; i++){
+		cout<<arr[i]<<endl;
+	}
+
+	system("pause");
+    return 0;
 }
 
 ------------------------- use atoi, atofm etc : char to int, string to int : etc :
