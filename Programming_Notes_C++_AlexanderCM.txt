@@ -6304,7 +6304,74 @@ OUTPUT:
 myvector contains: 4 5 7 8 9 10
 
 
-53 ------------------>>>
+53 ------------------>>> examples of pointers with arrays :
+
+
+#include <iostream>
+using namespace std;
+
+int main(){
+	int arr[5] = {7,3,1,2,5};
+	for (int *i=arr; i<arr+5; i++){
+		cout<<*i<<endl;
+	}
+	system("pause");
+    return 0;
+}
+
+
+
+REVERSE:
+#include <iostream>
+using namespace std;
+
+int main(){
+	int arr[5] = {7,3,1,2,5};
+	for (int *i=arr+4; i>arr-1; i--){
+		cout<<*i<<endl;
+	}
+	system("pause");
+    return 0;
+}
+
+
+
+PRINT TO BEGIN AND END UNTIL THE MIDDLE:
+#include <iostream>
+using namespace std;
+int main() {
+    int a[9] = {1,2,3,4,5,6,7,8,9};
+    for(int *p = a, *q=a+8; p<=q; p++, q--){
+      cout << *p <<" ";
+	  if(p<q) cout<< *q << " ";
+    }
+	system("pause");
+    return 0;
+}
+Output: 1 9 2 8 3 7 4 6 5 Presione una tecla para continuar . . .
+
+
+
+#include <iostream>
+using namespace std;
+int main() {
+	int a[9] = {1,2,3,4,5,6,7,8,9};
+	for(int *p=a, *q=a+8; p<=q;p++,q--){
+		int aux = *p;
+		*p = *q;
+		*q = aux;
+    }
+
+	cout<<endl;
+	for(int *p=a;p<a+9;p++)
+		cout<<*p<<" ";
+
+	system("pause");
+    return 0;
+}
+
+output: 9 8 7 6 5 4 3 2 1 Presione una tecla para continuar . . .
+
 54 ------------------>>>
 55 ------------------>>>
 56 ------------------>>>
